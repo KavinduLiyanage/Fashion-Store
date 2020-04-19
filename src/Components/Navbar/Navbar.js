@@ -1,14 +1,17 @@
 import React from "react";
 import './Navbar.css';
+import Login from "../Login/Login";
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 export default class Navbar extends React.Component {
     constructor(props) {
         super(props);
 
         this.state= {
-            list: ["Hi","Bye"]
+            list: [{id: Date.now(), vaule: "Hi"},{id: Date.now(), vaule: "Bye"}]
         }
     }
+
     render() {
         return (
             <div className="container-fluid">
@@ -20,17 +23,17 @@ export default class Navbar extends React.Component {
                                     data-target="#bs-example-navbar-collapse-1">
                                 <span className="navbar-toggler-icon"></span>
                             </button>
-                            <a className="navbar-brand" href="#">Online Fashion Store</a>
+                            <a className="navbar-brand" onClick={console.log("Hi")}>Online Fashion Store</a>
                             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul className="navbar-nav">
                                     <li className="nav-item active">
-                                        <a className="nav-link" href="#">Link <span className="sr-only">(current)</span></a>
+                                        <a className="nav-link" onClick={console.log("Hi")}>Link <span className="sr-only">(current)</span></a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#">Link</a>
+                                        <a className="nav-link" onClick={console.log("Hi")}>Link</a>
                                     </li>
                                     <li className="nav-item dropdown">
-                                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                        <a className="nav-link dropdown-toggle" onClick={console.log("Hi")} id="navbarDropdown"
                                            role="button" data-toggle="dropdown" aria-haspopup="true"
                                            aria-expanded="false">
                                             Categories
@@ -39,21 +42,26 @@ export default class Navbar extends React.Component {
 
                                             {this.state.list.map(item => {
                                                 return(
-                                                    <a className="dropdown-item" href="#">{item}</a>
+                                                    <a className="dropdown-item" onClick={console.log("Hi")}>{item.vaule}</a>
                                                 )
                                             })}
                                         </div>
                                     </li>
                                 </ul>
-                                <form className="form-inline" id="navBarSearchForm">
-                                    <input className="form-control mr-sm-2" type="text"/>
+                                <form className="form-inline">
+                                    <input className="form-control mr-sm-2" type="text" id="navBarSearchForm"/>
                                     <button className="btn btn-primary my-2 my-sm-0" type="submit">
                                         Search Product
                                     </button>
                                 </form>
                                 <ul className="navbar-nav ml-md-auto">
                                     <li className="nav-item active">
-                                        <a className="nav-link" href="#">Login <span className="sr-only">(current)</span></a>
+                                        <Router>
+                                            <Link to="/LoginPage">Login</Link>
+                                            <Switch>
+                                                <Route path="/LoginPage" component={Login}/>
+                                            </Switch>
+                                        </Router>
                                     </li>
                                     <li className="nav-item dropdown">
 
