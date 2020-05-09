@@ -1,0 +1,51 @@
+.container{
+    margin-top: 10%;
+    height: 100%;
+    align-content: center;
+}
+
+.card-header h3{
+    color: white;
+}
+
+.card{
+    height: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0,0,0,0.5) !important;
+}
+input:focus{
+    box-shadow: 0 0 0 0 !important;
+}
+
+
+*[role="form"] {
+    max-width: 530px;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 0.3em;
+    background-color: #f2f2f2;
+}
+
+*[role="form"] h2 {
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 5%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.reg-btn{
+    color: black;
+    background-color: #FFC312;
+    width: 250px;
+}
+
+.reg-btn:hover{
+    color: black;
+    background-color: white;
+}

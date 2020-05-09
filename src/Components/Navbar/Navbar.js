@@ -23,7 +23,7 @@ export default class Navbar extends React.Component {
                                     data-target="#bs-example-navbar-collapse-1">
                                 <span className="navbar-toggler-icon"></span>
                             </button>
-                            <a className="navbar-brand" onClick={console.log("Hi")}>Online Fashion Store</a>
+                            <a className="navbar-brand" href="/">Online Fashion Store</a>
                             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul className="navbar-nav">
                                     <li className="nav-item active">
@@ -56,15 +56,9 @@ export default class Navbar extends React.Component {
                                 </form>
                                 <ul className="navbar-nav ml-md-auto">
                                     <li className="nav-item active">
-                                        <Router>
-                                            <Link to="/LoginPage">Login</Link>
-                                            <Switch>
-                                                <Route path="/LoginPage" component={Login}/>
-                                            </Switch>
-                                        </Router>
+                                        <a href="/login">Login</a>
                                     </li>
                                     <li className="nav-item dropdown">
-
                                     </li>
                                 </ul>
                             </div>

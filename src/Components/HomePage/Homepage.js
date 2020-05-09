@@ -16,17 +16,11 @@ export default class Homepage extends React.Component{
                                 </a>
                             </div>
                             <div className="product-content">
+                                {/*Todo - Code Product Name and Price*/}
                                 <h3 className="title"><a href="#">Men's Shirt</a></h3>
                                 <div className="price">$11.00
-                                    <span>$14.00</span>
                                 </div>
                             </div>
-                            <ul className="social">
-                                <li><a href="" data-tip="Quick View"><i className="fa fa-search"></i></a></li>
-                                <li><a href="" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"></i></a>
-                                </li>
-                                <li><a href="" data-tip="Add to Cart"><i className="fa fa-shopping-cart"></i></a></li>
-                            </ul>
                         </div>
                     </div>
                     <div className="col-md-3 col-sm-6">
@@ -38,17 +32,11 @@ export default class Homepage extends React.Component{
                                 </a>
                             </div>
                             <div className="product-content">
+                                {/*Todo - Code Product Name and Price*/}
                                 <h3 className="title"><a href="#">Women's Red Top</a></h3>
                                 <div className="price">$8.00
-                                    <span>$12.00</span>
                                 </div>
                             </div>
-                            <ul className="social">
-                                <li><a href="" data-tip="Quick View"><i className="fa fa-search"></i></a></li>
-                                <li><a href="" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"></i></a>
-                                </li>
-                                <li><a href="" data-tip="Add to Cart"><i className="fa fa-shopping-cart"></i></a></li>
-                            </ul>
                         </div>
                     </div>
                     <div className="col-md-3 col-sm-6">
@@ -60,17 +48,11 @@ export default class Homepage extends React.Component{
                                 </a>
                             </div>
                             <div className="product-content">
+                                {/*Todo - Code Product Name and Price*/}
                                 <h3 className="title"><a href="#">Men's Shirt</a></h3>
                                 <div className="price">$11.00
-                                    <span>$14.00</span>
                                 </div>
                             </div>
-                            <ul className="social">
-                                <li><a href="" data-tip="Quick View"><i className="fa fa-search"></i></a></li>
-                                <li><a href="" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"></i></a>
-                                </li>
-                                <li><a href="" data-tip="Add to Cart"><i className="fa fa-shopping-cart"></i></a></li>
-                            </ul>
                         </div>
                     </div>
                     <div className="col-md-3 col-sm-6">
@@ -82,17 +64,11 @@ export default class Homepage extends React.Component{
                                 </a>
                             </div>
                             <div className="product-content">
+                                {/*Todo - Code Product Name and Price*/}
                                 <h3 className="title"><a href="#">Men's Shirt</a></h3>
                                 <div className="price">$11.00
-                                    <span>$14.00</span>
                                 </div>
                             </div>
-                            <ul className="social">
-                                <li><a href="" data-tip="Quick View"><i className="fa fa-search"></i></a></li>
-                                <li><a href="" data-tip="Add to Wishlist"><i className="fa fa-shopping-bag"></i></a>
-                                </li>
-                                <li><a href="" data-tip="Add to Cart"><i className="fa fa-shopping-cart"></i></a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
