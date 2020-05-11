@@ -1,15 +1,19 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Login.css';
-import Axios from "axios";
+import axios from "axios";
 
+toast.configure();
 export default class Login extends React.Component{
 
     constructor(props) {
         super(props);
+        this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            userName: '',
+            email: '',
             password: ''
         }
     }
@@ -22,11 +26,31 @@ export default class Login extends React.Component{
 
     onSubmit(e){
         e.preventDefault();
+
         const users = {
-            username: this.state.username,
-            password: this.state.password,
+            email: this.state.email,
+            password: this.state.password
         }
 
+        axios.post('http://localhost:5000/users/',users)
+            .then(response => {
+                console.log(response)
+                const userType = response.data.user['type'];
+                if(userType === 'customer'){
+                    toast("Customer Login In Successful");
+                } else if(userType === 'admin'){
+                    toast("Admin Login In Successful");
+                } else if(userType === 'storeAdmin'){
+                    toast("Store Admin Login In Successful");
+                }
+            })
+            .catch(error => {
+                console.log(error.response)
+                toast("Please Check Email or Password");
+                this.setState({
+                    password: ''
+                })
+            });
 
     }
 
@@ -42,10 +66,10 @@ export default class Login extends React.Component{
                             <form onSubmit={this.onSubmit}>
                                 <div className="input-group form-group">
                                     <div className="input-group-prepend">
-                                        <span className="input-group-text"><i className="fas fa-user"></i></span>
+                                        <span className="input-group-text"><i className="fas fa-at" /></span>
                                     </div>
-                                    <input type="text" className="form-control" placeholder="username"
-                                           value={this.state.userName} onChange={e => this.updateInput("userName",e.target.value)} required/>/>
+                                    <input type="email" className="form-control" placeholder="Email"
+                                           value={this.state.email} onChange={e => this.updateInput("email",e.target.value)} required/>
 
                                 </div>
                                 <div className="input-group form-group">
@@ -53,7 +77,7 @@ export default class Login extends React.Component{
                                         <span className="input-group-text"><i className="fas fa-key"></i></span>
                                     </div>
                                     <input type="password" className="form-control" placeholder="password"
-                                           value={this.state.password} onChange={e => this.updateInput("password",e.target.value)} required/>/>
+                                           value={this.state.password} onChange={e => this.updateInput("password",e.target.value)} required/>
                                 </div>
                                 <div className="form-group">
                                     <input type="submit" value="Login" className="btn float-right login_btn"/>

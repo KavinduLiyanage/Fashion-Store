@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Homepage from "./Homepage";
 import Navbar from "../Navbar/Navbar";
 import CreateUser from "../UserCreate/CreateUser";
+import AdminHome from "../AdminPage/AdminHome";
 import {
     Container,
 } from '@material-ui/core';
@@ -13,7 +14,7 @@ function Dashboard() {
         <React.Fragment>
             <BrowserRouter>
                 <Navbar />
-                <Container style={{ marginTop: 30 }}>
+                <Container maxWidth={false} style={{ marginTop: 30, paddingLeft: 0 }}>
                     <Switch>
                         <Route path="/login">
                             <Login />
@@ -21,10 +22,12 @@ function Dashboard() {
                         <Route path="/create-acc">
                             <CreateUser/>
                         </Route>
-                        <Route path="/">
+                        <Route exact path="/admin">
+                            <AdminHome />
+                        </Route>
+                        <Route exact path="/">
                             <Homepage/>
                         </Route>
-
                     </Switch>
                 </Container>
             </BrowserRouter>

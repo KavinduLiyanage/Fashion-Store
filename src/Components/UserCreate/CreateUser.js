@@ -1,7 +1,10 @@
 import React from "react";
 import './CreateUser.css';
-import Axios from 'axios';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure();
 export default class Login extends React.Component{
 
     constructor(props) {
@@ -47,13 +50,27 @@ export default class Login extends React.Component{
         if(this.state.password === this.state.conPassword){
             console.log(users);
 
-            Axios.post('http://localhost:5000/users/add', users)
-                .then(res => console.log(res.data)).catch(err => console.log(err));
-
-            window.location = '/login';
+            axios.post('http://localhost:5000/users/add', users)
+                .then(response => {
+                    console.log(response)
+                    toast("User Added, You will be redirected to Login Page");
+                    setTimeout(() => {
+                        window.location = '/login';
+                    }, 5000)
+                })
+                .catch(error => {
+                    console.log(error.response)
+                    toast("Email or Username Exists");
+                    this.setState({
+                        username: '',
+                        email: '',
+                        password: '',
+                        conPassword: ''
+                    })
+                });
         }
         else{
-            alert("check Password");
+            toast("Password doesn't match");
             this.setState({
                 password: "",
                 conPassword: ""

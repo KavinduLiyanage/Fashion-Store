@@ -1,10 +1,42 @@
 const router = require('express').Router();
 let User = require('../models/users.model');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
-router.route('/').get((req, res) => {
-    User.find()
-        .then(users => res.json(users))
-        .catch(err => res.status(400).json('Error: ' + err));
+router.route('/').post((req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+    console.log(email);
+    console.log(password);
+    User.findOne({ email })
+        .then(user => {
+            if(!user) return res.status(400).json({ msg: "User Not Exsists"});
+
+            bcrypt.compare(password, user.password)
+                .then(isMatch => {
+                    if(!isMatch) return res.status(400).json({ msg: "Invalid Credential"});
+                    jwt.sign(
+                        { id: user.id},
+                        process.env.jwtSecret,
+                        {expiresIn: 36000},
+                        (err, token) => {
+                            if(err) throw err;
+                            res.json({
+                                token,
+                                user: {
+                                    id: user.id,
+                                    firstName: user.firstName,
+                                    email: user.email,
+                                    type: user.type
+                                }
+                            });
+                        }
+                    )
+                })
+
+        })
+
+
 });
 
 router.route('/add').post((req, res) => {
@@ -32,9 +64,15 @@ router.route('/add').post((req, res) => {
         type
     });
 
-    newUser.save()
-        .then(() => res.json('User added!'))
-        .catch(err => res.status(400).json('Error: ' + err));
+    bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(newUser.password, salt, (err, hash) => {
+            if(err) throw err;
+            newUser.password = hash;
+            newUser.save()
+                .then(() => res.json('User added!'))
+                .catch(err => res.status(400).json('Error: ' + err));
+        })
+    })
 });
 
 router.route('/:id').get((req, res) => {
