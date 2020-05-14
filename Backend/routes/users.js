@@ -40,8 +40,6 @@ router.route('/').post((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-
-
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
     const username = req.body.username;

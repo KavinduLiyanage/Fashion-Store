@@ -30,6 +30,7 @@ export default class AddStoreManager extends React.Component{
         });
     }
 
+
     onSubmit(e){
         e.preventDefault();
 
@@ -44,6 +45,12 @@ export default class AddStoreManager extends React.Component{
             gender: this.state.gender,
             type: this.state.type
         }
+        const email = {
+            firstName: this.state.firstName,
+            username: this.state.username,
+            email: this.state.email,
+            password: this.state.password
+        }
 
         if(this.state.password === this.state.conPassword){
             console.log(users);
@@ -52,6 +59,17 @@ export default class AddStoreManager extends React.Component{
                 .then(response => {
                     console.log(response)
                     toast("User Added");
+
+                    axios.post('http://localhost:5000/mail/',email)
+                        .then(response2 => {
+                            console.log(response2)
+                            toast("Email Send");
+                        })
+                        .catch(error => {
+                            console.log(error.response)
+                            toast("Email not Found");
+                        });
+
                     this.setState({
                         firstName: "",
                         lastName: "",

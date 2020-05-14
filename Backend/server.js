@@ -22,6 +22,8 @@ const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
 const CategoryRouter = require('./routes/category');
 app.use('/category',CategoryRouter);
+const EmailRouter = require('./routes/mail');
+app.use('/mail',EmailRouter);
 
 app.listen(port, () => {
     console.log("Server runs on port : "+ port);
