@@ -5,7 +5,8 @@ const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'milindaranawaka2@gmail.com',
-        pass: 'This_is_Temporary_pwd_225588'
+        pass: '####'
+        //Todo Password Check
     },
     tls: {
         rejectUnauthorized: false
