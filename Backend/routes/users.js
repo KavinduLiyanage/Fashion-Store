@@ -39,6 +39,12 @@ router.route('/').post((req, res) => {
 
 });
 
+router.route('/').get((req, res) => {
+    User.find()
+        .then(category => res.json(category))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/add').post((req, res) => {
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;

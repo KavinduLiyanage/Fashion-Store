@@ -7,7 +7,7 @@ export default class Navbar extends React.Component {
         super(props);
 
         this.state = {
-            exercises: []
+            category: []
         };
     }
 
@@ -15,7 +15,7 @@ export default class Navbar extends React.Component {
         axios.get('http://localhost:5000/category/')
             .then(response => {
                 this.setState({
-                    exercises: response.data
+                    category: response.data
                 })
             })
             .catch((error) => {
@@ -53,7 +53,7 @@ export default class Navbar extends React.Component {
                                         </a>
                                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                            {this.state.exercises.map(item => {
+                                            {this.state.category.map(item => {
                                                 return(
                                                     <a className="dropdown-item" href="/" key={item['_id']}>{item['categoryName']}</a>
                                                 )
