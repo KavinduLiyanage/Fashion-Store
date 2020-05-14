@@ -22,4 +22,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### `npm run server`
 
 Runs just the Server.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Server will run in [http://localhost:5000] <br />
