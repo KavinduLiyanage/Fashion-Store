@@ -1,0 +1,8 @@
+@media only screen and (max-width: 700px) {
+    .sidenav {
+        width: 100px;
+    }
+    .sidenav a{
+        font-size: 18px;
+    }
+}

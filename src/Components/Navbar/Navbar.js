@@ -1,15 +1,26 @@
 import React from "react";
 import './Navbar.css';
-import Login from "../Login/Login";
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import axios from 'axios';
 
 export default class Navbar extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state= {
-            list: [{id: Date.now(), vaule: "Hi"},{id: Date.now(), vaule: "Bye"}]
-        }
+        this.state = {
+            exercises: []
+        };
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost:5000/category/')
+            .then(response => {
+                this.setState({
+                    exercises: response.data
+                })
+            })
+            .catch((error) => {
+                console.log(error);
+            })
     }
 
     render() {
@@ -26,23 +37,25 @@ export default class Navbar extends React.Component {
                             <a className="navbar-brand" href="/">Online Fashion Store</a>
                             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul className="navbar-nav">
+                                    {/*
                                     <li className="nav-item active">
-                                        <a className="nav-link" onClick={console.log("Hi")}>Link <span className="sr-only">(current)</span></a>
+                                        <a className="nav-link" href="/">Link <span className="sr-only">(current)</span></a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" onClick={console.log("Hi")}>Link</a>
+                                        <a className="nav-link" href="/">Link</a>
                                     </li>
+                                    */}
                                     <li className="nav-item dropdown">
-                                        <a className="nav-link dropdown-toggle" onClick={console.log("Hi")} id="navbarDropdown"
+                                        <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown"
                                            role="button" data-toggle="dropdown" aria-haspopup="true"
                                            aria-expanded="false">
                                             Categories
                                         </a>
                                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                            {this.state.list.map(item => {
+                                            {this.state.exercises.map(item => {
                                                 return(
-                                                    <a className="dropdown-item" onClick={console.log("Hi")}>{item.vaule}</a>
+                                                    <a className="dropdown-item" href="/" key={item['_id']}>{item['categoryName']}</a>
                                                 )
                                             })}
                                         </div>

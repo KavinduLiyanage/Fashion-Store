@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../Navbar/Navbar";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Login.css';
@@ -40,8 +39,8 @@ export default class Login extends React.Component{
                     toast("Customer Login In Successful");
                 } else if(userType === 'admin'){
                     toast("Admin Login In Successful");
-                } else if(userType === 'storeAdmin'){
-                    toast("Store Admin Login In Successful");
+                } else if(userType === 'storeManager'){
+                    toast("Store Manager Login In Successful");
                 }
             })
             .catch(error => {

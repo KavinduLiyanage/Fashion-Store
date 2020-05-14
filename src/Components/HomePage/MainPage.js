@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Homepage from "./Homepage";
 import Navbar from "../Navbar/Navbar";
@@ -8,6 +8,8 @@ import {
     Container,
 } from '@material-ui/core';
 import Login from "../Login/Login";
+import AddStoreManager from "../AdminPage/AddStoreManager";
+import AddCategory from "../AdminPage/AddCategory";
 
 function Dashboard() {
     return (
@@ -24,6 +26,12 @@ function Dashboard() {
                         </Route>
                         <Route exact path="/admin">
                             <AdminHome />
+                        </Route>
+                        <Route exact path="/addStoreMng">
+                            <AddStoreManager />
+                        </Route>
+                        <Route exact path="/addCategory">
+                            <AddCategory />
                         </Route>
                         <Route exact path="/">
                             <Homepage/>

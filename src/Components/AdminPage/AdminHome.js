@@ -12,7 +12,7 @@ export default class AdminHome extends React.Component{
                 </div>
 
                 <div className="main">
-                    <h2>About</h2>
+                    <h2>Admin Home</h2>
                     <p>This sidebar is of full height (100%) and always shown.</p>
                     <p>Scroll down the page to see the result.</p>
                     <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
