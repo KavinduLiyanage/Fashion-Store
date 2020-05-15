@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Login.css';
 import axios from "axios";
+import {login} from "../ReactMiddleware/reactAuth";
 
 toast.configure();
 export default class Login extends React.Component{
@@ -37,10 +38,16 @@ export default class Login extends React.Component{
                 const userType = response.data.user['type'];
                 if(userType === 'customer'){
                     toast("Customer Login In Successful");
+                    login(response.data.token,response.data.user);
+                    window.location='/customer'
                 } else if(userType === 'admin'){
                     toast("Admin Login In Successful");
+                    login(response.data.token,response.data.user);
+                    window.location='/admin'
                 } else if(userType === 'storeManager'){
                     toast("Store Manager Login In Successful");
+                    login(response.data.token,response.data.user);
+                    window.location='/storeManager'
                 }
             })
             .catch(error => {
@@ -73,7 +80,7 @@ export default class Login extends React.Component{
                                 </div>
                                 <div className="input-group form-group">
                                     <div className="input-group-prepend">
-                                        <span className="input-group-text"><i className="fas fa-key"></i></span>
+                                        <span className="input-group-text"><i className="fas fa-key" /></span>
                                     </div>
                                     <input type="password" className="form-control" placeholder="password"
                                            value={this.state.password} onChange={e => this.updateInput("password",e.target.value)} required/>

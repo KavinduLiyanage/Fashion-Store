@@ -1,14 +1,25 @@
 import React from "react";
 import './Navbar.css';
 import axios from 'axios';
+import {isLogin, logout} from "../ReactMiddleware/reactAuth";
+import {Link} from "react-router-dom";
 
 export default class Navbar extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            category: []
+            category: [],
+            isLogin: isLogin()
         };
+    }
+
+    handleLogout = () => {
+        logout();
+        this.setState({
+            isLogin: false
+        })
+        window.location='/login';
     }
 
     componentDidMount() {
@@ -32,7 +43,7 @@ export default class Navbar extends React.Component {
 
                             <button className="navbar-toggler" type="button" data-toggle="collapse"
                                     data-target="#bs-example-navbar-collapse-1">
-                                <span className="navbar-toggler-icon"></span>
+                                <span className="navbar-toggler-icon" />
                             </button>
                             <a className="navbar-brand" href="/">Online Fashion Store</a>
                             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -69,7 +80,10 @@ export default class Navbar extends React.Component {
                                 </form>
                                 <ul className="navbar-nav ml-md-auto">
                                     <li className="nav-item active">
-                                        <a href="/login">Login</a>
+                                        {this.state.isLogin ?
+                                            <Link onClick={() => this.handleLogout()}>Logout</Link>
+                                            : <a href="/login">Login</a>
+                                        }
                                     </li>
                                     <li className="nav-item dropdown">
                                     </li>

@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch } from 'react-router-dom';
+import PublicRoute from "../ReactMiddleware/PublicRoute";
+import PrivateRoute from "../ReactMiddleware/PrivateRoute";
 import Homepage from "./Homepage";
 import Navbar from "../Navbar/Navbar";
 import CreateUser from "../UserCreate/CreateUser";
@@ -18,24 +20,12 @@ function Dashboard() {
                 <Navbar />
                 <Container maxWidth={false} style={{ marginTop: 30, paddingLeft: 0 }}>
                     <Switch>
-                        <Route path="/login">
-                            <Login />
-                        </Route>
-                        <Route path="/create-acc">
-                            <CreateUser/>
-                        </Route>
-                        <Route exact path="/admin">
-                            <AdminHome />
-                        </Route>
-                        <Route exact path="/addStoreMng">
-                            <AddStoreManager />
-                        </Route>
-                        <Route exact path="/addCategory">
-                            <AddCategory />
-                        </Route>
-                        <Route exact path="/">
-                            <Homepage/>
-                        </Route>
+                        <PublicRoute restricted={false} component={Homepage} path="/" exact />
+                        <PublicRoute restricted={true} component={Login} path="/login" exact />
+                        <PublicRoute restricted={true} component={CreateUser} path="/create-acc" exact />
+                        <PrivateRoute component={AdminHome} path="/admin" exact />
+                        <PrivateRoute component={AddStoreManager} path="/addStoreMng" exact />
+                        <PrivateRoute component={AddCategory} path="/addCategory" exact />
                     </Switch>
                 </Container>
             </BrowserRouter>
