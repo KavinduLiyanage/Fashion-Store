@@ -41,6 +41,7 @@ export default class AdminHome extends React.Component{
                     <a href="/admin">Admin Home</a>
                     <a href="/addStoreMng">Add Store Manager</a>
                     <a href="/addCategory">Create Category</a>
+                    <a href="/editAdmin">Update My Profile</a>
                 </div>
 
                 <div className="main">

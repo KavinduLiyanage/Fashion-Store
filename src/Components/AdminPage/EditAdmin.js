@@ -3,7 +3,7 @@ import './AddStoreManager.css';
 import axios from "axios";
 import {toast} from "react-toastify";
 
-export default class AddStoreManager extends React.Component{
+export default class EditAdmin extends React.Component{
 
     constructor(props) {
         super(props);
@@ -20,8 +20,28 @@ export default class AddStoreManager extends React.Component{
             conPassword: "",
             address: "",
             gender: "",
-            type: "storeManager"
+            type: "admin"
         }
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost:5000/users/'+localStorage.getItem('ID'))
+            .then(response => {
+                this.setState({
+                    firstName: response.data.firstName,
+                    lastName: response.data.lastName,
+                    username: response.data.username,
+                    email: response.data.email,
+                    phoneNo: response.data.phoneNo,
+                    password: "",
+                    conPassword: "",
+                    address: response.data.address,
+                    gender: response.data.gender,
+                })
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
     }
 
     updateInput(key, value){
@@ -55,10 +75,10 @@ export default class AddStoreManager extends React.Component{
         if(this.state.password === this.state.conPassword){
             console.log(users);
 
-            axios.post('http://localhost:5000/users/add', users)
+            axios.post('http://localhost:5000/users/update/'+localStorage.getItem('ID'), users)
                 .then(response => {
                     console.log(response)
-                    toast("User Added");
+                    toast("User Updated");
 
                     axios.post('http://localhost:5000/mail/',email)
                         .then(response2 => {
@@ -203,7 +223,7 @@ export default class AddStoreManager extends React.Component{
                                                        onChange={e => this.updateInput("gender",e.target.value)}/>Female
                                             </label>
                                         </div>
-                                        <button type="submit" className="btn float-right reg-btn">Register</button>
+                                        <button type="submit" className="btn float-right reg-btn">Update</button>
                                     </form>
                                 </div>
                             </div>
