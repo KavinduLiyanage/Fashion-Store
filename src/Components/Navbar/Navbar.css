@@ -3,6 +3,10 @@
     position: center;
 }
 
+.loged-user-name{
+    color: #fff;
+}
+
 @media screen and (max-width:1170px) {
     #navBarSearchForm{
         width:420px !important;

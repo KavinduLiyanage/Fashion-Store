@@ -19,7 +19,6 @@ export default class Navbar extends React.Component {
         this.setState({
             isLogin: false
         })
-        window.location='/login';
     }
 
     componentDidMount() {
@@ -80,8 +79,12 @@ export default class Navbar extends React.Component {
                                 </form>
                                 <ul className="navbar-nav ml-md-auto">
                                     <li className="nav-item active">
-                                        {this.state.isLogin ?
-                                            <Link onClick={() => this.handleLogout()}>Logout</Link>
+                                        {this.state.isLogin ? (
+                                            <div>
+                                                <span className="loged-user-name">{localStorage.getItem('firstName')} </span>
+                                                <Link to='' onClick={() => this.handleLogout()}>Logout</Link>
+                                            </div>
+                                            )
                                             : <a href="/login">Login</a>
                                         }
                                     </li>
