@@ -56,11 +56,14 @@ export default class AdminHome extends React.Component{
                                 <th>Last Name</th>
                                 <th>Email</th>
                                 <th>Phone No</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {this.state.users.map(item => {
-                                if(item['type'] === "storeManager")
+                            {this.state.users
+                                .filter(item => item['type'] === "storeManager")
+                                .map(item => {
                                 return(
                                     <tr key={item['_id']}>
                                         <td>{item['username']}</td>
@@ -68,6 +71,8 @@ export default class AdminHome extends React.Component{
                                         <td>{item['lastName']}</td>
                                         <td>{item['email']}</td>
                                         <td>{item['phoneNo']}</td>
+                                        <td><a href={"/editStoreManager/"+item['_id']}>Edit</a></td>
+                                        <td>Delete</td>
                                     </tr>
                                     )
                             })}

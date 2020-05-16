@@ -12,6 +12,7 @@ import {
 import Login from "../Login/Login";
 import AddStoreManager from "../AdminPage/AddStoreManager";
 import AddCategory from "../AdminPage/AddCategory";
+import EditStoreManager from "../AdminPage/EditStoreManager";
 
 function Dashboard() {
     return (
@@ -26,6 +27,7 @@ function Dashboard() {
                         <PrivateRoute component={AdminHome} path="/admin" exact />
                         <PrivateRoute component={AddStoreManager} path="/addStoreMng" exact />
                         <PrivateRoute component={AddCategory} path="/addCategory" exact />
+                        <PrivateRoute component={EditStoreManager} path="/editStoreManager/:id" />
                     </Switch>
                 </Container>
             </BrowserRouter>

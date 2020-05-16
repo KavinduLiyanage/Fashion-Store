@@ -1,11 +1,14 @@
 const nodemailer = require("nodemailer");
 const router = require('express').Router();
+const CryptoJS = require("crypto-js");
+const bytes  = CryptoJS.AES.decrypt('U2FsdGVkX1+rTsyObhpTnfIp5/z1/kRoBgYMzZUIZAevi/jqCnulADuUahzvhfv0', process.env.jwtSecret);
+const plaintext = bytes.toString(CryptoJS.enc.Utf8);
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'milindaranawaka2@gmail.com',
-        pass: '####'
+        pass: plaintext
         //Todo Password Check
     },
     tls: {
