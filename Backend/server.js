@@ -25,6 +25,9 @@ app.use('/category',CategoryRouter);
 const EmailRouter = require('./routes/mail');
 app.use('/mail',EmailRouter);
 
+const productRouter = require('./routes/product.route');
+app.use('/products', productRouter);
+
 app.listen(port, () => {
     console.log("Server runs on port : "+ port);
 })
