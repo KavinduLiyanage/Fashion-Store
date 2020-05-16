@@ -13,6 +13,7 @@ import Login from "../Login/Login";
 import AddStoreManager from "../AdminPage/AddStoreManager";
 import AddCategory from "../AdminPage/AddCategory";
 import EditStoreManager from "../AdminPage/EditStoreManager";
+import CreateProduct from "../Product/product-create.component";
 
 function Dashboard() {
     return (
@@ -28,6 +29,7 @@ function Dashboard() {
                         <PrivateRoute component={AddStoreManager} path="/addStoreMng" exact />
                         <PrivateRoute component={AddCategory} path="/addCategory" exact />
                         <PrivateRoute component={EditStoreManager} path="/editStoreManager/:id" />
+                        <PrivateRoute component={CreateProduct} path="/storeManager/create" />
                     </Switch>
                 </Container>
             </BrowserRouter>
