@@ -2,23 +2,35 @@ import React, {Component} from 'react';
 
 import axios from 'axios';
 
-class ProductCreateComponent extends Component {
+class ProductEditComponent extends Component {
 
     constructor(props) {
         super(props);
-
-        // Setting up functions
         this.onChangeProductName = this.onChangeProductName.bind(this);
         this.onChangeProductDes = this.onChangeProductDes.bind(this);
         this.onChangeProductPrice = this.onChangeProductPrice.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
-        // Setting up state
         this.state = {
             productName: '',
             productDes: '',
             productPrice: ''
         }
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost:5000/products/edit/'+this.props.match.params.id)
+            .then(response => {
+                this.setState({
+                    productName: response.data.productName,
+                    productDes: response.data.productDes,
+                    productPrice: response.data.productPrice
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+
     }
 
     onChangeProductName(e) {
@@ -46,21 +58,19 @@ class ProductCreateComponent extends Component {
             productDes: this.state.productDes,
             productPrice: this.state.productPrice
         };
-        axios.post('http://localhost:5000/products/add', obj)
+
+        //post change to put
+        axios.post('http://localhost:5000/products/update/'+ this.props.match.params.id, obj)
             .then(res => console.log(res.data));
 
-        this.setState( {
-            productName: '',
-            productDes: '',
-            productPrice: ''
-        })
+        // Redirect to Product List
         this.props.history.push('/storeManager/list');
     }
 
     render() {
         return (
             <div className="container" style={{marginTop: 100}}>
-                <h3>Add New Product</h3>
+                <p>welcome to edit component</p>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Product Name</label>
@@ -75,7 +85,7 @@ class ProductCreateComponent extends Component {
                         <input type="text" className="form-control" value={this.state.productPrice} onChange={this.onChangeProductPrice}/>
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Add Product" className="btn btn-primary"/>
+                        <input type="submit" value="Update" className="btn btn-primary"/>
                     </div>
                 </form>
             </div>
@@ -83,4 +93,4 @@ class ProductCreateComponent extends Component {
     }
 }
 
-export default ProductCreateComponent;
+export default ProductEditComponent;
