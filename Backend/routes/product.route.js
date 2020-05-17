@@ -34,6 +34,14 @@ productRoutes.route('/edit/:id').get(function (req,res) {
     });
 });
 
+// Defined editDis route
+productRoutes.route('/editDis/:id').get(function (req,res) {
+    let id = req.params.id;
+    Product.findById(id, function (err, product) {
+        res.json(product);
+    });
+});
+
 //  Defined update route
 productRoutes.route('/update/:id').post(function (req, res) {
     Product.findById(req.params.id, function (err, product) {
@@ -46,6 +54,24 @@ productRoutes.route('/update/:id').post(function (req, res) {
 
             product.save().then(product => {
                 res.json('Update Complete');
+            })
+                .catch(err => {
+                    res.status(400).send("unable to update database");
+                });
+        }
+    });
+});
+
+//  Defined discout route
+productRoutes.route('/updateDis/:id').post(function (req, res) {
+    Product.findById(req.params.id, function (err, product) {
+        if (!product)
+            res.status(404).send("data is not found");
+        else {
+            product.productDiscount = req.body.productDiscount;
+
+            product.save().then(product => {
+                res.json('Update Discount Complete');
             })
                 .catch(err => {
                     res.status(400).send("unable to update database");

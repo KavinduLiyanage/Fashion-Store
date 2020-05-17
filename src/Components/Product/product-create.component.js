@@ -44,7 +44,8 @@ class ProductCreateComponent extends Component {
         const obj = {
             productName: this.state.productName,
             productDes: this.state.productDes,
-            productPrice: this.state.productPrice
+            productPrice: this.state.productPrice,
+            productDiscount: 0
         };
         axios.post('http://localhost:5000/products/add', obj)
             .then(res => console.log(res.data));

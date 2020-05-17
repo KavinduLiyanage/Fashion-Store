@@ -39,6 +39,7 @@ class ProductListComponent extends Component {
                         <th>Name</th>
                         <th>Description</th>
                         <th>Price</th>
+                        <th>Discount</th>
                         <th colSpan="2">Action</th>
                     </tr>
                     </thead>

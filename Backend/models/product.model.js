@@ -12,6 +12,12 @@ let productSchema = new Schema({
     },
     productPrice : {
         type : Number
+    },
+    productDiscount : {
+        type : Number
+    },
+    productDiscountExpire : {
+        type : Date
     }
 }, {
     timestamps: true,

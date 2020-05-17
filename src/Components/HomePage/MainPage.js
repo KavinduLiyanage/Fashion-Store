@@ -17,6 +17,7 @@ import ProductCreateComponent from "../Product/product-create.component";
 import ProductListComponent from "../Product/product-list.component";
 import ProductEditComponent from "../Product/product-edit.component";
 import EditAdmin from "../AdminPage/EditAdmin";
+import DiscountManageComponent from "../Discount/discount-manage.component";
 
 function Dashboard() {
     return (
@@ -36,6 +37,7 @@ function Dashboard() {
                         <PrivateRoute component={ProductListComponent} path="/storeManager/list" />
                         <PrivateRoute component={ProductEditComponent} path="/storeManager/edit/:id" />
                         <PrivateRoute component={EditAdmin} path="/editAdmin" exact/>
+                        <PrivateRoute component={DiscountManageComponent} path="/storeManager/editDis/:id" />
                     </Switch>
                 </Container>
             </BrowserRouter>
