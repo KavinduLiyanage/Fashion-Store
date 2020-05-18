@@ -41,8 +41,10 @@ export default class AdminHome extends React.Component{
             .then(response => {
                 console.log(response)
                 toast("User Deleted");
+                setTimeout(() => {
+                    window.location = "/admin";
+                }, 5000)
             })
-        window.location = "/admin";
     }
 
     render() {
@@ -84,7 +86,7 @@ export default class AdminHome extends React.Component{
                                         <td>{item['email']}</td>
                                         <td>{item['phoneNo']}</td>
                                         <td><a href={"/editStoreManager/"+item['_id']}>Edit</a></td>
-                                        <td><a onClick={e => this.deleteStoreManager(item['_id'])} href="!#" >Delete</a></td>
+                                        <td><a onClick={e => this.deleteStoreManager(item['_id'])} href="#" >Delete</a></td>
                                     </tr>
                                     )
                             })}
