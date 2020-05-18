@@ -39,7 +39,7 @@ export default class Navbar extends React.Component {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-12">
-                        <nav className="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark fixed-top">
+                        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 
                             <button className="navbar-toggler" type="button" data-toggle="collapse"
                                     data-target="#bs-example-navbar-collapse-1">
