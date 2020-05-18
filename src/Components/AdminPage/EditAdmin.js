@@ -2,6 +2,7 @@ import React from "react";
 import './AddStoreManager.css';
 import axios from "axios";
 import {toast} from "react-toastify";
+import {serverUrl} from "../config";
 
 export default class EditAdmin extends React.Component{
 
@@ -25,7 +26,7 @@ export default class EditAdmin extends React.Component{
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/users/'+localStorage.getItem('ID'))
+        axios.get(serverUrl + '/users/'+localStorage.getItem('ID'))
             .then(response => {
                 this.setState({
                     firstName: response.data.firstName,
@@ -75,12 +76,12 @@ export default class EditAdmin extends React.Component{
         if(this.state.password === this.state.conPassword){
             console.log(users);
 
-            axios.post('http://localhost:5000/users/update/'+localStorage.getItem('ID'), users)
+            axios.post(serverUrl + '/users/update/'+localStorage.getItem('ID'), users)
                 .then(response => {
                     console.log(response)
                     toast("User Updated");
 
-                    axios.post('http://localhost:5000/mail/',email)
+                    axios.post(serverUrl + '/mail/',email)
                         .then(response2 => {
                             console.log(response2)
                             toast("Email Send");

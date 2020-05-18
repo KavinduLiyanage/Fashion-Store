@@ -2,6 +2,7 @@ import React from "react";
 import './AddCategory.css';
 import axios from "axios";
 import {toast} from "react-toastify";
+import {serverUrl} from "../config";
 
 export default class AddCategory extends React.Component{
 
@@ -27,7 +28,7 @@ export default class AddCategory extends React.Component{
             categoryName: this.state.categoryName
         }
 
-        axios.post('http://localhost:5000/category/add', category)
+        axios.post(serverUrl + '/category/add', category)
             .then(response => {
                 console.log(response)
                 toast("Category Added");

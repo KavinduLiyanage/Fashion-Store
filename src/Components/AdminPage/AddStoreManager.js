@@ -2,6 +2,7 @@ import React from "react";
 import './AddStoreManager.css';
 import axios from "axios";
 import {toast} from "react-toastify";
+import {serverUrl} from "../config";
 
 export default class AddStoreManager extends React.Component{
 
@@ -55,12 +56,12 @@ export default class AddStoreManager extends React.Component{
         if(this.state.password === this.state.conPassword){
             console.log(users);
 
-            axios.post('http://localhost:5000/users/add', users)
+            axios.post(serverUrl + '/users/add', users)
                 .then(response => {
                     console.log(response)
                     toast("User Added");
 
-                    axios.post('http://localhost:5000/mail/',email)
+                    axios.post(serverUrl + '/mail/',email)
                         .then(response2 => {
                             console.log(response2)
                             toast("Email Send");

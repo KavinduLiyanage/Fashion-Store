@@ -3,6 +3,7 @@ import './CreateUser.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {serverUrl} from "../config";
 
 toast.configure();
 export default class Login extends React.Component{
@@ -50,7 +51,7 @@ export default class Login extends React.Component{
         if(this.state.password === this.state.conPassword){
             console.log(users);
 
-            axios.post('http://localhost:5000/users/add', users)
+            axios.post(serverUrl + '/users/add', users)
                 .then(response => {
                     console.log(response)
                     toast("User Added, You will be redirected to Login Page");

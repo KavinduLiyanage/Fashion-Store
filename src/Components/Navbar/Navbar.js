@@ -3,6 +3,7 @@ import './Navbar.css';
 import axios from 'axios';
 import {isLogin, logout} from "../ReactMiddleware/reactAuth";
 import {Link} from "react-router-dom";
+import {serverUrl} from "../config";
 
 export default class Navbar extends React.Component {
     constructor(props) {
@@ -22,7 +23,7 @@ export default class Navbar extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/category/')
+        axios.get(serverUrl + '/category/')
             .then(response => {
                 this.setState({
                     category: response.data

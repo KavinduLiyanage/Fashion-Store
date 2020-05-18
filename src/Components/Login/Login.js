@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './Login.css';
 import axios from "axios";
 import {login} from "../ReactMiddleware/reactAuth";
+import {serverUrl} from "../config";
 
 toast.configure();
 export default class Login extends React.Component{
@@ -32,7 +33,7 @@ export default class Login extends React.Component{
             password: this.state.password
         }
 
-        axios.post('http://localhost:5000/users/',users)
+        axios.post(serverUrl + '/users/',users)
             .then(response => {
                 console.log(response)
                 const userType = response.data.user['type'];

@@ -1,6 +1,8 @@
 import React from "react";
 import './AdminHome.css';
 import axios from "axios";
+import {toast} from "react-toastify";
+import {serverUrl} from "../config"
 
 export default class AdminHome extends React.Component{
 
@@ -14,7 +16,7 @@ export default class AdminHome extends React.Component{
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/category/')
+        axios.get(serverUrl + '/category/')
             .then(response => {
                 this.setState({
                     category: response.data
@@ -23,7 +25,7 @@ export default class AdminHome extends React.Component{
             .catch((error) => {
                 console.log(error);
             })
-        axios.get('http://localhost:5000/users/')
+        axios.get(serverUrl + '/users/')
             .then(response => {
                 this.setState({
                     users: response.data
@@ -32,6 +34,15 @@ export default class AdminHome extends React.Component{
             .catch((error) => {
                 console.log(error);
             })
+    }
+
+    deleteStoreManager(id){
+        axios.delete(serverUrl + '/users/'+id)
+            .then(response => {
+                console.log(response)
+                toast("User Deleted");
+            })
+        window.location = "/admin";
     }
 
     render() {
@@ -73,7 +84,7 @@ export default class AdminHome extends React.Component{
                                         <td>{item['email']}</td>
                                         <td>{item['phoneNo']}</td>
                                         <td><a href={"/editStoreManager/"+item['_id']}>Edit</a></td>
-                                        <td>Delete</td>
+                                        <td><a onClick={e => this.deleteStoreManager(item['_id'])} href="#" >Delete</a></td>
                                     </tr>
                                     )
                             })}

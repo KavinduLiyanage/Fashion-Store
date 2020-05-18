@@ -3,6 +3,7 @@ import './AddStoreManager.css';
 import axios from "axios";
 import {toast} from "react-toastify";
 import './EditStoreManager.css';
+import {serverUrl} from "../config";
 
 export default class EditStoreManager extends React.Component{
 
@@ -32,7 +33,7 @@ export default class EditStoreManager extends React.Component{
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/users/'+this.props.match.params.id)
+        axios.get(serverUrl + '/users/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     firstName: response.data.firstName,
@@ -76,12 +77,12 @@ export default class EditStoreManager extends React.Component{
         if(this.state.password === this.state.conPassword){
             console.log(users);
 
-            axios.post('http://localhost:5000/users/update/'+this.props.match.params.id, users)
+            axios.post(serverUrl + '/users/update/'+this.props.match.params.id, users)
                 .then(response => {
                     console.log(response)
                     toast("User Updated");
 
-                    axios.post('http://localhost:5000/mail/',email)
+                    axios.post(serverUrl + '/mail/',email)
                         .then(response2 => {
                             console.log(response2)
                             toast("Email Send");
