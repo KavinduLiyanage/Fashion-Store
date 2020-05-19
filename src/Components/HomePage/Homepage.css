@@ -50,7 +50,7 @@
     color:#2e86de
 }
 .carousel-imgs{
-    height: 337px;
+    height: auto;
 }
 
 @media only screen and (max-width:990px){

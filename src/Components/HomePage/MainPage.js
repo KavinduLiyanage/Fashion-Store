@@ -18,13 +18,14 @@ import ProductListComponent from "../Product/product-list.component";
 import ProductEditComponent from "../Product/product-edit.component";
 import EditAdmin from "../AdminPage/EditAdmin";
 import DiscountManageComponent from "../Discount/discount-manage.component";
+import FooterPage from "../Navbar/Footer";
 
 function Dashboard() {
     return (
         <React.Fragment>
             <BrowserRouter>
                 <Navbar />
-                <Container maxWidth={false} style={{ marginTop: 30, paddingLeft: 0 }}>
+                <Container maxWidth={false} style={{ marginTop: 30, paddingLeft: 0, paddingRight: 0}}>
                     <Switch>
                         <PublicRoute restricted={false} component={Homepage} path="/" exact />
                         <PublicRoute restricted={true} component={Login} path="/login" exact />

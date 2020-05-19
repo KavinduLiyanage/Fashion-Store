@@ -1,4 +1,4 @@
-export const serverUrl = "http://localhost:5000";
+export const serverUrl = 'http://localhost:5000';
 export const jwtSecret = "sl_myJwtSecret";
 export const TOKEN_KEY = 'jwt';
 export const TOKEN_ID = 'ID';

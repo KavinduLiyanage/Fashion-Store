@@ -23,6 +23,7 @@ export default class Navbar extends React.Component {
     }
 
     componentDidMount() {
+        console.log(serverUrl + '/category/');
         axios.get(serverUrl + '/category/')
             .then(response => {
                 this.setState({

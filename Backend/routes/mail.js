@@ -1,11 +1,13 @@
-import {email,password} from "../config";
 const nodemailer = require("nodemailer");
 const router = require('express').Router();
+const CryptoJS = require("crypto-js");
+const bytes  = CryptoJS.AES.decrypt(process.env.passKey, process.env.jwtSecret);
+const password = bytes.toString(CryptoJS.enc.Utf8);
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: email,
+        user: process.env.email,
         pass: password
     },
     tls: {

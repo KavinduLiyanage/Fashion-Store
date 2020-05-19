@@ -2,7 +2,7 @@ import React from "react";
 import './AddStoreManager.css';
 import axios from "axios";
 import {toast} from "react-toastify";
-import {serverUrl} from "../config";
+import {serverUrl,TOKEN_ID} from "../config";
 
 export default class EditAdmin extends React.Component{
 
@@ -26,7 +26,7 @@ export default class EditAdmin extends React.Component{
     }
 
     componentDidMount() {
-        axios.get(serverUrl + '/users/'+localStorage.getItem('ID'))
+        axios.get(serverUrl + '/users/'+localStorage.getItem(TOKEN_ID))
             .then(response => {
                 this.setState({
                     firstName: response.data.firstName,
