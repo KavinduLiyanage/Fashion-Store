@@ -1,36 +1,32 @@
+import {jwtSecret,TOKEN_KEY,TOKEN_ID,TOKEN_FNAME,TOKEN_EMAIL,TOKEN_TYPE} from "../config";
+
 const jwt = require('jsonwebtoken');
-const TOKEN_KEY = 'jwt';
-const jwtSecret = "sl_myJwtSecret";
 
 export const login = (token,user) => {
 
     if(!token){
-        //res.status(401).json({msg: 'No Token'});
         console.log("No Token");
     }
 
     try{
         const decoded = jwt.verify(token, jwtSecret);
         localStorage.setItem(TOKEN_KEY, decoded);
-        localStorage.setItem('ID', decoded.id);
-        localStorage.setItem('firstName', user['firstName']);
-        localStorage.setItem('email', user['email']);
-        localStorage.setItem('type', user['type']);
+        localStorage.setItem(TOKEN_ID, decoded.id);
+        localStorage.setItem(TOKEN_FNAME, user['firstName']);
+        localStorage.setItem(TOKEN_EMAIL, user['email']);
+        localStorage.setItem(TOKEN_TYPE, user['type']);
         console.log(user);
-        //req.user = decoded;
-        //next();
     }catch (e) {
-        //res.status(400).json({msg: "Token Not Valid"});
         console.log("Token Not Valid");
     }
 }
 
 export const logout = () => {
     localStorage.removeItem(TOKEN_KEY);
-    localStorage.removeItem('ID');
-    localStorage.removeItem('firstName');
-    localStorage.removeItem('email');
-    localStorage.removeItem('type');
+    localStorage.removeItem(TOKEN_ID);
+    localStorage.removeItem(TOKEN_FNAME);
+    localStorage.removeItem(TOKEN_EMAIL);
+    localStorage.removeItem(TOKEN_TYPE);
 }
 
 export const isLogin = () => {
