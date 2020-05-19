@@ -3,7 +3,7 @@ import './Navbar.css';
 import axios from 'axios';
 import {isLogin, logout} from "../ReactMiddleware/reactAuth";
 import {Link} from "react-router-dom";
-import {serverUrl} from "../config";
+import {serverUrl, TOKEN_FNAME} from "../config";
 
 export default class Navbar extends React.Component {
     constructor(props) {
@@ -83,7 +83,7 @@ export default class Navbar extends React.Component {
                                     <li className="nav-item active">
                                         {this.state.isLogin ? (
                                             <div>
-                                                <span className="loged-user-name">{localStorage.getItem('firstName')} </span>
+                                                <span className="loged-user-name">{localStorage.getItem(TOKEN_FNAME)} </span>
                                                 <Link to='' onClick={() => this.handleLogout()}>Logout</Link>
                                             </div>
                                             )

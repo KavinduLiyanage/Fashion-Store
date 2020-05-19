@@ -27,18 +27,27 @@ function Dashboard() {
                 <Navbar />
                 <Container maxWidth={false} style={{ marginTop: 30, paddingLeft: 0, paddingRight: 0}}>
                     <Switch>
+
+                        {/*Public Routes*/}
                         <PublicRoute restricted={false} component={Homepage} path="/" exact />
                         <PublicRoute restricted={true} component={Login} path="/login" exact />
                         <PublicRoute restricted={true} component={CreateUser} path="/create-acc" exact />
-                        <PrivateRoute component={AdminHome} path="/admin" exact />
-                        <PrivateRoute component={AddStoreManager} path="/addStoreMng" exact />
-                        <PrivateRoute component={AddCategory} path="/addCategory" exact />
-                        <PrivateRoute component={EditStoreManager} path="/editStoreManager/:id" />
-                        <PrivateRoute component={ProductCreateComponent} path="/storeManager/create" />
-                        <PrivateRoute component={ProductListComponent} path="/storeManager/list" />
-                        <PrivateRoute component={ProductEditComponent} path="/storeManager/edit/:id" />
-                        <PrivateRoute component={EditAdmin} path="/editAdmin" exact/>
-                        <PrivateRoute component={DiscountManageComponent} path="/storeManager/editDis/:id" />
+
+                        {/*Admin Only Routes*/}
+                        <PrivateRoute component={AdminHome} AccessBy={"admin"} path="/admin" exact />
+                        <PrivateRoute component={AddStoreManager} AccessBy={"admin"} path="/addStoreMng" exact />
+                        <PrivateRoute component={AddCategory} AccessBy={"admin"} path="/addCategory" exact />
+                        <PrivateRoute component={EditAdmin} AccessBy={"admin"} path="/editAdmin" exact/>
+
+                        {/*StoreManager Only Routes*/}
+                        <PrivateRoute component={EditStoreManager} AccessBy={"storeManager"} path="/editStoreManager/:id" />
+                        <PrivateRoute component={ProductCreateComponent} AccessBy={"storeManager"} path="/storeManager/create" />
+                        <PrivateRoute component={ProductListComponent} AccessBy={"storeManager"} path="/storeManager/list" />
+                        <PrivateRoute component={ProductEditComponent} AccessBy={"storeManager"} path="/storeManager/edit/:id" />
+                        <PrivateRoute component={DiscountManageComponent} AccessBy={"storeManager"} path="/storeManager/editDis/:id" />
+
+                        {/*User Only Routes*/}
+
                     </Switch>
                 </Container>
             </BrowserRouter>
