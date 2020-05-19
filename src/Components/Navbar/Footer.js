@@ -14,7 +14,7 @@ class FooterPage extends Component {
                             <div className="col-md-6 mt-md-0 mt-3">
 
                                 <h5 className="text-uppercase">Footer Content</h5>
-                                <p>Here you can use rows and columns to organize your footer content.</p>
+                                <p>Online Fashion Store</p>
 
                             </div>
 
@@ -22,7 +22,7 @@ class FooterPage extends Component {
 
                                 <div className="col-md-3 mb-md-0 mb-3">
 
-                                    <h5 className="text-uppercase">Links</h5>
+                                    <h5 className="text-uppercase">Keep In Touch</h5>
 
                                     <ul className="list-unstyled">
                                         <li>
