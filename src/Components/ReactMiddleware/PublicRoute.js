@@ -1,9 +1,10 @@
 import React from 'react';
 import { Route} from 'react-router-dom';
 import {isLogin} from "./reactAuth";
+import {TOKEN_TYPE} from "../config";
 
 const RedirectTo = () => {
-    const userType = (localStorage.getItem('type'));
+    const userType = (localStorage.getItem(TOKEN_TYPE));
     if(userType === 'customer'){
         window.location='/customer'
     } else if(userType === 'admin'){

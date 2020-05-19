@@ -76,7 +76,7 @@ export default class EditAdmin extends React.Component{
         if(this.state.password === this.state.conPassword){
             console.log(users);
 
-            axios.post(serverUrl + '/users/update/'+localStorage.getItem('ID'), users)
+            axios.post(serverUrl + '/users/update/'+localStorage.getItem(TOKEN_ID), users)
                 .then(response => {
                     console.log(response)
                     toast("User Updated");
