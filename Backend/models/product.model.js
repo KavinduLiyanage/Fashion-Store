@@ -10,6 +10,17 @@ let productSchema = new Schema({
     productDes : {
         type : String
     },
+    productQnt : {
+        type : String
+    },
+    images: {
+        type: Array,
+        default: []
+    },
+    productCategory: {
+        type: Number,
+        default: 1
+    },
     productPrice : {
         type : Number
     },

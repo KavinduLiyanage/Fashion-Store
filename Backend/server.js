@@ -31,6 +31,8 @@ app.use('/product', ProductDetailsRouter);
 const wishRouter = require('./routes/whishlist');
 app.use('/wish',wishRouter);
 
+app.use('/uploads', express.static('uploads'));
+
 app.listen(port, () => {
     console.log("Server runs on port : "+ port);
 })
