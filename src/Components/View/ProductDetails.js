@@ -88,7 +88,8 @@ export default class ProductDetails extends Component{
 
         };
 
-        axios.post('http://localhost:5000/cart/addCartItem', obj)
+        axios.post('http://localhost:5000/wish/addWishItem', obj)
+
 
             //.then(res=>console.log(res.data));
 
@@ -147,8 +148,10 @@ export default class ProductDetails extends Component{
             cart_discount:cartdiscount,
 
         };
+
+        axios.post('http://localhost:5000/cart/addCartItem', obj)
         //url of saving cart items for database
-        axios.post('http://localhost:5000/wish/addWishItem', obj)
+
 
             //.then(res=>console.log(res.data));
 

@@ -59,7 +59,7 @@ wishListRoutes.route('/wishListDetails/:id').get(function (req,res) {
 
 wishListRoutes.route('/deleteItem/:cid/:pid').delete(function (req,res) {
 
-    let cusid = req.params.cusid;
+    let cusid = req.params.cid;
     let pid = req.params.pid;
 
     WishList.deleteOne({'wish_cid':cusid,'wish_pid':pid }, function(err,wish){
