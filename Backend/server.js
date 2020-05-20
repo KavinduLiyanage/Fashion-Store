@@ -33,6 +33,12 @@ app.use('/wish',wishRouter);
 
 app.use('/uploads', express.static('uploads'));
 
+const cartRoutes = require('./routes/cart');
+app.use('/cart', cartRoutes);
+
+const paymentRoutes = require('./routes/payment');
+app.use('/payment',paymentRoutes);
+
 app.listen(port, () => {
     console.log("Server runs on port : "+ port);
 })

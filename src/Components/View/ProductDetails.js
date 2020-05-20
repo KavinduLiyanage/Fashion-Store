@@ -23,13 +23,12 @@ export default class ProductDetails extends Component{
             price:'',
             discount:'',
 
-
-            cart_cid :'',
-            cart_pid :'',
-            cart_pname:'',
-            cart_des :'',
-            cart_price:'',
-            cart_discount:''
+            user_id :'',
+            product_id :'',
+            product_Name:'',
+            product_Description :'',
+            product_Price:'',
+            product_Discount:''
 
 
 
@@ -90,7 +89,6 @@ export default class ProductDetails extends Component{
 
         axios.post('http://localhost:5000/wish/addWishItem', obj)
 
-
             //.then(res=>console.log(res.data));
 
             .then(response=>{
@@ -128,32 +126,28 @@ export default class ProductDetails extends Component{
 
     //Item adding to cart
 
-    addToCart(cartcid, cartpid, cartpname, cartdescription, cartprice, cartdiscount){
+    addToCart(userid, productid, productName, productDescription,productPrice,productDiscount){
 
 
-        console.log('wishcid:'+cartcid);
-        console.log('wpid:'+cartpid);
-        console.log('wish_product_name:'+cartpname);
-        console.log('wish_product_description:'+cartdescription);
-        console.log('wish_product_price:'+cartprice);
-        console.log('wish_product_discount:'+cartdiscount);
+        console.log('user_id:'+userid);
+        console.log('product_id:'+productid);
+        console.log('product_name:'+productName);
+        console.log('product_description:'+productDescription);
+        console.log('product_price:'+productPrice);
+        console.log('product_discount:'+productDiscount);
 
         const obj ={
 
-            cart_cid :cartcid,
-            cart_pid :cartpid,
-            cart_pname:cartpname,
-            cart_des :cartdescription,
-            cart_price:cartprice,
-            cart_discount:cartdiscount,
+            user_id :userid,
+            product_id :productid,
+            product_Name:productName,
+            product_Description :productDescription,
+            product_Price:productPrice,
+            product_Discount:productDiscount,
 
         };
-
-        axios.post('http://localhost:5000/cart/addCartItem', obj)
         //url of saving cart items for database
-
-
-            //.then(res=>console.log(res.data));
+        axios.post('http://localhost:5000/cart/add', obj)
 
             .then(response=>{
 
@@ -171,12 +165,12 @@ export default class ProductDetails extends Component{
 
         this.setState({
 
-            cart_cid :'',
-            cart_pid :'',
-            cart_pname:'',
-            cart_des :'',
-            cart_price:'',
-            cart_discount:'',
+            user_id :'',
+            product_id :'',
+            product_Name:'',
+            product_Description :'',
+            product_Price:'',
+            product_Discount:'',
 
 
 

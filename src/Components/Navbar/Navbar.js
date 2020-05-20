@@ -80,7 +80,7 @@ export default class Navbar extends React.Component {
                                 </form>
                                 <ul className="navbar-nav ml-md-auto">
                                     <li className="mr-5">
-                                        <a href="/productDetails/5ec0c901426bd54270fd6777">product details</a>
+                                        <a href="/productDetails/5ec0c901426bd54270fd6777">details</a>
 
 
                                     </li>
@@ -98,6 +98,9 @@ export default class Navbar extends React.Component {
                                             )
                                             : <a href="/login">Login</a>
                                         }
+                                    </li>
+                                    <li className="ml-2">
+                                        <a href="/cart">cart</a>
                                     </li>
                                     <br/>
                                     <li className="nav-item dropdown">

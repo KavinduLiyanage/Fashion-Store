@@ -10,12 +10,12 @@ class WishListTableRow extends Component {
         this.deleteItem = this.deleteItem.bind(this);
         this.state = {
 
-            cart_cid :'',
-            cart_pid :'',
-            cart_pname:'',
-            cart_des :'',
-            cart_price:'',
-            cart_discount:''
+            user_id :'',
+            product_id :'',
+            product_Name:'',
+            product_Description :'',
+            product_Price:'',
+            product_Discount:''
 
 
 
@@ -41,30 +41,28 @@ class WishListTableRow extends Component {
 
     //Item adding to cart
 
-    addToCart(cartcid, cartpid, cartpname, cartdescription, cartprice, cartdiscount){
+    addToCart(userid, productid, productName, productDescription, productPrice, productDiscount){
 
 
-        console.log('wishcid:'+cartcid);
-        console.log('wpid:'+cartpid);
-        console.log('wish_product_name:'+cartpname);
-        console.log('wish_product_description:'+cartdescription);
-        console.log('wish_product_price:'+cartprice);
-        console.log('wish_product_discount:'+cartdiscount);
+        console.log('user_id:'+userid);
+        console.log('product_id:'+productid);
+        console.log('product_name:'+productName);
+        console.log('product_description:'+productDescription);
+        console.log('product_price:'+productPrice);
+        console.log('product_discount:'+productDiscount);
 
         const obj ={
 
-            wish_cid :cartcid,
-            wish_pid :cartpid,
-            wish_pname:cartpname,
-            wish_des :cartdescription,
-            wish_price:cartprice,
-            wish_discount:cartdiscount,
+            user_id :userid,
+            product_id :productid,
+            product_Name:productName,
+            product_Description :productDescription,
+            product_Price:productPrice,
+            product_Discount:productDiscount,
 
         };
         //url of saving cart items for database
-        axios.post('http://localhost:5000/cart/addCartItem', obj)
-
-            //.then(res=>console.log(res.data));
+        axios.post('http://localhost:5000/cart/add', obj)
 
             .then(response=>{
 
@@ -82,12 +80,12 @@ class WishListTableRow extends Component {
 
         this.setState({
 
-            cart_cid :'',
-            cart_pid :'',
-            cart_pname:'',
-            cart_des :'',
-            cart_price:'',
-            cart_discount:'',
+            user_id :'',
+            product_id :'',
+            product_Name:'',
+            product_Description :'',
+            product_Price:'',
+            product_Discount:'',
 
 
 
@@ -135,9 +133,6 @@ class WishListTableRow extends Component {
                        this.props.obj.wish_des,
                        this.props.obj.wish_price,
                        this.props.obj.wish_discount,
-
-
-
 
                    )}>addtocart</button>
 
