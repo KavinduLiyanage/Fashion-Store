@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import {isLogin} from "./reactAuth";
-import {TOKEN_FNAME, TOKEN_TYPE} from "../config";
+import {TOKEN_TYPE} from "../config";
 
 const PrivateRoute = ({component: Component, AccessBy, ...rest}) => {
     return (

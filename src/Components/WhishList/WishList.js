@@ -15,8 +15,7 @@ export default class WishList extends Component{
 
 
     componentDidMount() {
-
-
+        console.log(localStorage.getItem(TOKEN_ID));
         axios.get('http://localhost:5000/wish/wishListDetails/'+localStorage.getItem(TOKEN_ID))
 
             .then(response => {

@@ -256,7 +256,7 @@ export default class ProductDetails extends Component{
                                     )}>add to cart</button>
 
 
-                                    <Link to={"/wishList"}>
+
 
                                     <button type={"button"} className="btn btn-danger" onClick={()=>this.addWishList(
 
@@ -271,7 +271,7 @@ export default class ProductDetails extends Component{
 
 
 
-                                    )}>whish List</button> </Link>
+                                    )}>whish List</button>
 
                                 </div>
                     </div>

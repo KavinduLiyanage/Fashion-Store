@@ -102,11 +102,16 @@ router.route('/update/:id').post((req, res) => {
             users.gender = req.body.gender;
             users.type = req.body.type;
 
-            users.save()
-                .then(() => res.json('User updated!'))
-                .catch(err => res.status(400).json('Error: ' + err));
-        })
-        .catch(err => res.status(400).json('Error: ' + err));
+            bcrypt.genSalt(10, (err, salt) => {
+                bcrypt.hash(users.password, salt, (err, hash) => {
+                    if (err) throw err;
+                    users.password = hash;
+                    users.save()
+                        .then(() => res.json('User Updated!'))
+                        .catch(err => res.status(400).json('Error: ' + err));
+                })
+            })
+        });
 });
 
 module.exports = router;

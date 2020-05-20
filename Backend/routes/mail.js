@@ -17,7 +17,7 @@ const transporter = nodemailer.createTransport({
 
 router.route('/').post((req, res) => {
     transporter.sendMail({
-        from: email,
+        from: process.env.email,
         to: req.body.email,
         subject: 'Your Fashion Store Account is created',
         text: `Hello, ` + req.body.firstName + ` Fashion Store account has been created as Store Manager

@@ -1,12 +1,8 @@
-import React from 'react'
-import {Link} from 'react-router-dom';
+import React from "react";
 import './Homepage.css';
 import FooterPage from "../Navbar/Footer";
 
 export default class Homepage extends React.Component{
-
-
-
     render() {
         return(
             <div>
@@ -34,84 +30,84 @@ export default class Homepage extends React.Component{
                         <div className="carousel-item">
                             <img className="d-block w-100 carousel-imgs" alt="Carousel Bootstrap Third"
                                  src="https://www.inretailshop.com/themes/at_o2/assets/img/modules/appagebuilder/images/Inspiraci%C3%B3n-Meier-panoramica.jpg"/>
-                            </div>
                         </div>
+                    </div>
                     <a className="carousel-control-prev" href="#carousel-873988" data-slide="prev">
-                        <span className="carousel-control-prev-icon"> </span> <span className="sr-only">Previous</span>
+                        <span className="carousel-control-prev-icon"></span> <span className="sr-only">Previous</span>
                     </a>
                     <a className="carousel-control-next" href="#carousel-873988" data-slide="next">
-                        <span className="carousel-control-next-icon"> </span> <span className="sr-only">Next</span>
+                        <span className="carousel-control-next-icon"></span> <span className="sr-only">Next</span>
                     </a>
                 </div>
                 <div className="container">
-                <h3 className="h3">Our Products</h3>
-                <div className="row">
-                    <div className="col-md-3 col-sm-6">
-                        <div className="product-grid6">
-                            <div className="product-image6">
-                                <Link to={"/productDetails/1 "}>
-                                    <img className="pic-1" alt="Product Img"
-                                         src="http://bestjquery.com/tutorial/product-grid/demo10/images/img-1.jpg"/>
-                                </Link>
-                            </div>
-                            <div className="product-content">
-                                {/*Todo - Code Product Name and Price*/}
-                                <h3 className="title"><a href="/">Men's Shirt</a></h3>
-                                <div className="price">$11.00
+                    <h3 className="h3">Our Products</h3>
+                    <div className="row">
+                        <div className="col-md-3 col-sm-6">
+                            <div className="product-grid6">
+                                <div className="product-image6">
+                                    <a href="/">
+                                        <img className="pic-1" alt="Product Img"
+                                             src="http://bestjquery.com/tutorial/product-grid/demo10/images/img-1.jpg"/>
+                                    </a>
+                                </div>
+                                <div className="product-content">
+                                    {/*Todo - Code Product Name and Price*/}
+                                    <h3 className="title"><a href="/">Men's Shirt</a></h3>
+                                    <div className="price">$11.00
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-md-3 col-sm-6">
-                        <div className="product-grid6">
-                            <div className="product-image6">
-
-                                    <img className="pic-1" alt="Product Img"
-                                         src="http://bestjquery.com/tutorial/product-grid/demo10/images/img-2.jpg" />
-
-                            </div>
-                            <div className="product-content">
-                                {/*Todo - Code Product Name and Price*/}
-                                <h3 className="title"><a href="/">Women's Red Top</a></h3>
-                                <div className="price">$8.00
+                        <div className="col-md-3 col-sm-6">
+                            <div className="product-grid6">
+                                <div className="product-image6">
+                                    <a href="/">
+                                        <img className="pic-1" alt="Product Img"
+                                             src="http://bestjquery.com/tutorial/product-grid/demo10/images/img-2.jpg" />
+                                    </a>
+                                </div>
+                                <div className="product-content">
+                                    {/*Todo - Code Product Name and Price*/}
+                                    <h3 className="title"><a href="/">Women's Red Top</a></h3>
+                                    <div className="price">$8.00
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-md-3 col-sm-6">
-                        <div className="product-grid6">
-                            <div className="product-image6">
-                                <a href="/">
-                                    <img className="pic-1" alt="Product Img"
-                                         src="http://bestjquery.com/tutorial/product-grid/demo10/images/img-3.jpg" />
-                                </a>
-                            </div>
-                            <div className="product-content">
-                                {/*Todo - Code Product Name and Price*/}
-                                <h3 className="title"><a href="/">Men's Shirt</a></h3>
-                                <div className="price">$11.00
+                        <div className="col-md-3 col-sm-6">
+                            <div className="product-grid6">
+                                <div className="product-image6">
+                                    <a href="/">
+                                        <img className="pic-1" alt="Product Img"
+                                             src="http://bestjquery.com/tutorial/product-grid/demo10/images/img-3.jpg" />
+                                    </a>
+                                </div>
+                                <div className="product-content">
+                                    {/*Todo - Code Product Name and Price*/}
+                                    <h3 className="title"><a href="/">Men's Shirt</a></h3>
+                                    <div className="price">$11.00
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-md-3 col-sm-6">
-                        <div className="product-grid6">
-                            <div className="product-image6">
-
-                                    <img className="pic-1" alt="Product Img"
-                                         src="http://bestjquery.com/tutorial/product-grid/demo10/images/img-4.jpg" />
-
-                            </div>
-                            <div className="product-content">
-                                {/*Todo - Code Product Name and Price*/}
-                                <h3 className="title"><a href="/">Men's Shirt</a></h3>
-                                <div className="price">$11.00
+                        <div className="col-md-3 col-sm-6">
+                            <div className="product-grid6">
+                                <div className="product-image6">
+                                    <a href="/">
+                                        <img className="pic-1" alt="Product Img"
+                                             src="http://bestjquery.com/tutorial/product-grid/demo10/images/img-4.jpg" />
+                                    </a>
+                                </div>
+                                <div className="product-content">
+                                    {/*Todo - Code Product Name and Price*/}
+                                    <h3 className="title"><a href="/">Men's Shirt</a></h3>
+                                    <div className="price">$11.00
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
                 <FooterPage/>
             </div>
         );
