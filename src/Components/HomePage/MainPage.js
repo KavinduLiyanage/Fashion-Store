@@ -18,6 +18,8 @@ import ProductListComponent from "../Product/product-list.component";
 import ProductEditComponent from "../Product/product-edit.component";
 import EditAdmin from "../AdminPage/EditAdmin";
 import DiscountManageComponent from "../Discount/discount-manage.component";
+import ProductDetails from "../View/ProductDetails";
+import WishList from "../WhishList/WishList";
 import FooterPage from "../Navbar/Footer";
 
 function Dashboard() {
@@ -47,6 +49,10 @@ function Dashboard() {
                         <PrivateRoute component={DiscountManageComponent} AccessBy={"storeManager"} path="/storeManager/editDis/:id" />
 
                         {/*User Only Routes*/}
+
+                        <PublicRoute restricted={false}  component={ProductDetails}   path="/productDetails/:id"   exact />
+                        <PublicRoute restricted={false}   component={WishList}  path="/wishList"  exaxt/>
+
 
                     </Switch>
                 </Container>

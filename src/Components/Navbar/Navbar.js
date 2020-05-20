@@ -80,6 +80,16 @@ export default class Navbar extends React.Component {
                                     </button>
                                 </form>
                                 <ul className="navbar-nav ml-md-auto">
+                                    <li className="mr-5">
+                                        <a href="/productDetails/5ec0c901426bd54270fd6777">product details</a>
+
+
+                                    </li>
+                                    <li className="mr-5">
+                                        <a href="/wishList">WishList</a>
+
+
+                                    </li>
                                     <li className="nav-item active">
                                         {this.state.isLogin ? (
                                             <div>
@@ -90,8 +100,10 @@ export default class Navbar extends React.Component {
                                             : <a href="/login">Login</a>
                                         }
                                     </li>
+                                    <br/>
                                     <li className="nav-item dropdown">
                                     </li>
+
                                 </ul>
                             </div>
                         </nav>

@@ -3,8 +3,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Login.css';
 import axios from "axios";
-import {login} from "../ReactMiddleware/reactAuth";
-import {serverUrl} from "../config";
+
 
 toast.configure();
 export default class Login extends React.Component{
@@ -33,22 +32,16 @@ export default class Login extends React.Component{
             password: this.state.password
         }
 
-        axios.post(serverUrl + '/users/',users)
+        axios.post('http://localhost:5000/users/',users)
             .then(response => {
                 console.log(response)
                 const userType = response.data.user['type'];
                 if(userType === 'customer'){
                     toast("Customer Login In Successful");
-                    login(response.data.token,response.data.user);
-                    window.location='/customer'
                 } else if(userType === 'admin'){
                     toast("Admin Login In Successful");
-                    login(response.data.token,response.data.user);
-                    window.location='/admin'
                 } else if(userType === 'storeManager'){
                     toast("Store Manager Login In Successful");
-                    login(response.data.token,response.data.user);
-                    window.location='storeManager/create'
                 }
             })
             .catch(error => {
@@ -81,13 +74,14 @@ export default class Login extends React.Component{
                                 </div>
                                 <div className="input-group form-group">
                                     <div className="input-group-prepend">
-                                        <span className="input-group-text"><i className="fas fa-key" /></span>
+                                        <span className="input-group-text"><i className="fas fa-key"></i></span>
                                     </div>
                                     <input type="password" className="form-control" placeholder="password"
                                            value={this.state.password} onChange={e => this.updateInput("password",e.target.value)} required/>
                                 </div>
                                 <div className="form-group">
-                                    <input type="submit" value="Login" className="btn float-right login_btn"/>
+
+                                        <input type="submit" value="Login" className="btn float-right login_btn"/>
                                 </div>
                             </form>
                         </div>

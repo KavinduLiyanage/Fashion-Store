@@ -24,9 +24,12 @@ const CategoryRouter = require('./routes/category');
 app.use('/category',CategoryRouter);
 const EmailRouter = require('./routes/mail');
 app.use('/mail',EmailRouter);
-
 const productRouter = require('./routes/product.route');
 app.use('/products', productRouter);
+const ProductDetailsRouter = require('./routes/productDetails');
+app.use('/product', ProductDetailsRouter);
+const wishRouter = require('./routes/whishlist');
+app.use('/wish',wishRouter);
 
 app.listen(port, () => {
     console.log("Server runs on port : "+ port);
