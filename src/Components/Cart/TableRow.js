@@ -20,10 +20,6 @@ class TableRow extends Component {
         this.setState({click: this.state.click - 1});
     }
 
-    calculateTotal(product_id){
-        //this.state.click * this.props.obj.product_Price
-    }
-
     delete(pid){
         axios.delete('http://localhost:5000/cart/delete/'+localStorage.getItem(TOKEN_ID)+'/'+pid)
             .then(response=>{
@@ -56,7 +52,8 @@ class TableRow extends Component {
                     <button className="btn btn-primary btn-sm ml-3" onClick={this.IncrementCount}>+</button>
                 </td>
                 <td>
-
+                    <input type="text" id="total"
+                           value={this.state.click * this.props.obj.product_Price * (100 - this.props.obj.product_Discount)/100} readOnly/>
                 </td>
                 <td>
                     <button className="btn btn-primary" onClick={()=>this.delete(this.props.obj.product_id)}>X</button>
