@@ -33,8 +33,8 @@ productRoutes.post("/uploadImage", (req, res) => {
         }
         return res.json({ success: true, image: res.req.file.path, fileName: res.req.file.filename })
     })
-
 });
+
 
 // Defined store route
 productRoutes.route('/add').post(function (req,res) {
@@ -48,6 +48,47 @@ productRoutes.route('/add').post(function (req,res) {
         });
 });
 
+
+// Defined get product data to card view
+productRoutes.post("/getProducts", (req, res) => {
+
+    let findArgs = {};
+
+    let term = req.body.searchTerm;
+
+    for (let key in req.body.filters) {
+
+        if (req.body.filters[key].length > 0) {
+            if (key === "productPrice") {
+                findArgs[key] = {
+                    $gte: req.body.filters[key][0],
+                    $lte: req.body.filters[key][1]
+                }
+            } else {
+                findArgs[key] = req.body.filters[key];
+            }
+        }
+    }
+
+    if(term) {
+        Product.find(findArgs)
+            .find({ $text: { $search: term } })
+            .exec((err, products) => {
+                if (err) return res.status(400).json({ success: false, err })
+                res.status(200).json({ success: true, products, postSize: products.length })
+            })
+
+    } else {
+
+        Product.find(findArgs)
+            .exec((err, products) => {
+                if (err) return res.status(400).json({ success: false, err })
+                res.status(200).json({ success: true, products, postSize: products.length })
+            })
+    }
+});
+
+
 // Defined get data(index or listing) route
 productRoutes.route('/').get(function (req,res) {
     Product.find(function (err, product) {
@@ -58,6 +99,7 @@ productRoutes.route('/').get(function (req,res) {
     });
 });
 
+
 // Defined edit route
 productRoutes.route('/edit/:id').get(function (req,res) {
     let id = req.params.id;
@@ -66,6 +108,7 @@ productRoutes.route('/edit/:id').get(function (req,res) {
     });
 });
 
+
 // Defined editDis route
 productRoutes.route('/editDis/:id').get(function (req,res) {
     let id = req.params.id;
@@ -73,6 +116,7 @@ productRoutes.route('/editDis/:id').get(function (req,res) {
         res.json(product);
     });
 });
+
 
 //  Defined update route
 productRoutes.route('/update/:id').post(function (req, res) {
@@ -94,6 +138,7 @@ productRoutes.route('/update/:id').post(function (req, res) {
     });
 });
 
+
 //  Defined discout route
 productRoutes.route('/updateDis/:id').post(function (req, res) {
     Product.findById(req.params.id, function (err, product) {
@@ -111,6 +156,7 @@ productRoutes.route('/updateDis/:id').post(function (req, res) {
         }
     });
 });
+
 
 //delete data
 productRoutes.route('/delete/:id').get(function (req,res) {

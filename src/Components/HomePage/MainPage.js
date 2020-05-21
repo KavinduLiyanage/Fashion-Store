@@ -21,6 +21,7 @@ import DiscountManageComponent from "../Discount/discount-manage.component";
 import ProductDetails from "../View/ProductDetails";
 import WishList from "../WhishList/WishList";
 //import FooterPage from "../Navbar/Footer";
+import CardViewProductListComponent from "../Product/CardView-product-list.component";
 
 import Cart from "../Cart/Cart";
 
@@ -45,11 +46,12 @@ function Dashboard() {
                         <PrivateRoute component={EditAdmin} AccessBy={"admin"} path="/editAdmin" exact/>
 
                         {/*StoreManager Only Routes*/}
-                        <PrivateRoute component={EditStoreManager} AccessBy={"storeManager"} path="/editStoreManager/:id" />
-                        <PrivateRoute component={ProductCreateComponent} AccessBy={"storeManager"} path="/storeManager/create" />
-                        <PrivateRoute component={ProductListComponent} AccessBy={"storeManager"} path="/storeManager/list" />
-                        <PrivateRoute component={ProductEditComponent} AccessBy={"storeManager"} path="/storeManager/edit/:id" />
-                        <PrivateRoute component={DiscountManageComponent} AccessBy={"storeManager"} path="/storeManager/editDis/:id" />
+                        <PrivateRoute component={CardViewProductListComponent} AccessBy={"storeManager"} path="/storeManager" exact/>
+                        <PrivateRoute component={EditStoreManager} AccessBy={"storeManager"} path="/editStoreManager/:id" exact/>
+                        <PrivateRoute component={ProductCreateComponent} AccessBy={"storeManager"} path="/storeManager/create" exact/>
+                        <PrivateRoute component={ProductListComponent} AccessBy={"storeManager"} path="/storeManager/list" exact/>
+                        <PrivateRoute component={ProductEditComponent} AccessBy={"storeManager"} path="/storeManager/edit/:id" exact/>
+                        <PrivateRoute component={DiscountManageComponent} AccessBy={"storeManager"} path="/storeManager/editDis/:id" exact/>
 
                         {/*User Only Routes*/}
 
