@@ -20,10 +20,10 @@ import EditAdmin from "../AdminPage/EditAdmin";
 import DiscountManageComponent from "../Discount/discount-manage.component";
 import ProductDetails from "../View/ProductDetails";
 import WishList from "../WhishList/WishList";
-//import FooterPage from "../Navbar/Footer";
+import CustomerHome from '../UserHomePage/CustomerHome'
 import CardViewProductListComponent from "../Product/CardView-product-list.component";
-
 import Cart from "../Cart/Cart";
+import UserEdit from "../UserHomePage/UserEdit";
 
 
 function Dashboard() {
@@ -57,8 +57,10 @@ function Dashboard() {
 
                         <PublicRoute restricted={false}  component={ProductDetails}   path="/productDetails/:id"   exact />
                         <PublicRoute restricted={false}   component={WishList}  path="/wishList"  exaxt/>
-
                         <PublicRoute restricted={false}  component={Cart}   path="/cart"   exact />
+                        <PrivateRoute component={CustomerHome} AccessBy={"customer"} path="/customer" exact/>
+                        <PrivateRoute component={UserEdit} AccessBy={"customer"} path="/userEdit" exact/>
+
                     </Switch>
                 </Container>
             </BrowserRouter>
