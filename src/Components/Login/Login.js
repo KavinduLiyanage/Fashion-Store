@@ -48,7 +48,7 @@ export default class Login extends React.Component{
                 } else if(userType === 'storeManager'){
                     toast("Store Manager Login In Successful");
                     login(response.data.token,response.data.user);
-                    window.location='storeManager/create'
+                    window.location='storeManager'
                 }
             })
             .catch(error => {
