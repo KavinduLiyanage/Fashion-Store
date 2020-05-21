@@ -81,13 +81,9 @@ export default class Navbar extends React.Component {
                                 <ul className="navbar-nav ml-md-auto">
                                     <li className="mr-5">
                                         <a href="/productDetails/5ec0c901426bd54270fd6777">details</a>
-
-
                                     </li>
                                     <li className="mr-5">
                                         <a href="/wishList">WishList</a>
-
-
                                     </li>
                                     <li className="nav-item active">
                                         {this.state.isLogin ? (

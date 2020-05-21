@@ -53,7 +53,7 @@ function Dashboard() {
                         <PrivateRoute component={ProductEditComponent} AccessBy={"storeManager"} path="/storeManager/edit/:id" exact/>
                         <PrivateRoute component={DiscountManageComponent} AccessBy={"storeManager"} path="/storeManager/editDis/:id" exact/>
 
-                        {/*User Only Routes*/}
+                        {/*Customer Only Routes*/}
 
                         <PublicRoute restricted={false}  component={ProductDetails}   path="/productDetails/:id"   exact />
                         <PublicRoute restricted={false}   component={WishList}  path="/wishList"  exaxt/>

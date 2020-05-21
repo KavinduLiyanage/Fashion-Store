@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cf1877ed-034b-4348-816b-3751a527d8d6" name="Default Changelist" comment="implemented store manager product view card">
-      <change afterPath="$PROJECT_DIR$/Backend/uploads/1590047923554_205405015_8485_51443A32994C4D75995AF00F2FEB480C.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/uploads/1590047926453_205405015_8485_alt1_106A8E7E400C47D09F7D7935D5292383.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/uploads/1590047929632_205405015_8485_alt2_6E1811655F03474B91BC958FEE4D6129.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/uploads/1590047932797_205405015_8485_alt3_DBE1C46A3BE543FFA19A288000B973A0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Product/CardView-product-list.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Product/subcomponents/CheckBox.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Product/subcomponents/Datas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Product/subcomponents/ImageSlider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Product/subcomponents/RadioBox.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Product/subcomponents/SearchFeature.js" afterDir="false" />
+    <list default="true" id="cf1877ed-034b-4348-816b-3751a527d8d6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/routes/product.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/routes/product.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/HomePage/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/HomePage/MainPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Navbar/Navbar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,26 +100,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="548" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1589688518010" />
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1590004390319">
+    <state width="1515" height="204" key="GridCell.Tab.0.bottom" timestamp="1590073410413">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.147.1366.728@0.0.1536.824" timestamp="1590004390319" />
-    <state width="757" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589523510910" />
-    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1590004390319">
+    <state width="1515" height="204" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590073410413" />
+    <state width="1515" height="204" key="GridCell.Tab.0.center" timestamp="1590073410413">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824/1920.147.1366.728@0.0.1536.824" timestamp="1590004390319" />
-    <state width="757" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589523510910" />
-    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1590004390319">
+    <state width="1515" height="204" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1590073410413" />
+    <state width="1515" height="204" key="GridCell.Tab.0.left" timestamp="1590073410413">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824/1920.147.1366.728@0.0.1536.824" timestamp="1590004390319" />
-    <state width="757" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589523510910" />
-    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1590004390319">
+    <state width="1515" height="204" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1590073410413" />
+    <state width="1515" height="204" key="GridCell.Tab.0.right" timestamp="1590073410413">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824/1920.147.1366.728@0.0.1536.824" timestamp="1590004390319" />
-    <state width="757" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589523510910" />
+    <state width="1515" height="204" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1590073410413" />
     <state x="181" y="46" key="MergeDialog" timestamp="1590045943976">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
