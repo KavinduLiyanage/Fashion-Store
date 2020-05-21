@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
+import { Typography, Button, Form, message, Input, Icon } from 'antd';
 import axios from 'axios';
 import ProductImageUploadComponent from "./product-imageUpload.component";
+
+const { Title } = Typography;
+const { TextArea } = Input;
 
 const Category = [
     { key: 1, value: "Men" },
@@ -97,13 +101,13 @@ class ProductCreateComponent extends Component {
 
     render() {
         return (
-            <div style={{maxWidth: '700px', margin: '2rem auto'}}>
+            <div className="container" style={{maxWidth: '700px', margin: '2rem auto',  marginTop: 70}}>
                 <div style={{textAlign: 'center', marginBottom: '2rem'}}>
-                    <h2 level={2}> Upload Travel Product</h2>
+                    <Title level={2}> Add New Product</Title>
                 </div>
 
 
-                <form onSubmit={this.onSubmit}>
+                <Form onSubmit={this.onSubmit}>
 
                     {/* DropZone */}
                     <ProductImageUploadComponent refreshFunction={this.updateFiles}/>
@@ -112,21 +116,21 @@ class ProductCreateComponent extends Component {
                     <br/>
                     <br/>
                     <label>Product Name</label>
-                    <input
+                    <Input
                         onChange={this.onChangeProductName}
                         value={this.state.productName}
                     />
                     <br/>
                     <br/>
                     <label>Product Description</label>
-                    <textarea
+                    <TextArea
                         onChange={this.onChangeProductDes}
                         value={this.state.productDes}
                     />
                     <br/>
                     <br/>
                     <label>Price($)</label>
-                    <input
+                    <Input
                         onChange={this.onChangeProductPrice}
                         value={this.state.productPrice}
                         type="number"
@@ -134,7 +138,7 @@ class ProductCreateComponent extends Component {
                     <br/>
                     <br/>
                     <label>Quantity</label>
-                    <input
+                    <Input
                         onChange={this.onChangeProductQnt}
                         value={this.state.productQnt}
                         type="number"
@@ -149,12 +153,8 @@ class ProductCreateComponent extends Component {
                     <br/>
                     <br/>
 
-                    <button
-                        onClick={this.onSubmit}
-                    >
-                        Submit
-                    </button>
-                </form>
+                    <Button onClick={this.onSubmit}>Submit</Button>
+                </Form>
             </div>
         );
     }

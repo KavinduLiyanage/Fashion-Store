@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Dropzone from 'react-dropzone';
+import {PlusOutlined} from '@ant-design/icons';
 import Axios from 'axios';
 
 function ProductImageUploadComponent(props) {
@@ -56,7 +57,7 @@ function ProductImageUploadComponent(props) {
                         {console.log('getRootProps', { ...getRootProps() })}
                         {console.log('getInputProps', { ...getInputProps() })}
                         <input {...getInputProps()} />
-
+                        <PlusOutlined type="plus" style={{ fontSize: '3rem' }} />
 
                     </div>
                 )}

@@ -31,7 +31,7 @@ class ProductListComponent extends Component {
 
     render() {
         return (
-            <div className="container" style={{marginTop: 100}}>
+            <div className="container" style={{marginTop: 80}}>
                 <h3 align="center">Products List</h3>
                 <table className="table table-striped" style={{marginTop:20}}>
                     <thead>

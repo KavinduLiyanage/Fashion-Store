@@ -28,7 +28,7 @@ export default class Navbar extends React.Component {
         } else if(localStorage.getItem(TOKEN_TYPE) === 'admin'){
             window.location='/admin'
         } else if(localStorage.getItem(TOKEN_TYPE) === 'storeManager'){
-            window.location='storeManager/create'
+            window.location='storeManager'
         }
     }
 
