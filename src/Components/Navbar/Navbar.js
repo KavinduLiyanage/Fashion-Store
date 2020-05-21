@@ -3,7 +3,7 @@ import './Navbar.css';
 import axios from 'axios';
 import {isLogin, logout} from "../ReactMiddleware/reactAuth";
 import {Link} from "react-router-dom";
-import {serverUrl, TOKEN_FNAME} from "../config";
+import {serverUrl, TOKEN_FNAME, TOKEN_TYPE} from "../config";
 
 export default class Navbar extends React.Component {
     constructor(props) {
@@ -20,6 +20,16 @@ export default class Navbar extends React.Component {
         this.setState({
             isLogin: false
         })
+    }
+
+    handleNameClick = () => {
+        if(localStorage.getItem(TOKEN_TYPE) === 'customer'){
+            window.location='/customer'
+        } else if(localStorage.getItem(TOKEN_TYPE) === 'admin'){
+            window.location='/admin'
+        } else if(localStorage.getItem(TOKEN_TYPE) === 'storeManager'){
+            window.location='storeManager/create'
+        }
     }
 
     componentDidMount() {
@@ -79,24 +89,26 @@ export default class Navbar extends React.Component {
                                     </button>
                                 </form>
                                 <ul className="navbar-nav ml-md-auto">
-                                    <li className="mr-5">
-                                        <a href="/productDetails/5ec0c901426bd54270fd6777">details</a>
-                                    </li>
-                                    <li className="mr-5">
-                                        <a href="/wishList">WishList</a>
+                                    <li className="ml-2">
+                                        {this.state.isLogin && localStorage.getItem(TOKEN_TYPE) === 'customer'? (
+                                                <div className="loged-info">
+                                                    <a href="/wishList"> WishList </a>
+                                                    <a href="/productDetails/5ec0c901426bd54270fd6777"> Details </a>
+                                                    <a href="/cart"> Cart </a>
+                                                </div>
+                                        )
+                                            : <span style={{"display": "none"}}> Empty </span>
+                                        }
                                     </li>
                                     <li className="nav-item active">
                                         {this.state.isLogin ? (
                                             <div>
-                                                <span className="loged-user-name">{localStorage.getItem(TOKEN_FNAME)} </span>
+                                                <Link to='' className="loged-user-name" onClick={this.handleNameClick}> {localStorage.getItem(TOKEN_FNAME)} </Link>
                                                 <Link to='' onClick={() => this.handleLogout()}>Logout</Link>
                                             </div>
                                             )
                                             : <a href="/login">Login</a>
                                         }
-                                    </li>
-                                    <li className="ml-2">
-                                        <a href="/cart">cart</a>
                                     </li>
                                     <br/>
                                     <li className="nav-item dropdown">
