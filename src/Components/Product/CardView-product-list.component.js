@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import Axios from 'axios';
 import {  Col, Card, Row } from 'antd';
+import {Link} from "react-router-dom";
 import ImageSlider from "./subcomponents/ImageSlider";
 import CheckBox from "./subcomponents/CheckBox";
 import RadioBox from "./subcomponents/RadioBox";
@@ -48,7 +49,7 @@ function CardViewProductListComponent() {
         return <Col lg={6} md={8} xs={24}>
             <Card
                 hoverable={true}
-                cover={<a href={`/product/${product._id}`} > <ImageSlider images={product.images} /></a>}
+                cover={<Link to={"/storeManager/edit/"+product._id}><ImageSlider images={product.images} /></Link>}
             >
                 <Meta
                     title={product.productName}
@@ -140,41 +141,25 @@ function CardViewProductListComponent() {
             </Row>
 
 
-
             {/* Search  */}
             <div style={{ display: 'flex', justifyContent: 'flex-end', margin: '1rem auto' }}>
-
                 <SearchFeature
                     refreshFunction={updateSearchTerms}
                 />
-
             </div>
 
-
-
+            {/* Product card view  */}
             {Products.length === 0 ?
                 <div style={{ display: 'flex', height: '300px', justifyContent: 'center', alignItems: 'center' }}>
-                    <h2>No post yet...</h2>
+                    <h2>Loading...</h2>
                 </div> :
                 <div>
                     <Row gutter={[16, 16]}>
-
                         {renderCards}
-
                     </Row>
-
-
                 </div>
             }
             <br /><br />
-
-
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <button >Load More</button>
-            </div>
-
-
-
         </div>
     )
 }

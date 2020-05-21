@@ -92,7 +92,7 @@ class ProductCreateComponent extends Component {
             productQnt: '',
             productPrice: ''
         })
-        this.props.history.push('/storeManager/list');
+        this.props.history.push('/storeManager');
     }
 
     render() {
@@ -154,11 +154,8 @@ class ProductCreateComponent extends Component {
                     >
                         Submit
                     </button>
-
                 </form>
-
             </div>
-
         );
     }
 }
