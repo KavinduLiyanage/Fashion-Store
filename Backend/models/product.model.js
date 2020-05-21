@@ -18,14 +18,14 @@ let productSchema = new Schema({
         default: []
     },
     productCategory: {
-        type: Number,
-        default: 1
+        type: String
     },
     productPrice : {
         type : Number
     },
     productDiscount : {
-        type : Number
+        type : Number,
+        default: 0
     },
     productDiscountExpire : {
         type : Date

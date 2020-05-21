@@ -6,15 +6,6 @@ import ProductImageUploadComponent from "./product-imageUpload.component";
 const { Title } = Typography;
 const { TextArea } = Input;
 
-const Category = [
-    { key: 1, value: "Men" },
-    { key: 2, value: "Women" },
-    { key: 3, value: "Kids" },
-    { key: 4, value: "Beauty" },
-    { key: 5, value: "Gifts" },
-    { key: 6, value: "HomeStop" }
-]
-
 class ProductCreateComponent extends Component {
 
     constructor(props) {
@@ -36,9 +27,27 @@ class ProductCreateComponent extends Component {
             productQnt: '',
             images: [],
             productPrice: '',
-            productCategory: ''
+            productCategory: '',
+            productCategories: []
         }
     }
+
+    componentDidMount() {
+        axios.get('http://localhost:5000/category')
+            .then(response => {
+                if (response.data.length > 0) {
+                    this.setState({
+                        productCategories: response.data.map(category => category.categoryName),
+                        productCategory: response.data[0].categoryName
+                    })
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
+
+
 
     onChangeProductName(e) {
         this.setState( {
@@ -106,7 +115,6 @@ class ProductCreateComponent extends Component {
                     <Title level={2}> Add New Product</Title>
                 </div>
 
-
                 <Form onSubmit={this.onSubmit}>
 
                     {/* DropZone */}
@@ -129,7 +137,7 @@ class ProductCreateComponent extends Component {
                     />
                     <br/>
                     <br/>
-                    <label>Price($)</label>
+                    <label>Price</label>
                     <Input
                         onChange={this.onChangeProductPrice}
                         value={this.state.productPrice}
@@ -144,11 +152,21 @@ class ProductCreateComponent extends Component {
                         type="number"
                     />
                     <br/><br/>
+
                     <label>Category</label>
-                    <select onChange={this.onChangeProductCategory} >
-                        {Category.map(item => (
-                            <option key={item.key} value={item.key}>{item.value} </option>
-                        ))}
+                    <select ref="productCategory"
+                            required
+                            className="form-control"
+                            value={this.state.productCategory}
+                            onChange={this.onChangeProductCategory}>
+                        {
+                            this.state.productCategories.map(function(product) {
+                                return <option
+                                    key={product}
+                                    value={product}>{product}
+                                </option>;
+                            })
+                        }
                     </select>
                     <br/>
                     <br/>

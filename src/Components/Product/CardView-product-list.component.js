@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import Axios from 'axios';
-import {  Col, Card, Row } from 'antd';
+import {Col, Card, Row, Button, Typography } from 'antd';
 import {Link} from "react-router-dom";
 import ImageSlider from "./subcomponents/ImageSlider";
 import CheckBox from "./subcomponents/CheckBox";
@@ -9,6 +9,7 @@ import { productCategory, productPrice } from './subcomponents/Datas';
 import SearchFeature from "./subcomponents/SearchFeature";
 
 const { Meta } = Card;
+const { Text } = Typography;
 
 function CardViewProductListComponent() {
 
@@ -53,12 +54,31 @@ function CardViewProductListComponent() {
             >
                 <Meta
                     title={product.productName}
-                    description={product.productDes}
+                    description={`Rs.${product.productPrice}`}
                 />
                 <div className="additional">
-                    <p className="price">Price: {product.productPrice}</p>
-                    <p>{product.productDiscount}% Discount</p>
+
+                    <Text type="warning">{product.productDiscount}% Discount</Text>
+                    <br/>
+                    <Text type="secondary">{product.productQnt} items available</Text>
+
                 </div>
+
+                <Row>
+                    <Col span={12}>
+                        <div>
+
+                            <Link to={"/storeManager/editDis/"+product._id}><Button>Discounts</Button></Link>
+                        </div>
+                    </Col>
+                    <Col span={12}>
+                        <div>
+
+                            <Link to={"/storeManager/edit/"+product._id}><Button>Edit Details</Button></Link>
+                        </div>
+                    </Col>
+                </Row>
+
             </Card>
         </Col>
     })
