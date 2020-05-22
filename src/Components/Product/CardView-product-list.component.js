@@ -42,6 +42,7 @@ function CardViewProductListComponent() {
                 } else {
                     alert('Failed to fectch product datas')
                 }
+                console.log(response.data.products);
             })
     }
 
