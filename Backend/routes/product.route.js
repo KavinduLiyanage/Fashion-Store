@@ -53,7 +53,6 @@ productRoutes.route('/add').post(function (req,res) {
 productRoutes.post("/getProducts", (req, res) => {
 
     let findArgs = {};
-
     let term = req.body.searchTerm;
 
     for (let key in req.body.filters) {
@@ -71,11 +70,13 @@ productRoutes.post("/getProducts", (req, res) => {
     }
 
     if(term) {
+
         Product.find(findArgs)
-            .find({ $text: { $search: term } })
+            .find({"productName": {"$regex": term, "$options": "i"}})
+            //.find({ $text: { $search: term } })
             .exec((err, products) => {
                 if (err) return res.status(400).json({ success: false, err })
-                res.status(200).json({ success: true, products, postSize: products.length })
+                res.status(200).json({ success: true, products})
             })
 
     } else {
@@ -83,7 +84,7 @@ productRoutes.post("/getProducts", (req, res) => {
         Product.find(findArgs)
             .exec((err, products) => {
                 if (err) return res.status(400).json({ success: false, err })
-                res.status(200).json({ success: true, products, postSize: products.length })
+                res.status(200).json({ success: true, products})
             })
     }
 });

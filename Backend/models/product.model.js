@@ -30,8 +30,12 @@ let productSchema = new Schema({
     productDiscountExpire : {
         type : Date
     }
-}, {
-    timestamps: true,
-});
+}, { timestamps: true })
+
+
+productSchema.index({
+    productName:'text'
+} )
+
 
 module.exports = mongoose.model('Product',productSchema);

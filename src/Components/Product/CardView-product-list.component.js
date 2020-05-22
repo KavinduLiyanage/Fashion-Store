@@ -86,7 +86,8 @@ function CardViewProductListComponent() {
     const showFilteredResults = (filters) => {
 
         const variables = {
-            filters: filters
+            filters: filters,
+            searchTerm: SearchTerms
         }
         getProducts(variables)
 
