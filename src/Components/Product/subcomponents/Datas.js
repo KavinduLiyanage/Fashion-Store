@@ -6,28 +6,28 @@ const productPrice = [
     },
     {
         "_id": 1,
-        "name": "$0 to $199",
-        "array": [0, 199]
+        "name": "Under Rs.1000",
+        "array": [0, 1000]
     },
     {
         "_id": 2,
-        "name": "$200 to $249",
-        "array": [200, 249]
+        "name": "Rs.1000 to Rs.2000",
+        "array": [1000, 2000]
     },
     {
         "_id": 3,
-        "name": "$250 to $279",
-        "array": [250, 279]
+        "name": "Rs.2000 to Rs.3000",
+        "array": [2000, 3000]
     },
     {
         "_id": 4,
-        "name": "$280 to $299",
-        "array": [280, 299]
+        "name": "Rs.3000 to Rs.4000",
+        "array": [3000, 4000]
     },
     {
         "_id": 5,
-        "name": "More than $300",
-        "array": [300, 1500000]
+        "name": "More than Rs.4000",
+        "array": [4000, 1500000]
     }
 ]
 
