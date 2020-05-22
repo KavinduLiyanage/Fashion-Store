@@ -2,7 +2,10 @@ import React, {useState} from 'react';
 import Dropzone from 'react-dropzone';
 import {PlusOutlined} from '@ant-design/icons';
 import Axios from 'axios';
+import { Row, Typography } from 'antd';
 import {serverUrl} from "../config";
+
+const { Text } = Typography;
 
 function ProductImageUploadComponent(props) {
 
@@ -57,9 +60,23 @@ function ProductImageUploadComponent(props) {
                         {console.log('getRootProps', { ...getRootProps() })}
                         {console.log('getInputProps', { ...getInputProps() })}
                         <input {...getInputProps()} />
-                        <PlusOutlined type="plus" style={{ fontSize: '3rem' }} />
+                        <div>
+                            <Row justify="space-around" align="middle">
+                                <PlusOutlined type="plus" style={{ fontSize: '3rem' }} />
+                            </Row>
+
+                            <Row justify="space-around" align="end">
+
+                                <Text>Images will be JPG or PNG format</Text>
+                                <Text>Recommended ratio 640x960 </Text>
+                            </Row>
+                        </div>
+
+
+
 
                     </div>
+
                 )}
             </Dropzone>
 

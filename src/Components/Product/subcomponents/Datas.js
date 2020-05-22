@@ -31,39 +31,27 @@ const productPrice = [
     }
 ]
 
-const productCategory = [
+const productBranches = [
     {
         "_id": 1,
-        "name": "Africa"
+        "name": "Colombo"
     },
     {
         "_id": 2,
-        "name": "Europe"
+        "name": "Galle"
     },
     {
         "_id": 3,
-        "name": "Asia"
+        "name": "Matara"
     },
     {
         "_id": 4,
-        "name": "North America"
-    },
-    {
-        "_id": 5,
-        "name": "South America"
-    },
-    {
-        "_id": 6,
-        "name": "Australia"
-    },
-    {
-        "_id": 7,
-        "name": "Antarctica"
+        "name": "Gampaha"
     }
 ]
 
 
 export {
     productPrice,
-    productCategory
+    productBranches
 }

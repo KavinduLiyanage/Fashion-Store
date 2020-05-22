@@ -5,8 +5,9 @@ import {Link} from "react-router-dom";
 import ImageSlider from "./subcomponents/ImageSlider";
 import CheckBox from "./subcomponents/CheckBox";
 import RadioBox from "./subcomponents/RadioBox";
-import { productCategory, productPrice } from './subcomponents/Datas';
+import { productBranches, productPrice } from './subcomponents/Datas';
 import SearchFeature from "./subcomponents/SearchFeature";
+import {serverUrl} from "../config";
 
 const { Meta } = Card;
 const { Text } = Typography;
@@ -17,7 +18,7 @@ function CardViewProductListComponent() {
     const [SearchTerms, setSearchTerms] = useState("")
 
     const [Filters, setFilters] = useState({
-        productCategory: [],
+        productBranches: [],
         productPrice: []
     })
 
@@ -32,7 +33,7 @@ function CardViewProductListComponent() {
     }, [])
 
     const getProducts = (variables) => {
-        Axios.post('http://localhost:5000/products/getProducts', variables)
+        Axios.post(serverUrl+'/products/getProducts', variables)
             .then(response => {
                 if (response.data.success) {
                     setProducts(response.data.products)
@@ -148,8 +149,8 @@ function CardViewProductListComponent() {
             <Row gutter={[16, 16]}>
                 <Col lg={12} xs={24} >
                     <CheckBox
-                        list={productCategory}
-                        handleFilters={filters => handleFilters(filters, "productCategory")}
+                        list={productBranches}
+                        handleFilters={filters => handleFilters(filters, "productBranches")}
                     />
                 </Col>
                 <Col lg={12} xs={24}>

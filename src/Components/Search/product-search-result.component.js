@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import ImageSlider from "../Product/subcomponents/ImageSlider";
 import CheckBox from "../Product/subcomponents/CheckBox";
 import RadioBox from "../Product/subcomponents/RadioBox";
-import { productCategory, productPrice } from '../Product/subcomponents/Datas';
+import { productBranches, productPrice } from '../Product/subcomponents/Datas';
 
 const { Meta } = Card;
 const { Text } = Typography;
@@ -18,7 +18,7 @@ function ProductSearchResultComponent(props) {
     console.log("second : "+SearchTerms)
 
     const [Filters, setFilters] = useState({
-        productCategory: [],
+        productBranches: [],
         productPrice: []
     })
 
@@ -156,8 +156,8 @@ function ProductSearchResultComponent(props) {
             <Row gutter={[16, 16]}>
                 <Col lg={12} xs={24} >
                     <CheckBox
-                        list={productCategory}
-                        handleFilters={filters => handleFilters(filters, "productCategory")}
+                        list={productBranches}
+                        handleFilters={filters => handleFilters(filters, "productBranches")}
                     />
                 </Col>
                 <Col lg={12} xs={24}>

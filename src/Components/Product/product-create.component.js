@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import { Typography, Button, Form, Input} from 'antd';
 import axios from 'axios';
 import ProductImageUploadComponent from "./product-imageUpload.component";
+import { productBranches} from './subcomponents/Datas';
 import {serverUrl} from "../config";
 
-const { Title } = Typography;
+const { Title,Text  } = Typography;
 const { TextArea } = Input;
 
 class ProductCreateComponent extends Component {
@@ -19,6 +20,7 @@ class ProductCreateComponent extends Component {
         this.updateFiles = this.updateFiles.bind(this);
         this.onChangeProductPrice = this.onChangeProductPrice.bind(this);
         this.onChangeProductCategory = this.onChangeProductCategory.bind(this);
+        this.onChangeProductBranches = this.onChangeProductBranches.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         // Setting up state
@@ -29,7 +31,8 @@ class ProductCreateComponent extends Component {
             images: [],
             productPrice: '',
             productCategory: '',
-            productCategories: []
+            productCategories: [],
+            productBranches
         }
     }
 
@@ -85,6 +88,12 @@ class ProductCreateComponent extends Component {
         });
     }
 
+    onChangeProductBranches(e) {
+        this.setState( {
+            productBranches: e.target.value
+        });
+    }
+
     onSubmit(e) {
         e.preventDefault();
         const obj = {
@@ -94,6 +103,7 @@ class ProductCreateComponent extends Component {
             images: this.state.images,
             productPrice: this.state.productPrice,
             productCategory: this.state.productCategory,
+            productBranches: this.state.productBranches,
             productDiscount: 0
         };
         axios.post(serverUrl+'/products/add', obj)
@@ -112,7 +122,7 @@ class ProductCreateComponent extends Component {
         return (
             <div className="container" style={{maxWidth: '700px', margin: '2rem auto',  marginTop: 70}}>
                 <div style={{textAlign: 'center', marginBottom: '2rem'}}>
-                    <Title level={2}> Add New Product</Title>
+                    <Title level={2}> <Text strong> Add new product to store </Text></Title>
                 </div>
 
                 <Form onSubmit={this.onSubmit}>
@@ -120,8 +130,22 @@ class ProductCreateComponent extends Component {
                     {/* DropZone */}
                     <ProductImageUploadComponent refreshFunction={this.updateFiles}/>
 
-
-                    <br/>
+                    <br/><br/>
+                    <label>Category</label>
+                    <select ref="productCategory"
+                            required
+                            className="form-control"
+                            value={this.state.productCategory}
+                            onChange={this.onChangeProductCategory}>
+                        {
+                            this.state.productCategories.map(function(product) {
+                                return <option
+                                    key={product}
+                                    value={product}>{product}
+                                </option>;
+                            })
+                        }
+                    </select>
                     <br/>
                     <label>Product Name</label>
                     <Input
@@ -152,26 +176,25 @@ class ProductCreateComponent extends Component {
                         type="number"
                     />
                     <br/><br/>
-
-                    <label>Category</label>
-                    <select ref="productCategory"
+                    <label>Branch Name</label>
+                    <select ref="productBranches"
                             required
                             className="form-control"
-                            value={this.state.productCategory}
-                            onChange={this.onChangeProductCategory}>
+                            value={this.state.productBranches}
+                            onChange={this.onChangeProductBranches}>
                         {
-                            this.state.productCategories.map(function(product) {
+                            productBranches.map(function(product) {
                                 return <option
-                                    key={product}
-                                    value={product}>{product}
+                                    key={product._id}
+                                    value={product._id}>{product.name}
                                 </option>;
                             })
                         }
                     </select>
-                    <br/>
-                    <br/>
 
-                    <Button onClick={this.onSubmit}>Submit</Button>
+                    <br/>
+                    <br/>
+                    <Button type="primary" size='large' block onClick={this.onSubmit}>Add</Button>
                 </Form>
             </div>
         );
