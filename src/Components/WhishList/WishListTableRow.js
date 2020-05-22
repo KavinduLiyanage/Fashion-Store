@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 //import {Link} from 'react-router-dom';
 import {TOKEN_ID} from "../config";
+import {serverUrl} from "../config";
 
 class WishListTableRow extends Component {
 
@@ -25,7 +26,7 @@ class WishListTableRow extends Component {
 
     deleteItem(pid){
         //+localStorage.getItem('token')+
-        axios.delete('http://localhost:5000/wish/deleteItem/'+localStorage.getItem(TOKEN_ID)+'/'+pid)
+        axios.delete(serverUrl+'/wish/deleteItem/'+localStorage.getItem(TOKEN_ID)+'/'+pid)
             .then(response=>{
 
                 console.log(response.data);
@@ -62,12 +63,16 @@ class WishListTableRow extends Component {
 
         };
         //url of saving cart items for database
-        axios.post('http://localhost:5000/cart/add', obj)
+        axios.post(serverUrl+'/cart/add', obj)
 
             .then(response=>{
 
                 console.log(response.data);
-                window.location.reload();
+                //this.deleteItem(cartpid);
+                //window.location.reload();
+
+                this.deleteItem(productid);
+                window.location='/cart';
 
             })
             .catch(function (error) {
@@ -106,24 +111,22 @@ class WishListTableRow extends Component {
         return (
 
 
-
-
             <tr>
-                <td>
+                <td className="text-justify">
                     {this.props.obj.wish_pname}
                 </td>
                 <td className="text-justify">
                     {this.props.obj.wish_des}
                 </td>
                 <td className="text-center">
-                    {this.props.obj.wish_price}
+                    Rs{this.props.obj.wish_price}.00
                 </td>
                 <td className="text-center">
-                    {this.props.obj.wish_discount}
+                    {this.props.obj.wish_discount}%
                 </td>
-                <td className="btn-group">
+                <td className="btn-group" >
 
-                   <button className=" btn btn-danger btn-sm mr-2" onClick={()=>this.addToCart(
+                   <button className=" btn btn-danger  btn-sm mr-2" onClick={()=>this.addToCart(
 
 
 

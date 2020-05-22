@@ -59,8 +59,8 @@ function Dashboard() {
 
                         {/*Customer Only Routes*/}
 
-                        <PublicRoute restricted={false}  component={ProductDetails}   path="/productDetails/:id"   exact />
-                        <PublicRoute restricted={false}   component={WishList}  path="/wishList"  exaxt/>
+                        <PublicRoute  component={ProductDetails}  AccessBy={"customer"} path="/productDetails/:id"   exact />
+                        <PublicRoute  component={WishList} AccessBy={"customer"} path="/wishList"  exact/>
                         <PrivateRoute component={Cart} AccessBy={"customer"} path="/cart" exact/>
                         <PrivateRoute component={payment} AccessBy={"customer"} path="/payment" exact/>
                         <PrivateRoute component={CustomerHome} AccessBy={"customer"} path="/customer" exact/>

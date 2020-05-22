@@ -3,6 +3,10 @@ import axios from 'axios';
 import{Link} from "react-router-dom";
 import {toast} from "react-toastify";
 import {TOKEN_ID} from "../config";
+import Comment from "./comment";
+import DisplayComment from "./displayComment";
+import {serverUrl} from "../config";
+
 
 
 export default class ProductDetails extends Component{
@@ -10,12 +14,16 @@ export default class ProductDetails extends Component{
     constructor(props) {
         super(props);
         this.state = {
+
+            body:'',
+
             wish_cid :'',
             wish_pid :'',
             wish_pname:'',
             wish_des :'',
             wish_price:'',
             wish_discount:'',
+            wish_productId:'',
 
             pid:'',
             pname:'',
@@ -42,7 +50,7 @@ export default class ProductDetails extends Component{
     componentDidMount() {
 
 
-        axios.get('http://localhost:5000/product/productDetails/'+this.props.match.params.id)
+        axios.get(serverUrl+'/product/productDetails/'+this.props.match.params.id)
 
             .then(response => {
 
@@ -76,6 +84,10 @@ export default class ProductDetails extends Component{
         console.log('wish_product_price:'+wishprice);
         console.log('wish_product_discount:'+wishdiscount);
 
+        this.setState({
+
+            wish_productId : wishpid,
+        })
         const obj ={
 
             wish_cid :wishcid,
@@ -87,19 +99,34 @@ export default class ProductDetails extends Component{
 
         };
 
-        axios.post('http://localhost:5000/wish/addWishItem', obj)
 
-            //.then(res=>console.log(res.data));
 
-            .then(response=>{
 
-                console.log(response.data);
-                window.location.reload();
 
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+
+                    axios.post(serverUrl+'/wish/addWishItem', obj)
+
+                        //.then(res=>console.log(res.data));
+
+                        .then(response=>{
+
+                            console.log(response.data);
+                            window.location='/wishList';
+
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -147,12 +174,12 @@ export default class ProductDetails extends Component{
 
         };
         //url of saving cart items for database
-        axios.post('http://localhost:5000/cart/add', obj)
+        axios.post(serverUrl+'/cart/add', obj)
 
             .then(response=>{
 
                 console.log(response.data);
-                window.location.reload();
+                window.location='/cart';
 
             })
             .catch(function (error) {
@@ -185,25 +212,30 @@ export default class ProductDetails extends Component{
 
 
 
+
+
     render() {
+
+        //const productId = this.state.pid;
         return(
 
             <div className="container">
 
                 <div className="row">
-                    <div className="col-md-4">
+                    <div className="col-md-2">
+
 
 
                     </div>
 
-                    <div className="col-md-8">
+                    <div className="col-md-10">
 
                          <h3> </h3>
                          <table className="table">
                             <thead>
                             <tr>
                                 <th>Product</th>
-                                <th className="text-justify">Description</th>
+                                <th className="text-center">Description</th>
                                 <th>Price</th>
                                 <th>Discount</th>
 
@@ -218,11 +250,11 @@ export default class ProductDetails extends Component{
                                 <td className="text-justify">
                                     {this.state.pdes}
                                 </td>
-                                <td >
-                                    {this.state.price}
+                                <td>
+                                    Rs{this.state.price}.00
                                 </td>
                                 <td>
-                                    {this.state.discount}
+                                    {this.state.discount}%
                                 </td>
 
 
@@ -234,8 +266,8 @@ export default class ProductDetails extends Component{
 
                         <br/>
                         <br/>
-                        <br/>
-                        <br/>
+
+
                                 <div>
                                     <button className="btn btn-danger mr-5" onClick={()=>this.addToCart(
 
@@ -270,7 +302,19 @@ export default class ProductDetails extends Component{
 
                                     )}>whish List</button>
 
+
                                 </div>
+
+                            <br/>
+                            <br/>
+
+                       <Comment body={this.state.pid}/>
+
+                        <h4 className="text-success">Comments:</h4>
+                            <DisplayComment comment={this.state.pid}/>
+
+
+
                     </div>
 
 

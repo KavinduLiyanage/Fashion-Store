@@ -63,10 +63,10 @@ export default class CustomerHome extends React.Component{
                             <thead>
                             <tr>
                                 <th>Product</th>
-                                <th className="text-center">Description</th>
-                                <th>Price</th>
+                                <th className="text-justify">Description</th>
+                                <th className="text-center">Price </th>
                                 <th className="text-center">Discount</th>
-                                <th className="text-center">Actions</th>
+                                <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>

@@ -2,6 +2,7 @@ import React, { Component} from "react";
 import axios from 'axios';
 import WishListTableRow from './WishListTableRow';
 import {TOKEN_ID} from "../config";
+import {serverUrl} from "../config";
 
 export default class WishList extends Component{
 
@@ -16,7 +17,7 @@ export default class WishList extends Component{
 
     componentDidMount() {
         console.log(localStorage.getItem(TOKEN_ID));
-        axios.get('http://localhost:5000/wish/wishListDetails/'+localStorage.getItem(TOKEN_ID))
+        axios.get(serverUrl+'/wish/wishListDetails/'+localStorage.getItem(TOKEN_ID))
 
             .then(response => {
 
@@ -56,10 +57,10 @@ export default class WishList extends Component{
                             <thead>
                             <tr>
                                 <th>Product</th>
-                                <th className="text-center">Description</th>
-                                <th>Price</th>
+                                <th className="text-justify">Description</th>
+                                <th className="text-center">Price</th>
                                 <th className="text-center">Discount</th>
-                                 <th className="text-center">Actions</th>
+                                 <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>

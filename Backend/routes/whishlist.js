@@ -75,4 +75,22 @@ wishListRoutes.route('/deleteItem/:cid/:pid').delete(function (req,res) {
 
 });
 
-module.exports = wishListRoutes;
+wishListRoutes.route('/wishListDetails/:id/pid').get(function (req,res) {
+
+    let id = req.params.id;
+    let pid = req.params.pid;
+    WishList.find({'wish_cid':id, 'wish_pid':pid}, function(err,wish){
+
+        if(err)
+
+            console.log(err);
+
+        else
+            res.json(wish);
+    });
+});
+
+module.exports =  wishListRoutes;
+
+
+

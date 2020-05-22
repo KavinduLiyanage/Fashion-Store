@@ -37,6 +37,9 @@ const cartRoutes = require('./routes/cart');
 app.use('/cart', cartRoutes);
 const paymentRoutes = require('./routes/payment');
 app.use('/payment',paymentRoutes);
+const commentRouter = require('./routes/comment');
+app.use('/comment', commentRouter);
+
 
 app.listen(port, () => {
     console.log("Server runs on port : "+ port);
