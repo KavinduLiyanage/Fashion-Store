@@ -2,7 +2,7 @@ import React from "react";
 import './AddStoreManager.css';
 import axios from "axios";
 import {toast} from "react-toastify";
-import {serverUrl,TOKEN_ID} from "../config";
+import {serverUrl, TOKEN_GENDER, TOKEN_ID} from "../config";
 
 export default class EditAdmin extends React.Component{
 
@@ -213,6 +213,7 @@ export default class EditAdmin extends React.Component{
                                                     <span className="input-group-text"><i className="fas fa-male" /></span>
                                                 </div>
                                                 <input type="radio" id="maleRadio" name="gender" value="Male"
+                                                       checked={localStorage.getItem(TOKEN_GENDER) === 'Male'}
                                                        onChange={e => this.updateInput("gender",e.target.value)} required/>Male
                                             </label>
                                             {' '}
@@ -221,6 +222,7 @@ export default class EditAdmin extends React.Component{
                                                     <span className="input-group-text"><i className="fas fa-female" /></span>
                                                 </div>
                                                 <input type="radio" id="femaleRadio" name="gender" value="Female"
+                                                       checked={localStorage.getItem(TOKEN_GENDER) === 'Female'}
                                                        onChange={e => this.updateInput("gender",e.target.value)}/>Female
                                             </label>
                                         </div>

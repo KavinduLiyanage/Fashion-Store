@@ -47,6 +47,17 @@ export default class AdminHome extends React.Component{
             })
     }
 
+    deleteCategory(id){
+        axios.delete(serverUrl + '/category/'+id)
+            .then(response => {
+                console.log(response)
+                toast("Category Deleted");
+                setTimeout(() => {
+                    window.location = "/admin";
+                }, 5000)
+            })
+    }
+
     render() {
         return(
             <div style={{ marginTop: 55 }}>
@@ -101,6 +112,8 @@ export default class AdminHome extends React.Component{
                             <thead className="thead-light">
                             <tr>
                                 <th>Category Name</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -108,6 +121,8 @@ export default class AdminHome extends React.Component{
                                     return(
                                         <tr key={item['_id']}>
                                             <td>{item['categoryName']}</td>
+                                            <td><a href={"/editCategory/"+item['_id']}>Edit</a></td>
+                                            <td><a onClick={e => this.deleteCategory(item['_id'])} href="#" >Delete</a></td>
                                         </tr>
                                     )
                             })}

@@ -99,6 +99,13 @@ export default class Navbar extends React.Component {
                                         )
                                             : <span style={{"display": "none"}}> Empty </span>
                                         }
+                                        {this.state.isLogin && localStorage.getItem(TOKEN_TYPE) === 'storeManager'? (
+                                                <div className="loged-info">
+
+                                                </div>
+                                            )
+                                            : <span style={{"display": "none"}}> Empty </span>
+                                        }
                                     </li>
                                     <li className="nav-item active">
                                         {this.state.isLogin ? (

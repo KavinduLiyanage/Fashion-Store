@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import {toast} from "react-toastify";
 import {serverUrl, TOKEN_ID} from "../config"
 import TableRow from "../Cart/TableRow";
 import WishListTableRow from "../WhishList/WishListTableRow";
@@ -56,7 +55,7 @@ export default class CustomerHome extends React.Component{
                 </div>
 
                 <div className="main">
-                    <h2>Admin Home</h2>
+                    <h2>Customer Home</h2>
                     <br/>
                     <div style={{"border": "thin solid #000000", "padding": "10px"}}>
                         <h3>My Wishlist</h3>

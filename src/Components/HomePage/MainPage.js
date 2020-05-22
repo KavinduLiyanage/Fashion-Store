@@ -24,6 +24,7 @@ import CustomerHome from '../UserHomePage/CustomerHome'
 import CardViewProductListComponent from "../Product/CardView-product-list.component";
 import Cart from "../Cart/Cart";
 import UserEdit from "../UserHomePage/UserEdit";
+import EditCategory from "../AdminPage/EditCategory";
 
 
 function Dashboard() {
@@ -44,10 +45,11 @@ function Dashboard() {
                         <PrivateRoute component={AddStoreManager} AccessBy={"admin"} path="/addStoreMng" exact />
                         <PrivateRoute component={AddCategory} AccessBy={"admin"} path="/addCategory" exact />
                         <PrivateRoute component={EditAdmin} AccessBy={"admin"} path="/editAdmin" exact/>
+                        <PrivateRoute component={EditStoreManager} AccessBy={"admin"} path="/editStoreManager/:id" exact/>
+                        <PrivateRoute component={EditCategory} AccessBy={"admin"} path="/editCategory/:id" exact/>
 
                         {/*StoreManager Only Routes*/}
                         <PrivateRoute component={CardViewProductListComponent} AccessBy={"storeManager"} path="/storeManager" exact/>
-                        <PrivateRoute component={EditStoreManager} AccessBy={"storeManager"} path="/editStoreManager/:id" exact/>
                         <PrivateRoute component={ProductCreateComponent} AccessBy={"storeManager"} path="/storeManager/create" exact/>
                         <PrivateRoute component={ProductListComponent} AccessBy={"storeManager"} path="/storeManager/list" exact/>
                         <PrivateRoute component={ProductEditComponent} AccessBy={"storeManager"} path="/storeManager/edit/:id" exact/>

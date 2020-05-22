@@ -24,7 +24,12 @@ router.route('/').post((req, res) => {
                                 user: {
                                     id: user.id,
                                     firstName: user.firstName,
+                                    lastName: user.lastName,
+                                    username: user.username,
                                     email: user.email,
+                                    phoneNo: user.phoneNo,
+                                    address: user.address,
+                                    gender: user.gender,
                                     type: user.type
                                 }
                             });
