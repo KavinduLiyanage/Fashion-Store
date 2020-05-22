@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
+//User Model
 const userSchema = new Schema({
     firstName: {type: String, required: true, trim: true},
     lastName: {type: String, required: true, trim: true},
@@ -18,4 +19,5 @@ const userSchema = new Schema({
 
 const User = mongoose.model('User', userSchema);
 
+//Export User
 module.exports = User;

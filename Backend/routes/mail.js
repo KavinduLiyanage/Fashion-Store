@@ -1,9 +1,12 @@
 const nodemailer = require("nodemailer");
 const router = require('express').Router();
 const CryptoJS = require("crypto-js");
+
+//Get encrypted password and decrypt and store in password
 const bytes  = CryptoJS.AES.decrypt(process.env.passKey, process.env.jwtSecret);
 const password = bytes.toString(CryptoJS.enc.Utf8);
 
+//Specify nodemailer login
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -15,6 +18,9 @@ const transporter = nodemailer.createTransport({
     },
 });
 
+//@route POST
+//@desc Use to send email
+//@input First Name, Username, Email, password
 router.route('/').post((req, res) => {
     transporter.sendMail({
         from: process.env.email,

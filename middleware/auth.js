@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 
+//Authorization Enable Route
 function auth(req, res, next) {
     const token = req.header('x-auth-token');
 

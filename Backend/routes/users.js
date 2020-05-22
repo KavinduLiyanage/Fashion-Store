@@ -3,6 +3,8 @@ let User = require('../models/users.model');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+//@route POST
+//@desc Validate Login
 router.route('/').post((req, res) => {
     const email = req.body.email;
     const password = req.body.password;
@@ -10,6 +12,7 @@ router.route('/').post((req, res) => {
         .then(user => {
             if(!user) return res.status(400).json({ msg: "User Not Exsists"});
 
+            //decrypt password using bvrypt
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if(!isMatch) return res.status(400).json({ msg: "Invalid Credential"});
@@ -42,12 +45,16 @@ router.route('/').post((req, res) => {
 
 });
 
+//@route GET
+//@desc Get all users data (Password is encrypted)
 router.route('/').get((req, res) => {
     User.find()
         .then(category => res.json(category))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+//@route POST
+//@desc Add new User
 router.route('/add').post((req, res) => {
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
@@ -71,6 +78,7 @@ router.route('/add').post((req, res) => {
         type
     });
 
+    //password encryption using bcrypt
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
             if(err) throw err;
@@ -82,18 +90,24 @@ router.route('/add').post((req, res) => {
     })
 });
 
+//@route GET
+//@desc Get Specific Category Using ID
 router.route('/:id').get((req, res) => {
     User.findById(req.params.id)
         .then(users => res.json(users))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+//@route DELETE
+//@desc Delete specific user using ID
 router.route('/:id').delete((req, res) => {
     User.findByIdAndDelete(req.params.id)
         .then(() => res.json('User deleted.'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+//@route POST
+//@desc Update specific User using ID
 router.route('/update/:id').post((req, res) => {
     User.findById(req.params.id)
         .then(users => {
@@ -119,4 +133,5 @@ router.route('/update/:id').post((req, res) => {
         });
 });
 
+//Export User Route
 module.exports = router;
