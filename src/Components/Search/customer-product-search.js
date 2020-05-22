@@ -10,7 +10,7 @@ import { productBranches, productPrice } from '../Product/subcomponents/Datas';
 const { Meta } = Card;
 const { Text } = Typography;
 
-function ProductSearchResultComponent(props) {
+function CustomerProductSearch(props) {
 
     console.log("first : "+props.match.params.id)
     const [Products, setProducts] = useState([])
@@ -53,38 +53,22 @@ function ProductSearchResultComponent(props) {
     const renderCards = Products.map((product, index) => {
 
         return <Col lg={6} md={8} xs={24}>
-            <Card
-                hoverable={true}
-                cover={<Link to={"/storeManager/edit/"+product._id}><ImageSlider images={product.images} /></Link>}
-            >
-                <Meta
-                    title={product.productName}
-                    description={`Rs.${product.productPrice}`}
-                />
-                <div className="additional">
-
-                    <Text type="warning">{product.productDiscount}% Discount</Text>
-                    <br/>
-                    <Text type="secondary">{product.productQnt} items available</Text>
-
-                </div>
-
-                <Row>
-                    <Col span={12}>
-                        <div>
-
-                            <Link to={"/storeManager/editDis/"+product._id}><Button>Discounts</Button></Link>
-                        </div>
-                    </Col>
-                    <Col span={12}>
-                        <div>
-
-                            <Link to={"/storeManager/edit/"+product._id}><Button>Edit Details</Button></Link>
-                        </div>
-                    </Col>
-                </Row>
-
-            </Card>
+            <Link to={"/productDetails/"+product._id}>
+                <Card
+                    hoverable={true}
+                    cover={<ImageSlider images={product.images} />}
+                >
+                    <Meta
+                        title={product.productName}
+                        description={`Rs.${product.productPrice}`}
+                    />
+                    <div className="additional">
+                        <Text type="warning">{product.productDiscount}% Discount</Text>
+                        <br/>
+                        <Text type="secondary">{product.productQnt} items available</Text>
+                    </div>
+                </Card>
+            </Link>
         </Col>
     })
 
@@ -189,4 +173,4 @@ function ProductSearchResultComponent(props) {
     )
 }
 
-export default ProductSearchResultComponent
+export default CustomerProductSearch
