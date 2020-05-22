@@ -1,5 +1,6 @@
 import React from 'react'
 import { Carousel } from 'antd';
+import {serverUrl} from "../../config";
 
 function ImageSlider(props) {
     return (

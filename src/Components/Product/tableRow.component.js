@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-
 import {Link} from 'react-router-dom';
-
 import axios from 'axios';
+import {serverUrl} from "../config";
 
 class TableRowComponent extends Component {
 
@@ -23,11 +22,10 @@ class TableRowComponent extends Component {
 
     }
     delete() {
-        axios.get('http://localhost:5000/products/delete/'+this.props.obj._id)
+        axios.get(serverUrl+'/products/delete/'+this.props.obj._id)
             .then(console.log('Deleted'))
             .catch(err => console.log(err))
     }
-
 
     render() {
         return (

@@ -11,7 +11,6 @@ function SearchFeature(props) {
         setSearchTerms(event.currentTarget.value)
 
         props.refreshFunction(event.currentTarget.value)
-
     }
 
     return (
@@ -19,7 +18,7 @@ function SearchFeature(props) {
             <Search
                 value={SearchTerms}
                 onChange={onChangeSearch}
-                placeholder="Search By Typing..."
+                placeholder="Quick search..."
             />
         </div>
     )

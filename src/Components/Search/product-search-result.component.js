@@ -2,19 +2,20 @@ import React, {useEffect, useState} from 'react'
 import Axios from 'axios';
 import {Col, Card, Row, Button, Typography } from 'antd';
 import {Link} from "react-router-dom";
-import ImageSlider from "./subcomponents/ImageSlider";
-import CheckBox from "./subcomponents/CheckBox";
-import RadioBox from "./subcomponents/RadioBox";
-import { productCategory, productPrice } from './subcomponents/Datas';
-import SearchFeature from "./subcomponents/SearchFeature";
+import ImageSlider from "../Product/subcomponents/ImageSlider";
+import CheckBox from "../Product/subcomponents/CheckBox";
+import RadioBox from "../Product/subcomponents/RadioBox";
+import { productCategory, productPrice } from '../Product/subcomponents/Datas';
 
 const { Meta } = Card;
 const { Text } = Typography;
 
-function CardViewProductListComponent() {
+function ProductSearchResultComponent(props) {
 
+    console.log("first : "+props.match.params.id)
     const [Products, setProducts] = useState([])
-    const [SearchTerms, setSearchTerms] = useState("")
+    const [SearchTerms, setSearchTerms] = useState(props.match.params.id)
+    console.log("second : "+SearchTerms)
 
     const [Filters, setFilters] = useState({
         productCategory: [],
@@ -24,12 +25,16 @@ function CardViewProductListComponent() {
     useEffect(() => {
 
         const variables = {
-
+            searchTerm: SearchTerms,
+            filters: Filters,
         }
 
         getProducts(variables)
 
-    }, [])
+
+    },[])
+
+
 
     const getProducts = (variables) => {
         Axios.post('http://localhost:5000/products/getProducts', variables)
@@ -93,6 +98,8 @@ function CardViewProductListComponent() {
 
     }
 
+
+
     const handlePrice = (value) => {
         const data = productPrice;
         let array = [];
@@ -124,6 +131,7 @@ function CardViewProductListComponent() {
         showFilteredResults(newFilters)
         setFilters(newFilters)
     }
+
 
     const updateSearchTerms = (newSearchTerm) => {
 
@@ -161,12 +169,8 @@ function CardViewProductListComponent() {
             </Row>
 
 
-            {/* Search */}
-            <div style={{ display: 'flex', justifyContent: 'flex-end', margin: '1rem auto' }}>
-                <SearchFeature
-                    refreshFunction={updateSearchTerms}
-                />
-            </div>
+            {/* Search  */}
+
 
             {/* Product card view  */}
             {Products.length === 0 ?
@@ -184,5 +188,4 @@ function CardViewProductListComponent() {
     )
 }
 
-export default CardViewProductListComponent
-
+export default ProductSearchResultComponent

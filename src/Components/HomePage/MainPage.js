@@ -25,6 +25,7 @@ import CardViewProductListComponent from "../Product/CardView-product-list.compo
 import Cart from "../Cart/Cart";
 import UserEdit from "../UserHomePage/UserEdit";
 import EditCategory from "../AdminPage/EditCategory";
+import ProductSearchResultComponent from "../Search/product-search-result.component";
 
 
 function Dashboard() {
@@ -54,6 +55,7 @@ function Dashboard() {
                         <PrivateRoute component={ProductListComponent} AccessBy={"storeManager"} path="/storeManager/list" exact/>
                         <PrivateRoute component={ProductEditComponent} AccessBy={"storeManager"} path="/storeManager/edit/:id" exact/>
                         <PrivateRoute component={DiscountManageComponent} AccessBy={"storeManager"} path="/storeManager/editDis/:id" exact/>
+                        <PrivateRoute component={ProductSearchResultComponent} AccessBy={"storeManager"} path="/storeManager/search/:id" exact/>
 
                         {/*Customer Only Routes*/}
 

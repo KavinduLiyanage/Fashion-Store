@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Dropzone from 'react-dropzone';
 import {PlusOutlined} from '@ant-design/icons';
 import Axios from 'axios';
+import {serverUrl} from "../config";
 
 function ProductImageUploadComponent(props) {
 
@@ -16,7 +17,7 @@ function ProductImageUploadComponent(props) {
         formData.append("file", files[0])
 
         //save the Image we chose inside the Node Server
-        Axios.post('http://localhost:5000/products/uploadImage', formData, config)
+        Axios.post(serverUrl+'/products/uploadImage', formData, config)
             .then(response => {
                 if (response.data.success) {
 
@@ -27,7 +28,6 @@ function ProductImageUploadComponent(props) {
                     alert('Failed to save the Image in Server')
                 }
             })
-
     }
 
     const onDelete = (image) => {
@@ -67,18 +67,13 @@ function ProductImageUploadComponent(props) {
 
                 {Images.map((image, index) => (
                     <div onClick={() => onDelete(image)} >
-                        <img style={{ minWidth: '300px', width: '300px', height: '220px' }} src={`http://localhost:5000/${image}`} alt={`productImg-${index}`} />
+                        <img style={{ minWidth: '300px', width: '300px', height: '220px' }} src={`${serverUrl}/${image}`} alt={`productImg-${index}`} />
                     </div>
                 ))}
-
-
             </div>
 
         </div>
     );
-
 }
 
 export default ProductImageUploadComponent;
-
-

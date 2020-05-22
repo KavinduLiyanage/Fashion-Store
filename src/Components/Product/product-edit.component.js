@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import { Typography, Button, Form, message, Input, Icon } from 'antd';
+import { Typography, Button, Form, Input } from 'antd';
+import {serverUrl} from "../config";
 
 const { Title } = Typography;
 const { TextArea } = Input;
-
 
 class ProductEditComponent extends Component {
 
@@ -29,8 +29,9 @@ class ProductEditComponent extends Component {
         }
     }
 
+
     componentDidMount() {
-        axios.get('http://localhost:5000/products/edit/'+this.props.match.params.id)
+        axios.get(serverUrl+'/products/edit/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     productName: response.data.productName,
@@ -47,7 +48,7 @@ class ProductEditComponent extends Component {
                 console.log(error);
             })
 
-        axios.get('http://localhost:5000/category')
+        axios.get(serverUrl+'/category')
             .then(response => {
                 if (response.data.length > 0) {
                     this.setState({
@@ -110,12 +111,12 @@ class ProductEditComponent extends Component {
             productCategory: this.state.productCategory
         };
 
-        //post change to put
-        axios.post('http://localhost:5000/products/update/'+ this.props.match.params.id, obj)
+        axios.post(serverUrl+'/products/update/'+ this.props.match.params.id, obj)
             .then(res => console.log(res.data));
 
         // Redirect to Product List
         this.props.history.push('/storeManager');
+        //window.location='/storeManager'
     }
 
     render() {

@@ -44,7 +44,7 @@ class DiscountManageComponent extends Component {
             .then(res => console.log(res.data));
 
         // Redirect to Product List
-        this.props.history.push('/storeManager/list');
+        this.props.history.push('/storeManager');
     }
 
     render() {

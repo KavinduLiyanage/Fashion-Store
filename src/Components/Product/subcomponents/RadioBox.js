@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Collapse, Radio } from 'antd';
-const { Panel } = Collapse;
 
+const { Panel } = Collapse;
 
 function RadioBox(props) {
 

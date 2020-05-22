@@ -31,8 +31,6 @@ const productPrice = [
     }
 ]
 
-
-
 const productCategory = [
     {
         "_id": 1,

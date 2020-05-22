@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import TableRowComponent from './tableRow.component';
+import {serverUrl} from "../config";
 
 class ProductListComponent extends Component {
 
@@ -12,7 +13,7 @@ class ProductListComponent extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/products')
+        axios.get(serverUrl+'/products')
             .then(response => {
                 this.setState({
                     product : response.data

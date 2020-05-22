@@ -9,9 +9,12 @@ export default class Navbar extends React.Component {
     constructor(props) {
         super(props);
 
+        this.onChangeSearch = this.onChangeSearch.bind(this);
+
         this.state = {
             category: [],
-            isLogin: isLogin()
+            isLogin: isLogin(),
+            SearchTerms:''
         };
     }
 
@@ -42,6 +45,17 @@ export default class Navbar extends React.Component {
             .catch((error) => {
                 console.log(error);
             })
+    }
+
+    onChangeSearch(e) {
+        this.setState( {
+            SearchTerms: e.target.value
+        });
+    }
+
+    handleSearchClick = () => {
+        window.location="/storeManager/search/"+this.state.SearchTerms
+
     }
 
     render() {
@@ -83,10 +97,15 @@ export default class Navbar extends React.Component {
                                     </li>
                                 </ul>
                                 <form className="form-inline">
-                                    <input className="form-control mr-sm-2" type="text" id="navBarSearchForm"/>
-                                    <button className="btn btn-primary my-2 my-sm-0" type="submit">
-                                        Search Product
-                                    </button>
+                                    <input className="form-control mr-sm-2" type="text" id="navBarSearchForm" value={this.state.SearchTerms}
+                                           onChange={this.onChangeSearch}
+                                           placeholder="Search By Typing..."/>
+                                    <Link to={"/storeManager/search/"}>
+                                        <button className="btn btn-primary my-2 my-sm-0" type="submit" onClick={this.handleSearchClick}>
+                                            Search Product
+                                        </button>
+                                    </Link>
+
                                 </form>
                                 <ul className="navbar-nav ml-md-auto">
                                     <li className="ml-2">

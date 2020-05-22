@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import { Typography, Button, Form, message, Input, Icon } from 'antd';
+import { Typography, Button, Form, Input} from 'antd';
 import axios from 'axios';
 import ProductImageUploadComponent from "./product-imageUpload.component";
+import {serverUrl} from "../config";
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -33,7 +34,7 @@ class ProductCreateComponent extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/category')
+        axios.get(serverUrl+'/category')
             .then(response => {
                 if (response.data.length > 0) {
                     this.setState({
@@ -46,7 +47,6 @@ class ProductCreateComponent extends Component {
                 console.log(error);
             })
     }
-
 
 
     onChangeProductName(e) {
@@ -96,7 +96,7 @@ class ProductCreateComponent extends Component {
             productCategory: this.state.productCategory,
             productDiscount: 0
         };
-        axios.post('http://localhost:5000/products/add', obj)
+        axios.post(serverUrl+'/products/add', obj)
             .then(res => console.log(res.data));
 
         this.setState( {
