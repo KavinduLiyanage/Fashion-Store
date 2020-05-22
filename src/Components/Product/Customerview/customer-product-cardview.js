@@ -31,21 +31,22 @@ function CustomerProductCardview() {
     const renderCards = Products.map((product, index) => {
 
         return <Col lg={6} md={8} xs={24}>
+            <Link to={"/productDetails/"+product._id}>
             <Card
                 hoverable={true}
-                cover={<Link to={"/storeManager/edit/"+product._id}><ImageSlider images={product.images} /></Link>}
+                cover={<ImageSlider images={product.images} />}
             >
                 <Meta
                     title={product.productName}
                     description={`Rs.${product.productPrice}`}
                 />
                 <div className="additional">
-
                     <Text type="warning">{product.productDiscount}% Discount</Text>
                     <br/>
                     <Text type="secondary">{product.productQnt} items available</Text>
                 </div>
             </Card>
+            </Link>
         </Col>
     })
 
