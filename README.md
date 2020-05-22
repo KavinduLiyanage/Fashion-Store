@@ -6,7 +6,7 @@ Online Shopping Cart System for a Fashion Store
 User Guide  
   APPLICATION FRAMEWORKS - SE  
   
-#Development Team:  
+# Development Team:  
   
 IT18018288 - Ranawaka M. N.  
 IT18016376 - Liyanage K. S.  
@@ -15,10 +15,8 @@ IT18140958 - Fernando W. S. I.
   
 Weekday 20.1
 
-#Installation and Setup  
+# Installation and Setup  
 Pre-requisites before installation and setup  
- 
- 
 
  - List item
  - NodeJS with npm
