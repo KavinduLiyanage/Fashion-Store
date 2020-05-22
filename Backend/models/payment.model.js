@@ -2,25 +2,22 @@ const mongoose = require('mongoose');
 const PaymentSchema = mongoose.Schema;
 
 let Payment = new PaymentSchema({
-    user_id : {
-        type : String
-    },
-    product_id : {
-        type : String
-    },
-    product_Name : {
-        type : String
-    },
-    product_Description : {
-        type : String
-    },
-    product_quantity : {
+    total : {
         type : Number
     },
-    product_Price : {
+    card_Name : {
+        type : String
+    },
+    card_Number : {
         type : Number
     },
-    product_Discount : {
+    card_expiry : {
+        type : Date
+    },
+    card_security_code : {
+        type : Number
+    },
+    zip_code : {
         type : Number
     }
 },{

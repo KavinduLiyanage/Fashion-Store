@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from "axios";
-import {TOKEN_ID} from "../config";
+import {serverUrl, TOKEN_ID} from "../config";
 
 class TableRow extends Component {
 
@@ -21,7 +21,7 @@ class TableRow extends Component {
     }
 
     delete(pid){
-        axios.delete('http://localhost:5000/cart/delete/'+localStorage.getItem(TOKEN_ID)+'/'+pid)
+        axios.delete(serverUrl+'/cart/delete/'+localStorage.getItem(TOKEN_ID)+'/'+pid)
             .then(response=>{
                 console.log(response.data);
                 window.location.reload();

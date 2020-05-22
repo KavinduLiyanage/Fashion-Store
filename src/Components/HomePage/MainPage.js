@@ -26,7 +26,7 @@ import Cart from "../Cart/Cart";
 import UserEdit from "../UserHomePage/UserEdit";
 import EditCategory from "../AdminPage/EditCategory";
 import ProductSearchResultComponent from "../Search/product-search-result.component";
-
+import payment from "../Payment/payment";
 
 function Dashboard() {
     return (
@@ -61,7 +61,8 @@ function Dashboard() {
 
                         <PublicRoute restricted={false}  component={ProductDetails}   path="/productDetails/:id"   exact />
                         <PublicRoute restricted={false}   component={WishList}  path="/wishList"  exaxt/>
-                        <PublicRoute restricted={false}  component={Cart}   path="/cart"   exact />
+                        <PrivateRoute component={Cart} AccessBy={"customer"} path="/cart" exact/>
+                        <PrivateRoute component={payment} AccessBy={"customer"} path="/payment" exact/>
                         <PrivateRoute component={CustomerHome} AccessBy={"customer"} path="/customer" exact/>
                         <PrivateRoute component={UserEdit} AccessBy={"customer"} path="/userEdit" exact/>
 

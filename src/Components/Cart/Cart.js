@@ -1,20 +1,22 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import TableRow from "./TableRow";
-import {TOKEN_ID} from "../config";
+import {serverUrl, TOKEN_ID} from "../config";
+import {Link} from "react-router-dom";
 
 export default class Cart extends Component{
 
     constructor(props) {
         super(props);
         this.state = {
-            cart: []
+            total:0,
+            cart: [],
             };
     }
 
     componentDidMount() {
         console.log(localStorage.getItem(TOKEN_ID));
-        axios.get('http://localhost:5000/cart/cartDetails/'+localStorage.getItem(TOKEN_ID))
+        axios.get(serverUrl+'/cart/cartDetails/'+localStorage.getItem(TOKEN_ID))
             .then(response => {
                 this.setState({cart: response.data});
             })
@@ -27,12 +29,11 @@ export default class Cart extends Component{
             return <TableRow obj={object} key={i}/>;
         });
     }
-
         render() {
         return (
             <div>
                 <div className="container">
-                    <h3 className="text-center mb-5">Shopping Cart</h3>
+                    <h3 className="text-center mb-4">Shopping Cart</h3>
                     <div className="row">
                         <div className="col-md-12">
                             <table className="table">
@@ -52,9 +53,11 @@ export default class Cart extends Component{
                                 </tbody>
                             </table>
                         </div>
-                        <div>
-                            <button className="btn btn-primary">Checkout</button>
-
+                        <div className="container mt-0">
+                            <h5 className="text-right mb-2 col-sm-10">Total : {this.state.total}</h5>
+                        </div>
+                        <div className="container mt-0 text-right">
+                            <Link to="/payment" className="btn btn-primary mb-10">Checkout</Link>
                         </div>
                     </div>
                 </div>
