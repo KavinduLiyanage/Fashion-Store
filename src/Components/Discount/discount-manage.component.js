@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import axios from 'axios';
+import {serverUrl} from "../config";
 
 class DiscountManageComponent extends Component {
 
@@ -15,7 +16,7 @@ class DiscountManageComponent extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/products/editDis/'+this.props.match.params.id)
+        axios.get(serverUrl +'/products/editDis/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     productDiscount: response.data.productDiscount
@@ -40,7 +41,7 @@ class DiscountManageComponent extends Component {
         };
 
         //post change to put
-        axios.post('http://localhost:5000/products/updateDis/'+ this.props.match.params.id, obj)
+        axios.post(serverUrl +'/products/updateDis/'+ this.props.match.params.id, obj)
             .then(res => console.log(res.data));
 
         // Redirect to Product List

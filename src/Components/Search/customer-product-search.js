@@ -6,6 +6,7 @@ import ImageSlider from "../Product/subcomponents/ImageSlider";
 import CheckBox from "../Product/subcomponents/CheckBox";
 import RadioBox from "../Product/subcomponents/RadioBox";
 import { productBranches, productPrice } from '../Product/subcomponents/Datas';
+import {serverUrl} from "../config";
 
 const { Meta } = Card;
 const { Text } = Typography;
@@ -37,7 +38,7 @@ function CustomerProductSearch(props) {
 
 
     const getProducts = (variables) => {
-        Axios.post('http://localhost:5000/products/getProducts', variables)
+        Axios.post(serverUrl + '/products/getProducts', variables)
             .then(response => {
                 if (response.data.success) {
                     setProducts(response.data.products)
