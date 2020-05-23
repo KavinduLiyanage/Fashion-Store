@@ -18,7 +18,6 @@ Weekday 20.1
 # Installation and Setup  
 Pre-requisites before installation and setup  
 
- - List item
  - NodeJS with npm
  - Git
  - IDE such as IntelliJ Webstorm or IntelliJ Ultimate  
@@ -40,25 +39,17 @@ You can visit https://github.com/MilindaRanawaka/Fashion-Store, and download the
 ## Available Scripts
 
   
-In the project directory, you can run:  
+In the project directory, you can run in the terminal:  
   
 ### `npm intall`  
   
-For Install all the Dependencies.<br />  
+For Install all the Dependencies for Client and Server.<br />
+
+
+### Getting Started
   
 ### `npm run dev`  
-  
-Runs the both server and client.<br /> Server will run in http://localhost:5000 <br />  Open [http://localhost:3000](http://localhost:3000) to view client application in the browser.  
-  
-  or
 
-##
-### `npm start`  
-  
-Runs just the Client.<br />  Open [http://localhost:3000](http://localhost:3000) to view it in the browser.  
-
-  and
-### `npm run server`  
-  
-Runs just the Server.<br />Server will run in http://localhost:5000 <br />
-##
+This command automatically run the server and client processes concurrently and automatically runs the browser.
+If you want to run application manually Open [http://localhost:3000](http://localhost:3000) to view client application in the browser.
+Server will run in http://localhost:5000  
