@@ -122,7 +122,7 @@ export default class Navbar extends React.Component {
 
                                             {this.state.category.map(item => {
                                                 return(
-                                                    <a className="dropdown-item" href={"search/"+item['categoryName']} key={item['_id']}>{item['categoryName']}</a>
+                                                    <a className="dropdown-item" href={"/search/"+item['categoryName']} key={item['_id']}>{item['categoryName']}</a>
                                                 )
                                             })}
                                         </div>

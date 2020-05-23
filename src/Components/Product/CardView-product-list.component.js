@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import Axios from 'axios';
-import {Col, Card, Row, Button, Typography } from 'antd';
+import {Col, Card, Row, Typography } from 'antd';
 import {Link} from "react-router-dom";
 import ImageSlider from "./subcomponents/ImageSlider";
 import CheckBox from "./subcomponents/CheckBox";
