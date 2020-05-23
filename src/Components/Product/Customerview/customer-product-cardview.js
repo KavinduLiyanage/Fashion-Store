@@ -18,12 +18,12 @@ function CustomerProductCardview() {
             .then(response => {
                 if (response.data.success) {
                     setProducts(response.data.products)
-                    console.log(response.data.products)
+
 
                 } else {
                     alert('Failed to fectch product datas')
                 }
-                console.log(response.data.products);
+
             })
 
     }, [])

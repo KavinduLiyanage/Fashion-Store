@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Typography, Button, Form, Input } from 'antd';
 import {serverUrl} from "../config";
 import {productBranches} from "./subcomponents/Datas";
+import ImageSlider from "./subcomponents/ImageSlider";
 
 const { Title, Text } = Typography;
 const { TextArea } = Input;
@@ -145,7 +146,7 @@ class ProductEditComponent extends Component {
                     </div>
                     {/* DropZone */}
 
-
+                    <ImageSlider images={this.state.images} />
 
 
                     <label>Category</label>

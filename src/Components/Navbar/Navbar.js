@@ -14,7 +14,8 @@ export default class Navbar extends React.Component {
         this.state = {
             category: [],
             isLogin: isLogin(),
-            SearchTerms:''
+            SearchTerms:'',
+            linkTo:''
         };
     }
 
@@ -31,7 +32,7 @@ export default class Navbar extends React.Component {
         } else if(localStorage.getItem(TOKEN_TYPE) === 'admin'){
             window.location='/admin'
         } else if(localStorage.getItem(TOKEN_TYPE) === 'storeManager'){
-            window.location='storeManager'
+            window.location='/storeManager'
         }
     }
 
@@ -54,16 +55,30 @@ export default class Navbar extends React.Component {
     }
 
     handleSearchClick = () => {
-        if(localStorage.getItem(TOKEN_TYPE) === 'customer'){
-            window.location="/search/"+this.state.SearchTerms
-        } else if(localStorage.getItem(TOKEN_TYPE) === 'admin'){
-            window.location="/search/"+this.state.SearchTerms
-        } else if(localStorage.getItem(TOKEN_TYPE) === 'storeManager'){
-            window.location="/storeManager/search/"+this.state.SearchTerms
-        } else {
-            window.location="/search/"+this.state.SearchTerms
-        }
 
+        if(localStorage.getItem(TOKEN_TYPE) === 'customer'){
+            this.setState({
+                linkTo: '/search/:id'
+            });
+            window.location="/search/"+this.state.SearchTerms;
+
+        } else if(localStorage.getItem(TOKEN_TYPE) === 'admin'){
+            this.setState({
+                linkTo: '/admin'
+            });
+            window.location="/search/"+this.state.SearchTerms;
+        } else if(localStorage.getItem(TOKEN_TYPE) === 'storeManager'){
+            this.setState({
+                linkTo: '/storeManager'
+            });
+            window.location="/storeManager/search/"+this.state.SearchTerms;
+        } else {
+            this.setState({
+                linkTo: '/search'
+            });
+            window.location="/search/"+this.state.SearchTerms;
+        }
+        console.log("handle click : "+this.state.linkTo);
     }
 
     render() {
@@ -108,7 +123,7 @@ export default class Navbar extends React.Component {
                                     <input className="form-control mr-sm-2" type="text" id="navBarSearchForm" value={this.state.SearchTerms}
                                            onChange={this.onChangeSearch}
                                            placeholder="Search By Typing..."/>
-                                    <Link >
+                                    <Link>
                                         <button className="btn btn-primary my-2 my-sm-0" type="submit" onClick={this.handleSearchClick}>
                                             Search Product
                                         </button>
