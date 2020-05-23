@@ -35,11 +35,12 @@
   },
   "scripts": {
     "start": "cd Backend && node server.js",
+    "client-start": "react-scripts start",
     "server": "cd Backend && nodemon server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "concurrently \"npm run server\" \"npm run start\"",
+    "dev": "concurrently \"npm run server\" \"npm run client-start\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build"
   },
   "proxy": "http://localhost:5000",
