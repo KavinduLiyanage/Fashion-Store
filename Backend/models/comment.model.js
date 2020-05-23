@@ -17,6 +17,11 @@ let Comment = new Schema({
 
     },
 
+    comment_lname:{
+
+        type:String,
+    },
+
     comment_des: {
         type: String,
         required: true,

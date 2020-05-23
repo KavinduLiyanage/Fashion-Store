@@ -71,9 +71,10 @@ class DisplayComment extends Component {
 
                                 {value.comment_des}<br/>
 
-                                {value.comment_uname}
+                                {value.comment_uname} {value.comment_lname}
 
 
+                                <br/>
                                 <br/>
 
 

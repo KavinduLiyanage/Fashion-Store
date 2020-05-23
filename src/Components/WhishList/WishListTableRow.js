@@ -137,9 +137,10 @@ class WishListTableRow extends Component {
                        this.props.obj.wish_price,
                        this.props.obj.wish_discount,
 
-                   )}>addtocart</button>
+                   )}><i className="fas fa-shopping-cart"></i></button>
 
-                    <button type="button" className="btn btn-danger btn-sm" onClick={()=>this.deleteItem(this.props.obj.wish_pid)} >remove</button>
+                    <button type="button" className="btn btn-danger btn-sm" onClick={()=>this.deleteItem(this.props.obj.wish_pid)} ><i class="fas fa-trash-alt"></i>
+                    </button>
 
                 </td>
             </tr>

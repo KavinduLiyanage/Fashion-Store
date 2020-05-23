@@ -10,6 +10,7 @@ import ImageSlider from "../Product/subcomponents/ImageSlider";
 
 
 
+
 export default class ProductDetails extends Component{
 
     constructor(props) {
@@ -229,39 +230,24 @@ export default class ProductDetails extends Component{
 
                     <div className="col-sm-6 col-md-8">
 
-                         <h3> </h3>
-                         <table className="table">
-                            <thead>
-                            <tr>
-                                <th>Product</th>
-                                <th className="text-center">Description</th>
-                                <th>Price</th>
-                                <th>Discount</th>
+                         <h4>{this.state.pname}</h4>
+                        <br/>
 
+                        <p><h5>Price</h5> <h6>Rs {this.state.price}.00</h6></p>
 
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>
-                                    {this.state.pname}
-                                </td>
-                                <td className="text-justify">
-                                    {this.state.pdes}
-                                </td>
-                                <td>
-                                    Rs{this.state.price}.00
-                                </td>
-                                <td>
-                                    {this.state.discount}%
-                                </td>
+                        <div className="bg-light" style={{width:"150px"}}><h5 className="text-warning">Discount {this.state.discount}%</h5></div>
 
+                        <br/>
+                        <div>
 
-                                </tr>
+                           <h6>Description</h6>
+                            <p className="text-justify" style={{width:"500px"}}>
+                                {this.state.pdes}
 
-                            </tbody>
+                            </p>
 
-                        </table>
+                        </div>
+
 
                         <br/>
                         <br/>
@@ -281,12 +267,13 @@ export default class ProductDetails extends Component{
 
 
 
-                                    )}>add to cart</button>
+                                    )}>Add to cart
+                                       </button>
 
 
 
 
-                                    <button type={"button"} className="btn btn-danger" onClick={()=>this.addWishList(
+                                    <button type={"button"} className="btn btn-danger "  onClick={()=>this.addWishList(
 
 
 
@@ -299,7 +286,7 @@ export default class ProductDetails extends Component{
 
 
 
-                                    )}>whish List</button>
+                                    )}>Add to wish list</button>
 
 
                                 </div>
@@ -309,8 +296,7 @@ export default class ProductDetails extends Component{
 
                        <Comment body={this.state.pid}/>
 
-                        <h4 className="text-success">Comments:</h4>
-                            <DisplayComment comment={this.state.pid}/>
+
 
 
 
@@ -321,6 +307,16 @@ export default class ProductDetails extends Component{
 
 
 
+                <div className="row">
+
+                    <div className="col-md-12">
+
+                        <h4>User Reviews</h4>
+                        <p style={{border:"2px solid hsl(0, 0%, 70%)"}}><DisplayComment comment={this.state.pid}/></p>
+                    </div>
+
+
+                </div>
             </div>
 
         );

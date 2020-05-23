@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import {TOKEN_FNAME, TOKEN_ID} from "../config";
+import {TOKEN_FNAME, TOKEN_ID, TOKEN_LNAME} from "../config";
 import {serverUrl} from "../config";
 
 
@@ -17,7 +17,8 @@ class Comment extends Component {
             comment_des:'',
             comment_cid:'',
             comment_pid:'',
-            comment_uname:''
+            comment_uname:'',
+            comment_lname:''
             //proId:'',
 
         }
@@ -32,11 +33,14 @@ class Comment extends Component {
 
              comment_cid:localStorage.getItem(TOKEN_ID),
              comment_uname: localStorage.getItem(TOKEN_FNAME),
+             comment_lname:localStorage.getItem(TOKEN_LNAME),
              //comment_pid:this.props.body,
 
 
 
          });
+
+         console.log(this.state.comment_lname);
 
 
      }
@@ -72,7 +76,8 @@ class Comment extends Component {
            comment_cid :this.state.comment_cid,
            comment_pid :this.props.body,
            comment_uname:this.state.comment_uname,
-           comment_des :this.state.comment_des,
+           comment_lname:this.state.comment_lname,
+           comment_des :this.state.comment_des
 
 
 
@@ -102,6 +107,7 @@ class Comment extends Component {
             comment_cid :'',
             comment_pid :'',
             comment_uname:'',
+            comment_lname:'',
 
 
         });
@@ -126,7 +132,7 @@ class Comment extends Component {
                 <form  onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label htmlFor="comment">Comment:</label>
-                        <input type="text"  style={mystyle} className="form-control"  value={this.state.comment_des} onChange={this.onChangeComment}/>
+                        <textarea type="text"  style={mystyle} className="form-control"  value={this.state.comment_des} onChange={this.onChangeComment}/>
 
 
                     </div>
