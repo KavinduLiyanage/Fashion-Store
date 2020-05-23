@@ -119,9 +119,8 @@ export default class Navbar extends React.Component {
                                     <li className="ml-2">
                                         {this.state.isLogin && localStorage.getItem(TOKEN_TYPE) === 'customer'? (
                                                 <div className="loged-info">
-                                                    <a href="/wishList"> WishList </a>
-                                                    <a href="/productDetails/5ec0c901426bd54270fd6777"> Details </a>
-                                                    <a href="/cart"> Cart </a>
+                                                    <a href="/wishList"> Wish List </a>
+                                                    <a href="/cart"> <i className="fas fa-cart-plus cart-icon"></i> </a>
                                                 </div>
                                         )
                                             : <span style={{"display": "none"}}> Empty </span>
