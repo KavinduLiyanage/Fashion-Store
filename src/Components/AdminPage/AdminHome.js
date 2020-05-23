@@ -16,6 +16,7 @@ export default class AdminHome extends React.Component{
     }
 
     componentDidMount() {
+        //Fetching all Category Details
         axios.get(serverUrl + '/category/')
             .then(response => {
                 this.setState({
@@ -25,6 +26,8 @@ export default class AdminHome extends React.Component{
             .catch((error) => {
                 console.log(error);
             })
+
+        //Fetching all user details
         axios.get(serverUrl + '/users/')
             .then(response => {
                 this.setState({
