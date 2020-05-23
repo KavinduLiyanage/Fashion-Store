@@ -50,6 +50,6 @@ For Install all the Dependencies for Client and Server.<br />
   
 ### `npm run dev`  
 
-This command automatically run the server and client processes concurrently and automatically runs the browser.
-If you want to run application manually Open [http://localhost:3000](http://localhost:3000) to view client application in the browser.
-Server will run in http://localhost:5000  
+This command automatically run the server and client processes concurrently and automatically runs the browser.<br />
+If you want to run application manually Open [http://localhost:3000](http://localhost:3000) to view client application in the browser. <br />
+Server will run in http://localhost:5000  <br />
