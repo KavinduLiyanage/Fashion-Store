@@ -6,7 +6,7 @@ import {TOKEN_ID} from "../config";
 import Comment from "./comment";
 import DisplayComment from "./displayComment";
 import {serverUrl} from "../config";
-
+import ImageSlider from "../Product/subcomponents/ImageSlider";
 
 
 
@@ -15,7 +15,7 @@ export default class ProductDetails extends Component{
     constructor(props) {
         super(props);
         this.state = {
-
+            images: [],
             body:'',
 
             wish_cid :'',
@@ -56,6 +56,7 @@ export default class ProductDetails extends Component{
             .then(response => {
 
                 this.setState({
+                                    images: response.data.images,
                                     pid : response.data._id,
                                     pname: response.data.productName,
                                     pdes : response.data.productDes,
@@ -221,15 +222,12 @@ export default class ProductDetails extends Component{
         return(
 
             <div className="container">
-
                 <div className="row">
-                    <div className="col-md-2">
-
-
-
+                    <div className="col-6 col-md-4">
+                        <ImageSlider  images={this.state.images}/>
                     </div>
 
-                    <div className="col-md-10">
+                    <div className="col-sm-6 col-md-8">
 
                          <h3> </h3>
                          <table className="table">
