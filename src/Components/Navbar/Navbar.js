@@ -122,8 +122,8 @@ export default class Navbar extends React.Component {
                                 <form className="form-inline">
                                     <input className="form-control mr-sm-2" type="text" id="navBarSearchForm" value={this.state.SearchTerms}
                                            onChange={this.onChangeSearch}
-                                           placeholder="Search By Typing..."/>
-                                    <Link>
+                                           placeholder="Search By Typing..." required/>
+                                    <Link to={""}>
                                         <button className="btn btn-primary my-2 my-sm-0" type="submit" onClick={this.handleSearchClick}>
                                             Search Product
                                         </button>

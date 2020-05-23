@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('path');
 
 require('dotenv').config();
 
@@ -12,7 +13,7 @@ app.use(express.json());
 
 //MongoDB Connection
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true}
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true}
 );
 const connection = mongoose.connection;
 connection.once('open', () => {
@@ -40,6 +41,13 @@ app.use('/payment',paymentRoutes);
 const commentRouter = require('./routes/comment');
 app.use('/comment', commentRouter);
 
+//Production for hosting server
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('../build'));
+    app.get('*', (req, res) => {
+        res.sendfile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+}
 
 app.listen(port, () => {
     console.log("Server runs on port : "+ port);
