@@ -46,7 +46,7 @@ commentRoutes.route('/getAllDetails').get(function (req,res) {
 commentRoutes.route('/commentDetails/:id').get(function (req,res) {
 
     let id = req.params.id;
-    Comment.find({'comment_cid':id}, function(err,wish){
+    Comment.find({'comment_pid':id}, function(err,wish){
 
         if(err)
 

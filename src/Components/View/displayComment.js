@@ -11,30 +11,23 @@ class DisplayComment extends Component {
         this.state={
 
             comments:[],
-            proId:this.props.comment
+
 
 
 
         };
     }
 
-
     componentDidMount() {
 
-       //const pid =this.props.comment;
-
-       // console.log(pid);
-
-        //const {id} = this.props.match.params;
+        //this.getComment();
+    }
 
 
-        //console.log(this.state.proId);
+    getComment() {
 
 
-      const pid = this.state.proId;
-
-
-        axios.get(serverUrl+'/comment/commentDetails/'+localStorage.getItem(TOKEN_ID))
+        axios.get(serverUrl+'/comment/commentDetails/'+this.props.comment)
 
             .then(response => {
 
@@ -58,6 +51,8 @@ class DisplayComment extends Component {
 
 
     render() {
+
+        this.getComment();
 
         const pid = this.props.comment;
         return (

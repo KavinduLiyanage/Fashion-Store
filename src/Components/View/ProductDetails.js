@@ -9,6 +9,7 @@ import {serverUrl} from "../config";
 
 
 
+
 export default class ProductDetails extends Component{
 
     constructor(props) {
