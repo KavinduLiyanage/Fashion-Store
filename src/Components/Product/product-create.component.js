@@ -20,7 +20,7 @@ class ProductCreateComponent extends Component {
         this.updateFiles = this.updateFiles.bind(this);
         this.onChangeProductPrice = this.onChangeProductPrice.bind(this);
         this.onChangeProductCategory = this.onChangeProductCategory.bind(this);
-        this.onChangeProductBranches = this.onChangeProductBranches.bind(this);
+        this.onChangeProductBranch = this.onChangeProductBranch.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         // Setting up state
@@ -32,7 +32,7 @@ class ProductCreateComponent extends Component {
             productPrice: '',
             productCategory: '',
             productCategories: [],
-            productBranches
+            productBranch:''
         }
     }
 
@@ -88,10 +88,11 @@ class ProductCreateComponent extends Component {
         });
     }
 
-    onChangeProductBranches(e) {
+    onChangeProductBranch(e) {
         this.setState( {
-            productBranches: e.target.value
+            productBranch: e.target.value
         });
+        console.log(this.state.productBranches);
     }
 
     onSubmit(e) {
@@ -103,7 +104,7 @@ class ProductCreateComponent extends Component {
             images: this.state.images,
             productPrice: this.state.productPrice,
             productCategory: this.state.productCategory,
-            productBranches: this.state.productBranches,
+            productBranches: this.state.productBranch,
             productDiscount: 0
         };
         axios.post(serverUrl+'/products/add', obj)
@@ -117,6 +118,7 @@ class ProductCreateComponent extends Component {
         })
         this.props.history.push('/storeManager');
     }
+
 
     render() {
         return (
@@ -177,19 +179,15 @@ class ProductCreateComponent extends Component {
                     />
                     <br/><br/>
                     <label>Branch Name</label>
-                    <select ref="productBranches"
-                            required
-                            className="form-control"
-                            value={this.state.productBranches}
-                            onChange={this.onChangeProductBranches}>
-                        {
-                            productBranches.map(function(product) {
-                                return <option
-                                    key={product._id}
-                                    value={product._id}>{product.name}
-                                </option>;
-                            })
-                        }
+                    <select
+                        className="form-control"
+                        placeholder={"fuck"}
+                        value={this.state.productBranch}
+                        onChange={this.onChangeProductBranch} >
+                        <option value="" selected disabled hidden>Select Branch</option>
+                        {productBranches.map(item => (
+                            <option key={item._id} value={item._id}>{item.name} </option>
+                        ))}
                     </select>
 
                     <br/>

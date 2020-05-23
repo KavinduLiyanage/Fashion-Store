@@ -29,6 +29,10 @@ let productSchema = new Schema({
     },
     productDiscountExpire : {
         type : Date
+    },
+    productBranches : {
+        type : Number,
+        default: 1
     }
 }, { timestamps: true })
 

@@ -105,7 +105,7 @@ function CardViewProductListComponent() {
                 array = data[key].array;
             }
         }
-        console.log('array', array)
+        //console.log('array', array)
         return array
     }
 
@@ -121,7 +121,7 @@ function CardViewProductListComponent() {
 
         }
 
-        console.log(newFilters)
+        console.log(filters)
 
         showFilteredResults(newFilters)
         setFilters(newFilters)
