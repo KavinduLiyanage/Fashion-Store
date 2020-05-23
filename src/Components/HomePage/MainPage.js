@@ -42,6 +42,7 @@ function Dashboard() {
                         <PublicRoute restricted={true} component={Login} path="/login" exact />
                         <PublicRoute restricted={true} component={CreateUser} path="/create-acc" exact />
                         <PublicRoute restricted={false} component={CustomerProductSearch} path="/search/:id" exact/>
+                        <PublicRoute restricted={false} component={ProductDetails} path="/productDetails/:id"   exact />
 
                         {/*Admin Only Routes*/}
                         <PrivateRoute component={AdminHome} AccessBy={"admin"} path="/admin" exact />
@@ -61,7 +62,6 @@ function Dashboard() {
 
                         {/*Customer Only Routes*/}
 
-                        <PrivateRoute  component={ProductDetails}  AccessBy={"customer"} path="/productDetails/:id"   exact />
                         <PrivateRoute  component={WishList} AccessBy={"customer"} path="/wishList"  exact/>
                         <PrivateRoute component={Cart} AccessBy={"customer"} path="/cart" exact/>
                         <PrivateRoute component={payment} AccessBy={"customer"} path="/payment" exact/>

@@ -49,10 +49,10 @@ function CardViewProductListComponent() {
 
     const renderCards = Products.map((product, index) => {
 
-        return <Col lg={6} md={8} xs={24}>
+        return <Col key={product._id} lg={6} md={8} xs={24}>
             <Card
                 hoverable={true}
-                cover={<Link to={"/storeManager/edit/"+product._id}><ImageSlider images={product.images} /></Link>}
+                cover={<Link to={"/storeManager/edit/"+product._id}><ImageSlider  images={product.images} /></Link>}
             >
                 <Meta
                     title={product.productName}

@@ -30,7 +30,7 @@ function CustomerProductCardview() {
 
     const renderCards = Products.map((product, index) => {
 
-        return <Col lg={6} md={8} xs={24}>
+        return <Col key={product._id} lg={6} md={8} xs={24}>
             <Link to={"/productDetails/"+product._id}>
             <Card
                 hoverable={true}
