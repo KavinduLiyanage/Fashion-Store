@@ -97,6 +97,7 @@ export default class AdminHome extends React.Component{
                                         <td>{item['email']}</td>
                                         <td>{item['phoneNo']}</td>
                                         <td><a href={"/editStoreManager/"+item['_id']}>Edit</a></td>
+                                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                                         <td><a onClick={e => this.deleteStoreManager(item['_id'])} href="#" >Delete</a></td>
                                     </tr>
                                     )
@@ -122,6 +123,7 @@ export default class AdminHome extends React.Component{
                                         <tr key={item['_id']}>
                                             <td>{item['categoryName']}</td>
                                             <td><a href={"/editCategory/"+item['_id']}>Edit</a></td>
+                                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                                             <td><a onClick={e => this.deleteCategory(item['_id'])} href="#" >Delete</a></td>
                                         </tr>
                                     )

@@ -15,7 +15,7 @@ function CustomerProductSearch(props) {
 
     console.log("first : "+props.match.params.id)
     const [Products, setProducts] = useState([])
-    const [SearchTerms, setSearchTerms] = useState(props.match.params.id)
+    const [SearchTerms] = useState(props.match.params.id)
     console.log("second : "+SearchTerms)
 
     const [Filters, setFilters] = useState({
@@ -33,7 +33,7 @@ function CustomerProductSearch(props) {
         getProducts(variables)
 
 
-    },[])
+    })
 
 
 
@@ -117,7 +117,7 @@ function CustomerProductSearch(props) {
         setFilters(newFilters)
     }
 
-
+    /*
     const updateSearchTerms = (newSearchTerm) => {
 
         const variables = {
@@ -129,6 +129,7 @@ function CustomerProductSearch(props) {
 
         getProducts(variables)
     }
+    */
 
     return (
         <div style={{ width: '75%', margin: '3rem auto', marginTop: 70}}>

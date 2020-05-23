@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from "axios";
-import {TOKEN_ID} from "../config";
 import {serverUrl} from "../config";
 
 class DisplayComment extends Component {
@@ -54,7 +53,7 @@ class DisplayComment extends Component {
 
         this.getComment();
 
-        const pid = this.props.comment;
+        //const pid = this.props.comment;
         return (
             <div>
 

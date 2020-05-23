@@ -1,7 +1,5 @@
 import React, { Component} from "react";
 import axios from 'axios';
-import{Link} from "react-router-dom";
-import {toast} from "react-toastify";
 import {TOKEN_ID} from "../config";
 import Comment from "./comment";
 import DisplayComment from "./displayComment";
