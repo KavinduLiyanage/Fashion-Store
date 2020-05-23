@@ -32,7 +32,7 @@ class ProductCreateComponent extends Component {
             productPrice: '',
             productCategory: '',
             productCategories: [],
-            productBranch:''
+            productBranch: 1
         }
     }
 
@@ -92,7 +92,7 @@ class ProductCreateComponent extends Component {
         this.setState( {
             productBranch: e.target.value
         });
-        console.log(this.state.productBranches);
+
     }
 
     onSubmit(e) {
@@ -181,10 +181,8 @@ class ProductCreateComponent extends Component {
                     <label>Branch Name</label>
                     <select
                         className="form-control"
-                        placeholder={"fuck"}
                         value={this.state.productBranch}
                         onChange={this.onChangeProductBranch} >
-                        <option value="" selected disabled hidden>Select Branch</option>
                         {productBranches.map(item => (
                             <option key={item._id} value={item._id}>{item.name} </option>
                         ))}

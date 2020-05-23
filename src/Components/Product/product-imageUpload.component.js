@@ -57,8 +57,7 @@ function ProductImageUploadComponent(props) {
                     }}
                          {...getRootProps()}
                     >
-                        {console.log('getRootProps', { ...getRootProps() })}
-                        {console.log('getInputProps', { ...getInputProps() })}
+
                         <input {...getInputProps()} />
                         <div>
                             <Row justify="space-around" align="middle">

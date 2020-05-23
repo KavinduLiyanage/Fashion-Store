@@ -83,8 +83,6 @@ function CustomerProductSearch(props) {
 
     }
 
-
-
     const handlePrice = (value) => {
         const data = productPrice;
         let array = [];
@@ -135,7 +133,7 @@ function CustomerProductSearch(props) {
         <div style={{ width: '75%', margin: '3rem auto', marginTop: 70}}>
             <div style={{ textAlign: 'center' }}>
 
-                <h2> <Text strong>Search Results</Text></h2>
+
             </div>
 
 

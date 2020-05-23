@@ -10,12 +10,14 @@ export default class Navbar extends React.Component {
         super(props);
 
         this.onChangeSearch = this.onChangeSearch.bind(this);
+        this.onChangeCat = this.onChangeCat.bind(this);
 
         this.state = {
             category: [],
             isLogin: isLogin(),
             SearchTerms:'',
-            linkTo:''
+            linkTo:'',
+            cat:''
         };
     }
 
@@ -51,6 +53,12 @@ export default class Navbar extends React.Component {
     onChangeSearch(e) {
         this.setState( {
             SearchTerms: e.target.value
+        });
+    }
+
+    onChangeCat(e) {
+        this.setState( {
+            cat: e.target.value
         });
     }
 
@@ -102,6 +110,7 @@ export default class Navbar extends React.Component {
                                     <li className="nav-item">
                                         <a className="nav-link" href="/">Link</a>
                                     </li>
+                                    onClick={this.handleCategoryClick(item.categoryName)} onChange={this.onChangeCat}
                                     */}
                                     <li className="nav-item dropdown">
                                         <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown"
@@ -113,7 +122,7 @@ export default class Navbar extends React.Component {
 
                                             {this.state.category.map(item => {
                                                 return(
-                                                    <a className="dropdown-item" href="/" key={item['_id']}>{item['categoryName']}</a>
+                                                    <a className="dropdown-item" href={"search/"+item['categoryName']} key={item['_id']}>{item['categoryName']}</a>
                                                 )
                                             })}
                                         </div>
@@ -122,8 +131,8 @@ export default class Navbar extends React.Component {
                                 <form className="form-inline">
                                     <input className="form-control mr-sm-2" type="text" id="navBarSearchForm" value={this.state.SearchTerms}
                                            onChange={this.onChangeSearch}
-                                           placeholder="Search By Typing..." required/>
-                                    <Link to={""}>
+                                           placeholder="Search in Store"/>
+                                    <Link>
                                         <button className="btn btn-primary my-2 my-sm-0" type="submit" onClick={this.handleSearchClick}>
                                             Search Product
                                         </button>

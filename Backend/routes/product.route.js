@@ -131,6 +131,7 @@ productRoutes.route('/update/:id').post(function (req, res) {
             product.images = req.body.images;
             product.productQnt = req.body.productQnt;
             product.productCategory = req.body.productCategory;
+            product.productBranches = req.body.productBranches;
 
             product.save().then(product => {
                 res.json('Update Complete');

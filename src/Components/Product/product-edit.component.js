@@ -29,7 +29,7 @@ class ProductEditComponent extends Component {
             productPrice: '',
             productCategory: '',
             productCategories: [],
-            productBranches
+            productBranch:''
         }
     }
 
@@ -44,10 +44,11 @@ class ProductEditComponent extends Component {
                     images: response.data.images,
                     productPrice: response.data.productPrice,
                     productCategory: response.data.productCategory,
-                    productTitle: response.data.productName
+                    productTitle: response.data.productName,
+                    productBranch: response.data.productBranches
                 });
+                console.log(this.state.productBranch)
 
-                console.log("Run edit component"+this.props.match.params.id);
             })
             .catch(function (error) {
                 console.log(error);
@@ -57,15 +58,15 @@ class ProductEditComponent extends Component {
             .then(response => {
                 if (response.data.length > 0) {
                     this.setState({
-                        productCategories: response.data.map(category => category.categoryName),
-                        productCategory: response.data[0].categoryName
+                        productCategories: response.data.map(category => category.categoryName)
                     })
+                    console.log("productCategories : "+this.state.productCategories);
+                    console.log("productCategory : "+this.state.productCategory);
                 }
             })
             .catch((error) => {
                 console.log(error);
             })
-
 
     }
 
@@ -107,8 +108,9 @@ class ProductEditComponent extends Component {
 
     onChangeProductBranches(e) {
         this.setState( {
-            productBranches: e.target.value
+            productBranch: e.target.value
         });
+        console.log(this.state.productBranch);
     }
 
     onSubmit(e) {
@@ -119,7 +121,8 @@ class ProductEditComponent extends Component {
             productQnt: this.state.productQnt,
             images: this.state.images,
             productPrice: this.state.productPrice,
-            productCategory: this.state.productCategory
+            productCategory: this.state.productCategory,
+            productBranches: this.state.productBranch
         };
 
         axios.post(serverUrl+'/products/update/'+ this.props.match.params.id, obj)
@@ -132,7 +135,6 @@ class ProductEditComponent extends Component {
 
     render() {
 
-        console.log("Render"+this.props.match.params.id);
         return (
             <div style={{maxWidth: '700px', margin: '2rem auto',  marginTop: 70}}>
                 <div style={{textAlign: 'center', marginBottom: '2rem'}}>
@@ -153,6 +155,7 @@ class ProductEditComponent extends Component {
                     <select ref="productCategory"
                             required
                             className="form-control"
+
                             value={this.state.productCategory}
                             onChange={this.onChangeProductCategory}>
                         {
@@ -164,6 +167,7 @@ class ProductEditComponent extends Component {
                             })
                         }
                     </select>
+
                     <br/>
                     <label>Product Name</label>
                     <Input
@@ -198,7 +202,7 @@ class ProductEditComponent extends Component {
                     <select ref="productBranches"
                             required
                             className="form-control"
-                            value={this.state.productBranches}
+                            value={this.state.productBranch}
                             onChange={this.onChangeProductBranches}>
                         {
                             productBranches.map(function(product) {
@@ -209,6 +213,7 @@ class ProductEditComponent extends Component {
                             })
                         }
                     </select>
+
                     <br/>
                     <br/>
                     <div >

@@ -38,7 +38,9 @@ let productSchema = new Schema({
 
 
 productSchema.index({
-    productName:'text'
+    productName:'text',
+    productDes:'text',
+    productCategory:'text'
 } )
 
 

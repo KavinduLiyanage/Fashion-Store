@@ -59,28 +59,16 @@ function CardViewProductListComponent() {
                     description={`Rs.${product.productPrice}`}
                 />
                 <div className="additional">
-
                     <Text type="warning">{product.productDiscount}% Discount</Text>
                     <br/>
                     <Text type="secondary">{product.productQnt} items available</Text>
-
                 </div>
-
-                <Row>
-                    <Col span={12}>
-                        <div>
-
-                            <Link to={"/storeManager/editDis/"+product._id}><Button>Discounts</Button></Link>
-                        </div>
-                    </Col>
-                    <Col span={12}>
-                        <div>
-
-                            <Link to={"/storeManager/edit/"+product._id}><Button>Edit Details</Button></Link>
-                        </div>
-                    </Col>
-                </Row>
-
+                <div>
+                    <div className="container">
+                        <Link to={"/storeManager/editDis/"+product._id}><button type="button" className="btn btn-outline-dark btn-block btn-sm">Manage Discounts</button></Link>
+                        <br/><Link to={"/storeManager/edit/"+product._id}><button type="button" className="btn btn-outline-dark btn-block btn-sm">Edit Details</button></Link>
+                    </div>
+                </div>
             </Card>
         </Col>
     })
