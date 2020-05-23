@@ -4,7 +4,8 @@
     <list default="true" id="cf1877ed-034b-4348-816b-3751a527d8d6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Navbar/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Product/CardView-product-list.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Product/CardView-product-list.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/View/ProductDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/View/ProductDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/View/displayComment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/View/displayComment.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +91,7 @@
       <workItem from="1590247303318" duration="437000" />
       <workItem from="1590254545282" duration="1396000" />
       <workItem from="1590261831018" duration="5725000" />
-      <workItem from="1590269904175" duration="329000" />
+      <workItem from="1590269904175" duration="1366000" />
     </task>
     <task id="LOCAL-00001" summary="implemented image upload">
       <created>1590005375060</created>
@@ -218,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590268539339</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Successfully Deployed to Cloud Bug Fix V3.0">
+      <created>1590270249343</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1590270249343</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,19 +254,20 @@
     <MESSAGE value="Successfully Deployed to Cloud" />
     <MESSAGE value="Successfully Deployed to Cloud Bug Fix V1.0" />
     <MESSAGE value="Successfully Deployed to Cloud Bug Fix V2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Successfully Deployed to Cloud Bug Fix V2.0" />
+    <MESSAGE value="Successfully Deployed to Cloud Bug Fix V3.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Successfully Deployed to Cloud Bug Fix V3.0" />
   </component>
   <component name="WindowStateProjectService">
     <state x="919" y="251" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589619359911">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="919" y="251" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1589619359911" />
-    <state x="382" y="0" key="CommitChangelistDialog2" timestamp="1590268538652">
+    <state x="382" y="0" key="CommitChangelistDialog2" timestamp="1590270248575">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="340" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590082126021" />
     <state x="382" y="0" key="CommitChangelistDialog2/0.0.1536.824/1920.147.1366.728@0.0.1536.824" timestamp="1590048263754" />
-    <state x="382" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1590268538652" />
+    <state x="382" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1590270248575" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1590046504101">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -293,17 +302,17 @@
     <state x="161" y="41" key="MergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1590176938945" />
     <state x="181" y="46" key="MergeDialog/0.0.1536.824/1920.147.1366.728@0.0.1536.824" timestamp="1590045943976" />
     <state x="181" y="46" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1590247370318" />
-    <state x="361" y="154" width="814" height="531" key="Vcs.Push.Dialog.v2" timestamp="1590268541414">
+    <state x="361" y="154" width="814" height="531" key="Vcs.Push.Dialog.v2" timestamp="1590270251864">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.147.1366.728@0.0.1536.824" timestamp="1590005407988" />
-    <state x="361" y="154" width="814" height="531" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590268541414" />
-    <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590269962192">
+    <state x="361" y="154" width="814" height="531" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590270251864" />
+    <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590270612551">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="514" y="291" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1590175944640" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/1920.147.1366.728@0.0.1536.824" timestamp="1590048215539" />
-    <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1590269962192" />
+    <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1590270612551" />
     <state x="479" y="131" width="577" height="562" key="find.popup" timestamp="1590263818052">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

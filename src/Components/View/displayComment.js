@@ -65,7 +65,7 @@ class DisplayComment extends Component {
                         return (
 
 
-                            <div className="bg-light">
+                            <div key={value._id} className="bg-light">
 
 
                                 {value.comment_des}<br/>

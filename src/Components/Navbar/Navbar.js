@@ -132,7 +132,7 @@ export default class Navbar extends React.Component {
                                     <input className="form-control mr-sm-2" type="text" id="navBarSearchForm" value={this.state.SearchTerms}
                                            onChange={this.onChangeSearch}
                                            placeholder="Search in Store"/>
-                                    <Link>
+                                    <Link to={""}>
                                         <button className="btn btn-primary my-2 my-sm-0" type="submit" onClick={this.handleSearchClick}>
                                             Search Product
                                         </button>

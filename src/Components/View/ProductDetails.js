@@ -231,7 +231,7 @@ export default class ProductDetails extends Component{
                          <h4>{this.state.pname}</h4>
                         <br/>
 
-                        <p><h5>Price</h5> <h6>Rs {this.state.price}.00</h6></p>
+                        <h5>Price</h5> <h6>Rs {this.state.price}.00</h6>
 
                         <div className="bg-light" style={{width:"150px"}}><h5 className="text-warning">Discount {this.state.discount}%</h5></div>
 
@@ -310,7 +310,7 @@ export default class ProductDetails extends Component{
                     <div className="col-md-12">
 
                         <h4>User Reviews</h4>
-                        <p style={{border:"2px solid hsl(0, 0%, 70%)"}}><DisplayComment comment={this.state.pid}/></p>
+                        {/*<div style={{border:"2px solid hsl(0, 0%, 70%)"}}><DisplayComment comment={this.state.pid}/></div>*/}
                     </div>
 
 
