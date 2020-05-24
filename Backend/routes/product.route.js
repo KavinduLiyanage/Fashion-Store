@@ -5,7 +5,7 @@ const multer = require("multer");
 // Product Model
 let Product = require("../models/product.model");
 
-var storage = multer.diskStorage({
+const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "uploads/");
   },
@@ -21,7 +21,7 @@ var storage = multer.diskStorage({
   },
 });
 
-var upload = multer({ storage: storage }).single("file");
+const upload = multer({storage: storage}).single("file");
 
 // Defined upload image route
 productRoutes.post("/uploadImage", (req, res) => {
@@ -154,7 +154,7 @@ productRoutes.route("/updateDis/:id").post(function (req, res) {
 
 //delete data
 productRoutes.route("/delete/:id").get(function (req, res) {
-  Product.findByIdAndRemove({ _id: req.params.id }, function (err, product) {
+  Product.findOneAndDelete({ _id: req.params.id }, function (err, product) {
     if (err) res.json(err);
     else res.json("Successfully removed");
   });

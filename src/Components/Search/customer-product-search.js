@@ -12,7 +12,7 @@ const { Meta } = Card;
 const { Text } = Typography;
 
 function CustomerProductSearch(props) {
-  //console.log("first : " + props.match.params.id);
+
   const [Products, setProducts] = useState([]);
 
   const [Filters, setFilters] = useState({
@@ -21,8 +21,6 @@ function CustomerProductSearch(props) {
   });
 
   const [SearchTerms] = useState(props.match.params.id);
-  //console.log("second : " + SearchTerms);
-
 
   useEffect(() => {
     const variables = {
@@ -31,14 +29,14 @@ function CustomerProductSearch(props) {
     };
 
     getProducts(variables);
-  },[]);
+  },[Filters,SearchTerms]);
 
   const getProducts = (variables) => {
     Axios.post(serverUrl + "/products/getProducts", variables).then(
       (response) => {
         if (response.data.success) {
           setProducts(response.data.products);
-          console.log(response.data.products);
+
         } else {
           alert("Failed to fectch product datas");
         }
@@ -56,7 +54,7 @@ function CustomerProductSearch(props) {
           >
             <Meta
               title={product.productName}
-              description={`Rs.${product.productPrice}`}
+              description={`Rs.${product.productPrice}.00`}
             />
             <div className="additional">
               <Text type="warning">{product.productDiscount}% Discount</Text>
@@ -69,8 +67,6 @@ function CustomerProductSearch(props) {
     );
   });
 
-
-
   const handlePrice = (value) => {
     const data = productPrice;
     let array = [];
@@ -80,7 +76,7 @@ function CustomerProductSearch(props) {
         array = data[key].array;
       }
     }
-    console.log("array", array);
+
     return array;
   };
 
@@ -101,8 +97,6 @@ function CustomerProductSearch(props) {
       let priceValues = handlePrice(filters);
       newFilters[category] = priceValues;
     }
-
-    //console.log(newFilters);
 
     showFilteredResults(newFilters);
     setFilters(newFilters);
@@ -156,7 +150,7 @@ function CustomerProductSearch(props) {
             alignItems: "center",
           }}
         >
-          <h2>No post yet...</h2>
+          <h2>No product yet...</h2>
         </div>
       ) : (
         <div>

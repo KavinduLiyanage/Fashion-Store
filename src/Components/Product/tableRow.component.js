@@ -15,41 +15,44 @@ class TableRowComponent extends Component {
     if (this.props.obj.productDiscount === 0) {
       this.state.Discount = "No discount";
     } else {
-      this.state.Discount = this.props.obj.productDiscount;
+      this.state.Discount = this.props.obj.productDiscount+"%";
     }
   }
+
   delete() {
     axios
       .get(serverUrl + "/products/delete/" + this.props.obj._id)
       .then(console.log("Deleted"))
       .catch((err) => console.log(err));
+      window.location='/storeManager/list'
   }
 
   render() {
     return (
       <tr>
         <td>{this.props.obj.productName}</td>
-        <td>{this.props.obj.productDes}</td>
-        <td>{this.props.obj.productPrice}</td>
-        <td>{this.state.Discount}</td>
-        <td>
+        <td className="text-center">{this.props.obj.productQnt}</td>
+        <td className="text-center">Rs.{this.props.obj.productPrice}.00</td>
+        <td className="text-center">{this.state.Discount}</td>
+          <td>
+              <Link
+                  to={"/storeManager/edit/" + this.props.obj._id}
+                  className="btn btn-outline-dark btn-sm"
+              >
+                  Edit
+              </Link>
+          </td>
+        <td >
           <Link
             to={"/storeManager/editDis/" + this.props.obj._id}
-            className="btn btn-success"
+            className="btn btn-outline-dark btn-sm"
           >
             Manage Discount
           </Link>
         </td>
+
         <td>
-          <Link
-            to={"/storeManager/edit/" + this.props.obj._id}
-            className="btn btn-primary"
-          >
-            Edit
-          </Link>
-        </td>
-        <td>
-          <button onClick={this.delete} className="btn btn-danger">
+          <button onClick={this.delete} className="btn btn-outline-danger btn-sm">
             Delete
           </button>
         </td>

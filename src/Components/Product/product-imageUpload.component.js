@@ -87,7 +87,7 @@ function ProductImageUploadComponent(props) {
             >
 
                 {Images.map((image, index) => (
-                    <div onClick={() => onDelete(image)}>
+                    <div key={index} onClick={() => onDelete(image)}>
                         <img
                             style={{ width: "148px", height: "223px" }}
                             src={`${serverUrl}/${image}`}

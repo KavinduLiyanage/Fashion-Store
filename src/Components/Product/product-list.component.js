@@ -34,17 +34,17 @@ class ProductListComponent extends Component {
     return (
       <div className="container" style={{ marginTop: 80 }}>
         <h3 align="center">Products List</h3>
-        <table className="table table-striped" style={{ marginTop: 20 }}>
+        <table className="table table-striped table-hover" style={{ marginTop: 20 }}>
           <thead>
-            <tr>
+            <tr className="text-center">
               <th>Name</th>
-              <th>Description</th>
+              <th>Available Quantity</th>
               <th>Price</th>
               <th>Discount</th>
-              <th colSpan="2">Action</th>
+              <th colSpan="3">Action</th>
             </tr>
           </thead>
-          <tbody>{this.productList()}</tbody>
+          <tbody >{this.productList()}</tbody>
         </table>
       </div>
     );

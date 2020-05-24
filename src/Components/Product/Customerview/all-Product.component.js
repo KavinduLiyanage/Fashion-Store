@@ -13,18 +13,23 @@ const { Meta } = Card;
 const { Text } = Typography;
 
 function AllProductComponent() {
-    const [Products, setProducts] = useState([]);
-    const [SearchTerms, setSearchTerms] = useState("");
 
     const [Filters, setFilters] = useState({
         productBranches: [],
         productPrice: [],
     });
 
+    const [SearchTerms, setSearchTerms] = useState("");
+
+    const [Products, setProducts] = useState([]);
+
     useEffect(() => {
-        const variables = {};
+        const variables = {
+
+        };
 
         getProducts(variables);
+
     }, []);
 
     const getProducts = (variables) => {
@@ -32,11 +37,11 @@ function AllProductComponent() {
             (response) => {
                 if (response.data.success) {
                     setProducts(response.data.products);
-                    console.log(response.data.products);
+
                 } else {
                     alert("Failed to fectch product datas");
                 }
-                console.log(response.data.products);
+
             }
         );
     };
@@ -54,7 +59,7 @@ function AllProductComponent() {
                 >
                     <Meta
                         title={product.productName}
-                        description={`Rs.${product.productPrice}`}
+                        description={`Rs.${product.productPrice}.00`}
                     />
                     <div className="additional">
                         <Text type="warning">{product.productDiscount}% Discount</Text>
@@ -72,6 +77,7 @@ function AllProductComponent() {
             filters: filters,
             searchTerm: SearchTerms,
         };
+
         getProducts(variables);
     };
 
@@ -84,7 +90,7 @@ function AllProductComponent() {
                 array = data[key].array;
             }
         }
-        //console.log('array', array)
+
         return array;
     };
 
@@ -116,7 +122,7 @@ function AllProductComponent() {
     return (
         <div style={{ width: "75%", margin: "3rem auto", marginTop: 70 }}>
             <div style={{ textAlign: "center" }}>
-                <h2> <Text strong>Our Products</Text></h2>
+                <h2> All Products</h2>
             </div>
 
             {/* Filter  */}
@@ -158,7 +164,7 @@ function AllProductComponent() {
                         alignItems: "center",
                     }}
                 >
-                    <h2>No post yet...</h2>
+                    <h2>No product yet...</h2>
                 </div>
             ) : (
                 <div>

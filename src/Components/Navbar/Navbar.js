@@ -131,7 +131,7 @@ export default class Navbar extends React.Component {
                 <ul className="navbar-nav">
 
                                     <li className="nav-item active">
-                                        <a className="nav-link" href="/allProducts">Our Products <span className="sr-only">(current)</span></a>
+                                        <a className="nav-link" href="/allProducts">All Products <span className="sr-only">(current)</span></a>
                                     </li>
                   {/*
                                     <li className="nav-item">

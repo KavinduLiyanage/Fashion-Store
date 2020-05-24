@@ -9,6 +9,7 @@ const { Meta } = Card;
 const { Text } = Typography;
 
 function CustomerProductCardview() {
+
   const [Products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -21,7 +22,7 @@ function CustomerProductCardview() {
     });
   }, []);
 
-  const renderCards = Products.map((product, index) => {
+  const renderCards = Products.slice(0,8).map((product, index) => {
     return (
       <Col key={product._id} lg={6} md={8} xs={24}>
         <Link to={"/productDetails/" + product._id}>
@@ -31,7 +32,7 @@ function CustomerProductCardview() {
           >
             <Meta
               title={product.productName}
-              description={`Rs.${product.productPrice}`}
+              description={`Rs.${product.productPrice}.00`}
             />
             <div className="additional">
               <Text type="warning">{product.productDiscount}% Discount</Text>
@@ -63,7 +64,7 @@ function CustomerProductCardview() {
             alignItems: "center",
           }}
         >
-          <h2>No post yet...</h2>
+          <h2>No product yet...</h2>
         </div>
       ) : (
         <div>

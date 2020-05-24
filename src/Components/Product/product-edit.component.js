@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Typography, Button, Form, Input } from "antd";
-import { serverUrl } from "../config";
+import {serverUrl} from "../config";
 import { productBranches } from "./subcomponents/Datas";
 import ImageSlider from "./subcomponents/ImageSlider";
 
@@ -46,7 +46,7 @@ class ProductEditComponent extends Component {
           productTitle: response.data.productName,
           productBranch: response.data.productBranches,
         });
-        console.log(this.state.productBranch);
+
       })
       .catch(function (error) {
         console.log(error);
@@ -61,8 +61,7 @@ class ProductEditComponent extends Component {
               (category) => category.categoryName
             ),
           });
-          console.log("productCategories : " + this.state.productCategories);
-          console.log("productCategory : " + this.state.productCategory);
+
         }
       })
       .catch((error) => {
@@ -110,11 +109,18 @@ class ProductEditComponent extends Component {
     this.setState({
       productBranch: e.target.value,
     });
-    console.log(this.state.productBranch);
+
   }
 
   onSubmit(e) {
     e.preventDefault();
+
+    if (!this.state.productName || !this.state.productDes ||
+        !this.state.productQnt
+        || !this.state.productPrice || !this.state.productCategory) {
+      return alert('Please fill all the fields')
+    }
+
     const obj = {
       productName: this.state.productName,
       productDes: this.state.productDes,
@@ -130,104 +136,112 @@ class ProductEditComponent extends Component {
       .then((res) => console.log(res.data));
 
     // Redirect to Product List
-    this.props.history.push("/storeManager");
-    //window.location='/storeManager'
+    //this.props.history.push("/storeManager");
+    window.location='/storeManager'
   }
 
   render() {
     return (
-      <div style={{ maxWidth: "700px", margin: "2rem auto", marginTop: 70 }}>
+      <div className="container" style={{  marginTop: 70 }}>
         <div style={{ textAlign: "center", marginBottom: "2rem" }}>
           <Title level={2}>
             {" "}
             <Text strong> Edit Product Details </Text>
           </Title>
         </div>
+        <div >
+          <div className="row">
+            <div className="col-6 col-md-4">
+              <ImageSlider images={this.state.images} />
+            </div>
+            <div className="col-sm-6 col-md-8">
+              <Form onSubmit={this.onSubmit}>
+                <div style={{ textAlign: "center" }}>
+                  <Title level={3}>
+                    {" "}
+                    <Text disabled> {this.state.productTitle} </Text>
+                  </Title>
+                </div>
 
-        <Form onSubmit={this.onSubmit}>
-          <div style={{ textAlign: "center" }}>
-            <Title level={3}>
-              {" "}
-              <Text disabled> {this.state.productTitle} </Text>
-            </Title>
+                <label>Category</label>
+                <select
+                    ref="productCategory"
+                    required
+                    className="form-control"
+                    value={this.state.productCategory}
+                    onChange={this.onChangeProductCategory}
+                >
+                  {this.state.productCategories.map(function (product) {
+                    return (
+                        <option key={product} value={product}>
+                          {product}
+                        </option>
+                    );
+                  })}
+                </select>
+
+                <br />
+                <label>Product Name</label>
+                <Input
+                    onChange={this.onChangeProductName}
+                    value={this.state.productName}
+                />
+                <br />
+                <br />
+                <label>Product Description</label>
+                <TextArea
+                    onChange={this.onChangeProductDes}
+                    value={this.state.productDes}
+                />
+                <br />
+                <br />
+                <label>Price</label>
+                <Input
+                    onChange={this.onChangeProductPrice}
+                    value={this.state.productPrice}
+                    type="number"
+                />
+                <br />
+                <br />
+                <label>Quantity</label>
+                <Input
+                    onChange={this.onChangeProductQnt}
+                    value={this.state.productQnt}
+                    type="number"
+                />
+                <br />
+                <br />
+                <label>Branch Name</label>
+                <select
+                    ref="productBranches"
+                    required
+                    className="form-control"
+                    value={this.state.productBranch}
+                    onChange={this.onChangeProductBranches}
+                >
+                  {productBranches.map(function (product) {
+                    return (
+                        <option key={product._id} value={product._id}>
+                          {product.name}
+                        </option>
+                    );
+                  })}
+                </select>
+
+                <br />
+                <br />
+                <div>
+                  <Button type="primary" block onClick={this.onSubmit}>
+                    Update Details
+                  </Button>
+                  <br />
+                  <br />
+                </div>
+              </Form>
+            </div>
           </div>
-          {/* DropZone */}
+        </div>
 
-          <ImageSlider images={this.state.images} />
-
-          <label>Category</label>
-          <select
-            ref="productCategory"
-            required
-            className="form-control"
-            value={this.state.productCategory}
-            onChange={this.onChangeProductCategory}
-          >
-            {this.state.productCategories.map(function (product) {
-              return (
-                <option key={product} value={product}>
-                  {product}
-                </option>
-              );
-            })}
-          </select>
-
-          <br />
-          <label>Product Name</label>
-          <Input
-            onChange={this.onChangeProductName}
-            value={this.state.productName}
-          />
-          <br />
-          <br />
-          <label>Product Description</label>
-          <TextArea
-            onChange={this.onChangeProductDes}
-            value={this.state.productDes}
-          />
-          <br />
-          <br />
-          <label>Price</label>
-          <Input
-            onChange={this.onChangeProductPrice}
-            value={this.state.productPrice}
-            type="number"
-          />
-          <br />
-          <br />
-          <label>Quantity</label>
-          <Input
-            onChange={this.onChangeProductQnt}
-            value={this.state.productQnt}
-            type="number"
-          />
-          <br />
-          <br />
-          <label>Branch Name</label>
-          <select
-            ref="productBranches"
-            required
-            className="form-control"
-            value={this.state.productBranch}
-            onChange={this.onChangeProductBranches}
-          >
-            {productBranches.map(function (product) {
-              return (
-                <option key={product._id} value={product._id}>
-                  {product.name}
-                </option>
-              );
-            })}
-          </select>
-
-          <br />
-          <br />
-          <div>
-            <Button type="primary" block onClick={this.onSubmit}>
-              Update Details
-            </Button>
-          </div>
-        </Form>
       </div>
     );
   }

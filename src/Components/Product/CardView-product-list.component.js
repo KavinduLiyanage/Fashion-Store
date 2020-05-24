@@ -32,11 +32,11 @@ function CardViewProductListComponent() {
       (response) => {
         if (response.data.success) {
           setProducts(response.data.products);
-          console.log(response.data.products);
+
         } else {
           alert("Failed to fectch product datas");
         }
-        console.log(response.data.products);
+
       }
     );
   };
@@ -54,7 +54,7 @@ function CardViewProductListComponent() {
         >
           <Meta
             title={product.productName}
-            description={`Rs.${product.productPrice}`}
+            description={`Rs.${product.productPrice}.00`}
           />
           <div className="additional">
             <Text type="warning">{product.productDiscount}% Discount</Text>
@@ -85,7 +85,7 @@ function CardViewProductListComponent() {
         </Card>
       </Col>
     );
-  });
+  }).reverse();
 
   const showFilteredResults = (filters) => {
     const variables = {
@@ -180,7 +180,7 @@ function CardViewProductListComponent() {
             alignItems: "center",
           }}
         >
-          <h2>No post yet...</h2>
+          <h2>No product yet...</h2>
         </div>
       ) : (
         <div>

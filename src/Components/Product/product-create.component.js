@@ -5,7 +5,7 @@ import ProductImageUploadComponent from "./product-imageUpload.component";
 import { productBranches } from "./subcomponents/Datas";
 import { serverUrl } from "../config";
 
-const { Title, Text } = Typography;
+const { Title} = Typography;
 const { TextArea } = Input;
 
 class ProductCreateComponent extends Component {
@@ -97,6 +97,13 @@ class ProductCreateComponent extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+
+    if (!this.state.productName || !this.state.productDes ||
+        !this.state.productQnt || !this.state.images
+        || !this.state.productPrice || !this.state.productCategory) {
+      return alert('Please fill all the fields')
+    }
+
     const obj = {
       productName: this.state.productName,
       productDes: this.state.productDes,
@@ -118,6 +125,7 @@ class ProductCreateComponent extends Component {
       productPrice: "",
     });
     this.props.history.push("/storeManager");
+
   }
 
   render() {
@@ -129,7 +137,7 @@ class ProductCreateComponent extends Component {
         <div style={{ textAlign: "center", marginBottom: "2rem" }}>
           <Title level={2}>
             {" "}
-            <Text strong> Add new product to store </Text>
+             Add new product to store
           </Title>
         </div>
 
@@ -158,6 +166,7 @@ class ProductCreateComponent extends Component {
           <br />
           <label>Product Name</label>
           <Input
+              required
             onChange={this.onChangeProductName}
             value={this.state.productName}
           />
@@ -165,6 +174,7 @@ class ProductCreateComponent extends Component {
           <br />
           <label>Product Description</label>
           <TextArea
+              required
             onChange={this.onChangeProductDes}
             value={this.state.productDes}
           />
@@ -172,6 +182,7 @@ class ProductCreateComponent extends Component {
           <br />
           <label>Price</label>
           <Input
+              required
             onChange={this.onChangeProductPrice}
             value={this.state.productPrice}
             type="number"
@@ -180,6 +191,7 @@ class ProductCreateComponent extends Component {
           <br />
           <label>Quantity</label>
           <Input
+              required
             onChange={this.onChangeProductQnt}
             value={this.state.productQnt}
             type="number"
@@ -189,6 +201,7 @@ class ProductCreateComponent extends Component {
           <label>Branch Name</label>
           <select
             className="form-control"
+            required
             value={this.state.productBranch}
             onChange={this.onChangeProductBranch}
           >

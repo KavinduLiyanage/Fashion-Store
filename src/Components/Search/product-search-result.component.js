@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import { Col, Card, Row, Button, Typography } from "antd";
+import { Col, Card, Row, Typography } from "antd";
 import { Link } from "react-router-dom";
 import ImageSlider from "../Product/subcomponents/ImageSlider";
 import CheckBox from "../Product/subcomponents/CheckBox";
@@ -12,10 +12,9 @@ const { Meta } = Card;
 const { Text } = Typography;
 
 function ProductSearchResultComponent(props) {
-  console.log("first : " + props.match.params.id);
+
   const [Products, setProducts] = useState([]);
   const [SearchTerms] = useState(props.match.params.id);
-  console.log("second : " + SearchTerms);
 
   const [Filters, setFilters] = useState({
     productBranches: [],
@@ -29,14 +28,14 @@ function ProductSearchResultComponent(props) {
     };
 
     getProducts(variables);
-  },[]);
+  },[Filters,SearchTerms]);
 
   const getProducts = (variables) => {
     Axios.post(serverUrl + "/products/getProducts", variables).then(
       (response) => {
         if (response.data.success) {
           setProducts(response.data.products);
-          console.log(response.data.products);
+
         } else {
           alert("Failed to fectch product datas");
         }
@@ -57,7 +56,7 @@ function ProductSearchResultComponent(props) {
         >
           <Meta
             title={product.productName}
-            description={`Rs.${product.productPrice}`}
+            description={`Rs.${product.productPrice}.00`}
           />
           <div className="additional">
             <Text type="warning">{product.productDiscount}% Discount</Text>
@@ -107,7 +106,7 @@ function ProductSearchResultComponent(props) {
         array = data[key].array;
       }
     }
-    console.log("array", array);
+
     return array;
   };
 
@@ -120,8 +119,6 @@ function ProductSearchResultComponent(props) {
       let priceValues = handlePrice(filters);
       newFilters[category] = priceValues;
     }
-
-    console.log(newFilters);
 
     showFilteredResults(newFilters);
     setFilters(newFilters);
@@ -175,7 +172,7 @@ function ProductSearchResultComponent(props) {
             alignItems: "center",
           }}
         >
-          <h2>No post yet...</h2>
+          <h2>No product yet...</h2>
         </div>
       ) : (
         <div>
