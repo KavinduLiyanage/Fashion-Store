@@ -26,6 +26,7 @@ import EditCategory from "../AdminPage/EditCategory";
 import ProductSearchResultComponent from "../Search/product-search-result.component";
 import payment from "../Payment/payment";
 import CustomerProductSearch from "../Search/customer-product-search";
+import AllProductComponent from "../Product/Customerview/all-Product.component";
 
 //Contain all the user routes
 function Dashboard() {
@@ -69,6 +70,12 @@ function Dashboard() {
               component={ProductDetails}
               path="/productDetails/:id"
               exact
+            />
+            <PublicRoute
+                restricted={false}
+                component={AllProductComponent}
+                path="/allProducts"
+                exact
             />
 
             {/*Admin Only Routes*/}

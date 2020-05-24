@@ -42,52 +42,68 @@ function ProductImageUploadComponent(props) {
 
   return (
     <div style={{ display: "flex", justifyContent: "space-between" }}>
-      <Dropzone onDrop={onDrop} multiple={false} maxSize={800000000}>
-        {({ getRootProps, getInputProps }) => (
-          <div
-            style={{
-              width: "300px",
-              height: "240px",
-              border: "1px solid lightgray",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-            {...getRootProps()}
-          >
-            <input {...getInputProps()} />
-            <div>
-              <Row justify="space-around" align="middle">
-                <PlusOutlined type="plus" style={{ fontSize: "3rem" }} />
-              </Row>
 
-              <Row justify="space-around" align="end">
-                <Text>Images will be JPG or PNG format</Text>
-                <Text>Recommended ratio 640x960 </Text>
-              </Row>
+        <div>
+        <Row justify="space-around" align="middle">
+            <Dropzone onDrop={onDrop} multiple={false} maxSize={800000000}>
+                {({ getRootProps, getInputProps }) => (
+                    <div
+                        style={{
+                            width: "300px",
+                            height: "240px",
+                            border: "1px solid lightgray",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                        }}
+                        {...getRootProps()}
+                    >
+                        <input {...getInputProps()} />
+                        <div>
+                            <Row justify="space-around" align="middle">
+                                <PlusOutlined type="plus" style={{ fontSize: "3rem" }} />
+                            </Row>
+
+                        </div>
+                    </div>
+                )}
+            </Dropzone>
+        </Row>
+
+        <Row justify="space-around" align="end">
+            <Text>Recommended ratio 640x960(JPG or PNG format)</Text>
+            <Text> </Text>
+        </Row>
+        </div>
+        <div>
+
+            <div
+                style={{
+                    display: "flex",
+                    width: "350px",
+                    height: "240px",
+                    overflowX: "scroll",
+                }}
+            >
+
+                {Images.map((image, index) => (
+                    <div onClick={() => onDelete(image)}>
+                        <img
+                            style={{ width: "148px", height: "223px" }}
+                            src={`${serverUrl}/${image}`}
+                            alt={`productImg-${index}`}
+                        />
+                    </div>
+                ))}
             </div>
-          </div>
-        )}
-      </Dropzone>
+            <div>
+                <Row justify="space-around" align="middle">
+                    <Text>To Delete Click on image </Text>
+                </Row>
 
-      <div
-        style={{
-          display: "flex",
-          width: "350px",
-          height: "240px",
-          overflowX: "scroll",
-        }}
-      >
-        {Images.map((image, index) => (
-          <div onClick={() => onDelete(image)}>
-            <img
-              style={{ minWidth: "300px", width: "300px", height: "220px" }}
-              src={`${serverUrl}/${image}`}
-              alt={`productImg-${index}`}
-            />
-          </div>
-        ))}
-      </div>
+            </div>
+        </div>
+
     </div>
   );
 }

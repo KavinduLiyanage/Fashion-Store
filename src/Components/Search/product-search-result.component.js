@@ -29,7 +29,7 @@ function ProductSearchResultComponent(props) {
     };
 
     getProducts(variables);
-  });
+  },[]);
 
   const getProducts = (variables) => {
     Axios.post(serverUrl + "/products/getProducts", variables).then(
@@ -64,23 +64,27 @@ function ProductSearchResultComponent(props) {
             <br />
             <Text type="secondary">{product.productQnt} items available</Text>
           </div>
-
-          <Row>
-            <Col span={12}>
-              <div>
-                <Link to={"/storeManager/editDis/" + product._id}>
-                  <Button>Discounts</Button>
-                </Link>
-              </div>
-            </Col>
-            <Col span={12}>
-              <div>
-                <Link to={"/storeManager/edit/" + product._id}>
-                  <Button>Edit Details</Button>
-                </Link>
-              </div>
-            </Col>
-          </Row>
+          <div>
+            <div className="container">
+              <Link to={"/storeManager/editDis/" + product._id}>
+                <button
+                    type="button"
+                    className="btn btn-outline-dark btn-block btn-sm"
+                >
+                  Manage Discounts
+                </button>
+              </Link>
+              <br />
+              <Link to={"/storeManager/edit/" + product._id}>
+                <button
+                    type="button"
+                    className="btn btn-outline-dark btn-block btn-sm"
+                >
+                  Edit Details
+                </button>
+              </Link>
+            </div>
+          </div>
         </Card>
       </Col>
     );

@@ -42,7 +42,7 @@ function CustomerProductCardview() {
         </Link>
       </Col>
     );
-  });
+  }).reverse();
 
   return (
     <div style={{ width: "75%", margin: "3rem auto", marginTop: 70 }}>

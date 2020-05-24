@@ -4,7 +4,23 @@ import axios from "axios";
 import { isLogin, logout } from "../ReactMiddleware/reactAuth";
 import { Link } from "react-router-dom";
 import { serverUrl, TOKEN_FNAME, TOKEN_TYPE } from "../config";
+import { Menu, Dropdown ,Typography } from 'antd';
+import { CaretDownOutlined} from '@ant-design/icons';
+const { Text } = Typography;
 
+const storemanagermenu = (
+    <Menu>
+      <Menu.Item key="0">
+        <a href="/storeManager">Store Home</a>
+      </Menu.Item>
+      <Menu.Item key="1">
+        <a href="/storeManager/create">Add Product</a>
+      </Menu.Item>
+      <Menu.Item key="2">
+        <a href="/storeManager/list">Product List</a>
+      </Menu.Item>
+    </Menu>
+);
 //Header of the System.
 //The same Navbar reuse for all components and users
 //Nabar content will be different according to user logged in Type
@@ -113,10 +129,11 @@ export default class Navbar extends React.Component {
                 id="bs-example-navbar-collapse-1"
               >
                 <ul className="navbar-nav">
-                  {/*
+
                                     <li className="nav-item active">
-                                        <a className="nav-link" href="/">Link <span className="sr-only">(current)</span></a>
+                                        <a className="nav-link" href="/allProducts">Our Products <span className="sr-only">(current)</span></a>
                                     </li>
+                  {/*
                                     <li className="nav-item">
                                         <a className="nav-link" href="/">Link</a>
                                     </li>
@@ -187,7 +204,16 @@ export default class Navbar extends React.Component {
                     )}
                     {this.state.isLogin &&
                     localStorage.getItem(TOKEN_TYPE) === "storeManager" ? (
-                      <div className="loged-info"></div>
+                      <div className="loged-info">
+                        <Dropdown overlay={storemanagermenu}>
+                          <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                            <Text type="warning">Manage Product<CaretDownOutlined /></Text>
+
+                          </a>
+                        </Dropdown>
+                      </div>
+
+
                     ) : (
                       <span style={{ display: "none" }}> Empty </span>
                     )}

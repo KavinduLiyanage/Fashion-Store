@@ -12,15 +12,17 @@ const { Meta } = Card;
 const { Text } = Typography;
 
 function CustomerProductSearch(props) {
-  console.log("first : " + props.match.params.id);
+  //console.log("first : " + props.match.params.id);
   const [Products, setProducts] = useState([]);
-  const [SearchTerms] = useState(props.match.params.id);
-  console.log("second : " + SearchTerms);
 
   const [Filters, setFilters] = useState({
     productBranches: [],
     productPrice: [],
   });
+
+  const [SearchTerms] = useState(props.match.params.id);
+  //console.log("second : " + SearchTerms);
+
 
   useEffect(() => {
     const variables = {
@@ -29,7 +31,7 @@ function CustomerProductSearch(props) {
     };
 
     getProducts(variables);
-  });
+  },[]);
 
   const getProducts = (variables) => {
     Axios.post(serverUrl + "/products/getProducts", variables).then(
@@ -67,13 +69,7 @@ function CustomerProductSearch(props) {
     );
   });
 
-  const showFilteredResults = (filters) => {
-    const variables = {
-      filters: filters,
-      searchTerm: SearchTerms,
-    };
-    getProducts(variables);
-  };
+
 
   const handlePrice = (value) => {
     const data = productPrice;
@@ -88,6 +84,14 @@ function CustomerProductSearch(props) {
     return array;
   };
 
+  const showFilteredResults = (filters) => {
+    const variables = {
+      filters: filters,
+      searchTerm: SearchTerms,
+    };
+    getProducts(variables);
+  };
+
   const handleFilters = (filters, category) => {
     const newFilters = { ...Filters };
 
@@ -98,7 +102,7 @@ function CustomerProductSearch(props) {
       newFilters[category] = priceValues;
     }
 
-    console.log(newFilters);
+    //console.log(newFilters);
 
     showFilteredResults(newFilters);
     setFilters(newFilters);
