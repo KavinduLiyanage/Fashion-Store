@@ -45,7 +45,6 @@ export default class WishList extends Component {
               <thead>
                 <tr>
                   <th>Product</th>
-                  <th className="text-justify">Description</th>
                   <th className="text-center">Price</th>
                   <th className="text-center">Discount</th>
                   <th>Actions</th>

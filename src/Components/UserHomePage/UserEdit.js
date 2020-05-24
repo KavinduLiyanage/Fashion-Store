@@ -111,13 +111,6 @@ export default class UserEdit extends React.Component {
 
   render() {
     return (
-      <div style={{ marginTop: 55 }}>
-        <div className="sidenav" style={{ marginTop: 55 }}>
-          <a href="/customer">Customer Home</a>
-          <a href="/userEdit">Update My Profile</a>
-        </div>
-
-        <div className="main">
           <div className="container">
             <div className="d-flex justify-content-center h-100">
               <div className="card">
@@ -324,10 +317,8 @@ export default class UserEdit extends React.Component {
                 </div>
               </div>
             </div>
+            <br/>
           </div>
-        </div>
-        <br />
-      </div>
     );
   }
 }

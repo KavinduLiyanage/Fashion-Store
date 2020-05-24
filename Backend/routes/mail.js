@@ -27,24 +27,12 @@ router.route("/").post((req, res) => {
       from: process.env.email,
       to: req.body.email,
       subject: "Your Fashion Store Account is created",
-      text:
-        `Hello, ` +
-        req.body.firstName +
-        ` Fashion Store account has been created as Store Manager
-        
-                User Below informations to access your Account
-                
-                Username: ` +
-        req.body.username +
-        `
-                Email: ` +
-        req.body.email +
-        `
-                Password: ` +
-        req.body.password +
-        `
-                
-                Thank You`,
+      text: `Hello, ` + req.body.firstName + ` Fashion Store account has been created as Store Manager
+              User Below informations to access your Account
+                    Username: ` + req.body.username +`
+                    Email: ` + req.body.email +`
+                    Password: ` + req.body.password +`
+        Thank You`,
     },
     function (error, info) {
       if (error) {

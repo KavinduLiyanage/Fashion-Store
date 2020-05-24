@@ -40,7 +40,6 @@ export default class Cart extends Component {
                 <thead>
                   <tr>
                     <th>Name</th>
-                    <th>Description</th>
                     <th>Price</th>
                     <th>Discount</th>
                     <th>Quantity</th>

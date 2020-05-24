@@ -93,7 +93,6 @@ class WishListTableRow extends Component {
     return (
       <tr>
         <td className="text-justify">{this.props.obj.wish_pname}</td>
-        <td className="text-justify">{this.props.obj.wish_des}</td>
         <td className="text-center">Rs{this.props.obj.wish_price}.00</td>
         <td className="text-center">{this.props.obj.wish_discount}%</td>
         <td className="btn-group">

@@ -27,6 +27,7 @@ import ProductSearchResultComponent from "../Search/product-search-result.compon
 import payment from "../Payment/payment";
 import CustomerProductSearch from "../Search/customer-product-search";
 import AllProductComponent from "../Product/Customerview/all-Product.component";
+import EditStoreManagerDetails from "../StoreManager/EditStoreMangerDetails";
 
 //Contain all the user routes
 function Dashboard() {
@@ -151,6 +152,12 @@ function Dashboard() {
               component={ProductSearchResultComponent}
               AccessBy={"storeManager"}
               path="/storeManager/search/:id"
+              exact
+            />
+            <PrivateRoute
+              component={EditStoreManagerDetails}
+              AccessBy={"storeManager"}
+              path="/storeManager/editDetails"
               exact
             />
 

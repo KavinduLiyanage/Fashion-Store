@@ -102,8 +102,8 @@ export default class AdminHome extends React.Component {
                         <td>
                           <a href={"/editStoreManager/" + item["_id"]}>Edit</a>
                         </td>
-                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                         <td>
+                          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                           <a
                             onClick={(e) =>
                               this.deleteStoreManager(item["_id"])
@@ -139,8 +139,8 @@ export default class AdminHome extends React.Component {
                       <td>
                         <a href={"/editCategory/" + item["_id"]}>Edit</a>
                       </td>
-                      {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                       <td>
+                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                         <a
                           onClick={(e) => this.deleteCategory(item["_id"])}
                           href="#"

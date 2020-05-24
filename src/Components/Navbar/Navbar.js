@@ -53,7 +53,7 @@ export default class Navbar extends React.Component {
     } else if (localStorage.getItem(TOKEN_TYPE) === "admin") {
       window.location = "/admin";
     } else if (localStorage.getItem(TOKEN_TYPE) === "storeManager") {
-      window.location = "/storeManager";
+      window.location = "/storeManager/editDetails";
     }
   };
 
@@ -198,6 +198,10 @@ export default class Navbar extends React.Component {
                           {" "}
                           <i className="fas fa-cart-plus cart-icon"></i>{" "}
                         </a>
+                        <a href="/userEdit">
+                          {" "}
+                          My Info{" "}
+                        </a>
                       </div>
                     ) : (
                       <span style={{ display: "none" }}> Empty </span>
@@ -206,6 +210,7 @@ export default class Navbar extends React.Component {
                     localStorage.getItem(TOKEN_TYPE) === "storeManager" ? (
                       <div className="loged-info">
                         <Dropdown overlay={storemanagermenu}>
+                          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                           <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
                             <Text type="warning">Manage Product<CaretDownOutlined /></Text>
 
@@ -221,14 +226,15 @@ export default class Navbar extends React.Component {
                   <li className="nav-item active">
                     {this.state.isLogin ? (
                       <div>
-                        <Link
-                          to=""
+                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                        <a
+                          href="#"
                           className="loged-user-name"
                           onClick={this.handleNameClick}
                         >
                           {" "}
                           {localStorage.getItem(TOKEN_FNAME)}{" "}
-                        </Link>
+                        </a>
                         <Link to="" onClick={() => this.handleLogout()}>
                           Logout
                         </Link>

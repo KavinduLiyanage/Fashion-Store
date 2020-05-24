@@ -50,13 +50,9 @@ export default class CustomerHome extends React.Component {
 
   render() {
     return (
-      <div style={{ marginTop: 55 }}>
-        <div className="sidenav" style={{ marginTop: 55 }}>
-          <a href="/customer">Customer Home</a>
-          <a href="/userEdit">Update My Profile</a>
-        </div>
+      <div className="container" style={{ marginTop: 55 }}>
 
-        <div className="main">
+        <div>
           <h2>Customer Home</h2>
           <br />
           <div style={{ border: "thin solid #000000", padding: "10px" }}>
@@ -65,7 +61,6 @@ export default class CustomerHome extends React.Component {
               <thead>
                 <tr>
                   <th>Product</th>
-                  <th className="text-justify">Description</th>
                   <th className="text-center">Price </th>
                   <th className="text-center">Discount</th>
                   <th>Actions</th>
@@ -82,7 +77,6 @@ export default class CustomerHome extends React.Component {
               <thead>
                 <tr>
                   <th>Name</th>
-                  <th>Description</th>
                   <th>Price</th>
                   <th>Discount</th>
                   <th>Quantity</th>

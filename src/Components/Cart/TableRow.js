@@ -37,7 +37,6 @@ class TableRow extends Component {
     return (
       <tr>
         <td>{this.props.obj.product_Name}</td>
-        <td>{this.props.obj.product_Description}</td>
         <td>{this.props.obj.product_Price}</td>
         <td>{this.props.obj.product_Discount}</td>
         <td className="btn-group">
