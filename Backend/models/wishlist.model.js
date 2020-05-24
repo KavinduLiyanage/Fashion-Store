@@ -1,35 +1,35 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-let WishList = new Schema({
-
+let WishList = new Schema(
+  {
     wish_cid: {
-        type: String,
+      type: String,
     },
 
     wish_pid: {
-            type: String,
-        },
-
-    wish_pname: {
-        type: String,
+      type: String,
     },
 
+    wish_pname: {
+      type: String,
+    },
 
     wish_des: {
-                type: String,
-            },
+      type: String,
+    },
 
     wish_price: {
-                    type: Number,
-                },
+      type: Number,
+    },
 
     wish_discount: {
-                type:Number,
-            },
+      type: Number,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-},{
-        timestamps: true,
-    });
-
-module.exports =mongoose.model('WishList',WishList);
+module.exports = mongoose.model("WishList", WishList);

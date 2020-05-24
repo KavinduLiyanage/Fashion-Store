@@ -1,47 +1,48 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
 // Define collection and schema for Product
-let productSchema = new Schema({
-    productName : {
-        type : String
+let productSchema = new Schema(
+  {
+    productName: {
+      type: String,
     },
-    productDes : {
-        type : String
+    productDes: {
+      type: String,
     },
-    productQnt : {
-        type : String
+    productQnt: {
+      type: String,
     },
     images: {
-        type: Array,
-        default: []
+      type: Array,
+      default: [],
     },
     productCategory: {
-        type: String
+      type: String,
     },
-    productPrice : {
-        type : Number
+    productPrice: {
+      type: Number,
     },
-    productDiscount : {
-        type : Number,
-        default: 0
+    productDiscount: {
+      type: Number,
+      default: 0,
     },
-    productDiscountExpire : {
-        type : Date
+    productDiscountExpire: {
+      type: Date,
     },
-    productBranches : {
-        type : Number,
-        default: 1
-    }
-}, { timestamps: true })
-
+    productBranches: {
+      type: Number,
+      default: 1,
+    },
+  },
+  { timestamps: true }
+);
 
 productSchema.index({
-    productName:'text',
-    productDes:'text',
-    productCategory:'text'
-} )
+  productName: "text",
+  productDes: "text",
+  productCategory: "text",
+});
 
-
-module.exports = mongoose.model('Product',productSchema);
+module.exports = mongoose.model("Product", productSchema);

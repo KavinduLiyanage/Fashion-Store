@@ -1,36 +1,32 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-let Comment = new Schema({
-
+let Comment = new Schema(
+  {
     comment_cid: {
-        type: String,
-
+      type: String,
     },
 
     comment_pid: {
-        type: String,
+      type: String,
     },
 
-    comment_uname:{
-        type:String,
-
+    comment_uname: {
+      type: String,
     },
 
-    comment_lname:{
-
-        type:String,
+    comment_lname: {
+      type: String,
     },
 
     comment_des: {
-        type: String,
-        required: true,
-
+      type: String,
+      required: true,
     },
-
-
-},{
+  },
+  {
     timestamps: true,
-});
+  }
+);
 
-module.exports =mongoose.model('Comment',Comment);
+module.exports = mongoose.model("Comment", Comment);

@@ -1,8 +1,7 @@
-const express = require('express');
+const express = require("express");
 const productDetailsRoutes = express.Router();
 
-let Product = require('../models/product.model');
-
+let Product = require("../models/product.model");
 
 /*productDetailsRoutes.route('/add').post(function (req,res) {
 
@@ -29,35 +28,21 @@ let Product = require('../models/product.model');
 
 //get data
 
-productDetailsRoutes.route('/getDetails').get(function (req,res) {
-
-    Product.find(function (err,product) {
-
-        if(err)
-
-            console.log(err);
-
-        else
-            res.json(product);
-    });
-
+productDetailsRoutes.route("/getDetails").get(function (req, res) {
+  Product.find(function (err, product) {
+    if (err) console.log(err);
+    else res.json(product);
+  });
 });
 
 //get details by id
 
-productDetailsRoutes.route('/productDetails/:id').get(function (req,res) {
-
-    let id = req.params.id;
-    Product.findById(id, function(err,product){
-
-        if(err)
-
-            console.log(err);
-
-        else
-            res.json(product);
-    });
+productDetailsRoutes.route("/productDetails/:id").get(function (req, res) {
+  let id = req.params.id;
+  Product.findById(id, function (err, product) {
+    if (err) console.log(err);
+    else res.json(product);
+  });
 });
 
 module.exports = productDetailsRoutes;
-
