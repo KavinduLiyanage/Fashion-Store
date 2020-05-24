@@ -23,7 +23,7 @@ const storemanagermenu = (
 );
 //Header of the System.
 //The same Navbar reuse for all components and users
-//Nabar content will be different according to user logged in Type
+//Nabar content will be different according to user logged in Type.
 export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
