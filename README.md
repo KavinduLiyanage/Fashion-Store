@@ -7,9 +7,9 @@ User Guide
   APPLICATION FRAMEWORKS - SE  
   
 # Development Team:  
-  
-IT18018288 - Ranawaka M. N.  
-IT18016376 - Liyanage K. S.  
+ 
+IT18016376 - Liyanage K. S. 
+IT18018288 - Ranawaka M. N.    
 IT17036658 - Methmini K. A. D. G.  
 IT18140958 - Fernando W. S. I.  
   
@@ -28,12 +28,12 @@ Pre-requisites before installation and setup
 Open your command prompt at the location where you want the project folder to be created and type the following command at the console:
 
 ```
-git clone https://github.com/MilindaRanawaka/Fashion-Store.git
+git clone https://github.com/KavinduLiyanage/Fashion-Store
 ```
 or
 
 ```
-You can visit https://github.com/MilindaRanawaka/Fashion-Store, and download the zipped version of this project and open the extracted project using the IDE.
+You can visit https://github.com/KavinduLiyanage/Fashion-Store, and download the zipped version of this project and open the extracted project using the IDE.
 ```
 
 ## Available Scripts
