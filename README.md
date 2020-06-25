@@ -7,9 +7,8 @@ User Guide
   APPLICATION FRAMEWORKS - SE  
   
 # Development Team:  
- 
-IT18016376 - Liyanage K. S. 
-IT18018288 - Ranawaka M. N.    
+ IT18016376 - Liyanage K. S.  
+IT18018288 - Ranawaka M. N.  
 IT17036658 - Methmini K. A. D. G.  
 IT18140958 - Fernando W. S. I.  
   
